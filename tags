@@ -1,0 +1,89 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/home/mubisco/Projects/dotfiles/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	/p5.9.20210905.0/
+%%	config/nvim/init.vim	/^cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'\/' : '%%'$/;"	m
+<C-h>	config/nvim/init.vim	/^noremap <C-h> gT$/;"	m
+<C-l>	config/nvim/init.vim	/^noremap <C-l> gt$/;"	m
+<Leader>K	config/nvim/init.vim	/^nmap <Leader>K :call phpactor#Hover()<CR>$/;"	m
+<Leader>a	config/nvim/init.vim	/^map <Leader>a :vs .<CR>$/;"	m
+<Leader>cc	config/nvim/init.vim	/^nmap <Leader>cc :call phpactor#ClassNew()<CR>$/;"	m
+<Leader>ee	config/nvim/init.vim	/^nmap <silent><Leader>ee :call phpactor#ExtractExpression(v:false)<CR>$/;"	m
+<Leader>ee	config/nvim/init.vim	/^vmap <silent><Leader>ee :<C-U>call phpactor#ExtractExpression(v:true)<CR>$/;"	m
+<Leader>eec	config/nvim/init.vim	/^vmap <silent><Leader>eec :<C-U>call phpactor#ExtractConstant()<CR>$/;"	m
+<Leader>eem	config/nvim/init.vim	/^vmap <silent><Leader>eem :<C-U>call phpactor#ExtractMethod()<CR>$/;"	m
+<Leader>ef	config/nvim/init.vim	/^nmap <silent><Leader>ef :CocCommand eslint.executeAutofix<CR>$/;"	m
+<Leader>f	config/nvim/init.vim	/^nmap <Leader>f :Files<CR>$/;"	m
+<Leader>mm	config/nvim/init.vim	/^nmap <Leader>mm :call phpactor#ContextMenu()<CR>$/;"	m
+<Leader>nn	config/nvim/init.vim	/^nmap <Leader>nn :call phpactor#Navigate()<CR>$/;"	m
+<Leader>o	config/nvim/init.vim	/^nmap <Leader>o :call phpactor#GotoDefinition()<CR>$/;"	m
+<Leader>rt	config/nvim/init.vim	/^inoremap <Leader>rt :RemoveTrail<CR>$/;"	m
+<Leader>tt	config/nvim/init.vim	/^nmap <Leader>tt :call phpactor#Transform()<CR>$/;"	m
+<Leader>u	config/nvim/init.vim	/^nmap <Leader>u :call phpactor#UseAdd()<CR>$/;"	m
+<S-F4>	config/nvim/init.vim	/^nmap <S-F4> :execute "silent grep! -R " . expand("<cword>") . " .\/**" <Bar> cw<CR>$/;"	m
+<S-Tab>	config/nvim/init.vim	/^inoremap <expr> <S-Tab> pumvisible() ? "\\<C-p>" : "\\<S-Tab>"$/;"	m
+<S-h>	config/nvim/init.vim	/^noremap <S-h> <C-w>h$/;"	m
+<S-j>	config/nvim/init.vim	/^noremap <S-j> <C-w>j$/;"	m
+<S-k>	config/nvim/init.vim	/^noremap <S-k> <C-w>k$/;"	m
+<S-l>	config/nvim/init.vim	/^noremap <S-l> <C-w>l$/;"	m
+<Tab>	config/nvim/init.vim	/^inoremap <expr> <Tab> pumvisible() ? "\\<C-n>" : "\\<Tab>"$/;"	m
+<cr>	config/nvim/init.vim	/^inoremap <expr> <cr> pumvisible() ? "\\<C-y>" : "\\<C-g>u\\<CR>"$/;"	m
+ConfigVdebug	config/nvim/init.vim	/^function! ConfigVdebug(project, branch, webfolder)$/;"	f
+DoPrettyXML	config/nvim/init.vim	/^function! DoPrettyXML()$/;"	f
+RemoveTrail	config/nvim/init.vim	/^command RemoveTrail execute "%s\/\\s\\+$\/\/"$/;"	c
+VdbgCorpuDevelop	config/nvim/init.vim	/^command! VdbgCorpuDevelop call ConfigVdebug('Corpu', 'branches\/develop', 'corpu-web')$/;"	c
+VdbgCorpuNext	config/nvim/init.vim	/^command! VdbgCorpuNext call ConfigVdebug('Corpu', 'branches\/corpu-next', 'corpu-web')$/;"	c
+VdbgCorpuTrunk	config/nvim/init.vim	/^command! VdbgCorpuTrunk call ConfigVdebug('Corpu', 'trunk', 'corpu-web')$/;"	c
+VdbgXorforSimplificacion	config/nvim/init.vim	/^command! VdbgXorforSimplificacion call ConfigVdebug('Xorfor', 'branches\/simplificacion', 'xorfo/;"	c
+Vimphpcs_Standard	config/nvim/init.vim	/^let Vimphpcs_Standard='PSR12'"$/;"	v
+XmlFormat	config/nvim/init.vim	/^command! XmlFormat call DoPrettyXML()$/;"	c
+g:UltiSnipsExpandTrigger	config/nvim/init.vim	/^let g:UltiSnipsExpandTrigger="<nop>"$/;"	v
+g:UltiSnipsJumpBackwardTrigger	config/nvim/init.vim	/^let g:UltiSnipsJumpBackwardTrigger="<s-tab>"$/;"	v
+g:UltiSnipsJumpForwardTrigger	config/nvim/init.vim	/^let g:UltiSnipsJumpForwardTrigger="<tab>"$/;"	v
+g:airline#extensions#ale#enabled	config/nvim/init.vim	/^let g:airline#extensions#ale#enabled = 1$/;"	v
+g:airline_left_alt_sep	config/nvim/init.vim	/^let g:airline_left_alt_sep = ''$/;"	v
+g:airline_left_sep	config/nvim/init.vim	/^let g:airline_left_sep = '»'$/;"	v
+g:airline_left_sep	config/nvim/init.vim	/^let g:airline_left_sep = '▶'$/;"	v
+g:airline_left_sep	config/nvim/init.vim	/^let g:airline_left_sep = ''$/;"	v
+g:airline_powerline_fonts	config/nvim/init.vim	/^let g:airline_powerline_fonts = 1$/;"	v
+g:airline_right_alt_sep	config/nvim/init.vim	/^let g:airline_right_alt_sep = ''$/;"	v
+g:airline_right_sep	config/nvim/init.vim	/^let g:airline_right_sep = '«'$/;"	v
+g:airline_right_sep	config/nvim/init.vim	/^let g:airline_right_sep = '◀'$/;"	v
+g:airline_right_sep	config/nvim/init.vim	/^let g:airline_right_sep = ''$/;"	v
+g:airline_symbols	config/nvim/init.vim	/^    let g:airline_symbols = {}$/;"	v
+g:airline_symbols	config/nvim/init.vim	/^let g:airline_symbols.branch = '⎇'$/;"	v
+g:airline_symbols	config/nvim/init.vim	/^let g:airline_symbols.branch = ''$/;"	v
+g:airline_symbols	config/nvim/init.vim	/^let g:airline_symbols.linenr = '¶'$/;"	v
+g:airline_symbols	config/nvim/init.vim	/^let g:airline_symbols.linenr = '␊'$/;"	v
+g:airline_symbols	config/nvim/init.vim	/^let g:airline_symbols.linenr = '␤'$/;"	v
+g:airline_symbols	config/nvim/init.vim	/^let g:airline_symbols.linenr = ''$/;"	v
+g:airline_symbols	config/nvim/init.vim	/^let g:airline_symbols.paste = 'Þ'$/;"	v
+g:airline_symbols	config/nvim/init.vim	/^let g:airline_symbols.paste = 'ρ'$/;"	v
+g:airline_symbols	config/nvim/init.vim	/^let g:airline_symbols.paste = '∥'$/;"	v
+g:airline_symbols	config/nvim/init.vim	/^let g:airline_symbols.readonly = ''$/;"	v
+g:airline_symbols	config/nvim/init.vim	/^let g:airline_symbols.whitespace = 'Ξ'$/;"	v
+g:airline_theme	config/nvim/init.vim	/^let g:airline_theme='soda'$/;"	v
+g:ale_fix_on_save	config/nvim/init.vim	/^let g:ale_fix_on_save = 0$/;"	v
+g:ale_fixers	config/nvim/init.vim	/^let g:ale_fixers = {$/;"	v
+g:ale_linter_aliases	config/nvim/init.vim	/^let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}$/;"	v
+g:ale_linters	config/nvim/init.vim	/^let g:ale_linters = {$/;"	v
+g:ale_php_phpcbf_standard	config/nvim/init.vim	/^let g:ale_php_phpcbf_standard='PSR12'$/;"	v
+g:ale_php_phpcs_standard	config/nvim/init.vim	/^let g:ale_php_phpcs_standard='PSR12'$/;"	v
+g:equinusocio_material_darker	config/nvim/init.vim	/^let g:equinusocio_material_darker = 1$/;"	v
+g:gutentags_ctags_exclude	config/nvim/init.vim	/^let g:gutentags_ctags_exclude = [$/;"	v
+g:jsx_ext_required	config/nvim/init.vim	/^let g:jsx_ext_required = 0$/;"	v
+g:netrw_banner	config/nvim/init.vim	/^let g:netrw_banner = 0$/;"	v
+g:nuuid_no_mappings	config/nvim/init.vim	/^let g:nuuid_no_mappings = 1$/;"	v
+g:vdebug_keymap	config/nvim/init.vim	/^let g:vdebug_keymap = {$/;"	v
+g:vdebug_options	config/nvim/init.vim	/^  let g:vdebug_options.path_maps = {"\/var\/www\/html": "\/home\/mubisco\/Projects\/Bahia\/" . a/;"	v
+g:vdebug_options	config/nvim/init.vim	/^let g:vdebug_options = {$/;"	v
+jj	config/nvim/init.vim	/^inoremap jj <Esc>$/;"	m
+mapleader	config/nvim/init.vim	/^let mapleader = '\\'$/;"	v
+templates	config/nvim/init.vim	/^  augroup templates$/;"	a
