@@ -1,0 +1,5 @@
+[core]
+	excludesFile = ~/.config/.gitignore
+[user]
+	email = xan.bellon@gmail.com
+	name = Xan Bellón
