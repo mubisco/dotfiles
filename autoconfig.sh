@@ -13,7 +13,7 @@ echo 'Server = https://repo.archlinuxcn.org/$arch' >> /etc/pacman.conf
 
 echo "Instaling minimun deps..."
 sudo pacman -Sy --noconfirm zsh composer sudo lsd tmux composer nodejs npm python-pip fzf powerline powerline-fonts \
-  ctags zsh-theme-powerlevel10k zsh-autosuggestions zsh-syntaxhighlighting wget nerdfonts
+  ctags zsh-theme-powerlevel10k zsh-autosuggestions zsh-syntaxhighlighting wget nerd-fonts
 sudo npm install -g neovim
 
 echo "Creating normal user..."
