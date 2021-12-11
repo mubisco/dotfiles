@@ -1,23 +1,35 @@
+echo "Copyinp files..."
 #!/bin/bash
 WHOAMI=$(who am i | awk '{print $1}')
-if [[ "$EUID" = 0 ]]; then
-    echo "(1) already root"
+if [[ "$WHOAMI" -ne 'root' ]]; then
+    echo "Not root!!! This script should be run as root!!!!"
+    exit 1
 else
-    sudo -k # make sure to ask for password on next sudo
-    if sudo true; then
-        echo "(2) correct password"
-    else
-        echo "(3) wrong password"
-        exit 1
-    fi
+    echo "Root user ok!. Continuing..."
 fi
-#echo "Installing minimun deps..."
-#sudo pacman -Sy --noconfirm zsh lsd tmux composer nodejs npm python-pip fzf powerline powerline-fonts ctags zsh-theme-powerlevel9k wget
-#sudo npm install -g neovim
+echo "Adding repos"
+echo "[archlinuxcn]"
+echo 'Server = https://repo.archlinuxcn.org/$arch' >> /etc/pacman.conf
 
-#su $WHOAMI
+echo "Instaling minimun deps..."
+sudo pacman -Sy --noconfirm zsh composer sudo lsd tmux composer nodejs npm python-pip fzf powerline powerline-fonts \
+  ctags zsh-theme-powerlevel10k zsh-autosuggestions zsh-syntaxhighlighting wget nerdfonts
+sudo npm install -g neovim
+
+echo "Creating normal user..."
+useradd -m -G wheel -s /bin/zsh mubisco
+passwd mubisco
+
+echo "mubisco ALL= (ALL)ALL">> /etc/sudoers
+
+#pacman -Syy --noconfirm xorg plasma plasma-wayland-session kde-applications
+#systemctl enable sddm.service
+#systemctl enable NetworkManager.service
+
 # ----- USER SECTION -----
-#echo "Copying files..."
+echo "Copying files..."
+cp -rvf ./config/* /home/mubisco/.config
+su mubisco
 #cp -rvf ./config ~/.config/
 
 #echo "Setting up neovim..."
