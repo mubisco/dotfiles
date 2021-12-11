@@ -1,4 +1,4 @@
-echo "Copyinp files..."
+echo "Copying files..."
 #!/bin/bash
 WHOAMI=$(who am i | awk '{print $1}')
 CURRENTDIR=$(pwd)
@@ -42,20 +42,17 @@ su mubisco -c 'sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master
 
 su mubisco -c "cp -f /home/mubisco/Projects/dotfiles/zshrc /home/mubisco/.zshrc"
 su mubisco -c "cp -f /home/mubisco/Projects/dotfiles/gitconfig /home/mubisco/.gitconfig"
+su mubisco -c "composer global require squizlabs/php_codesniffer"
 
 echo "Setting up neovim..."
 su mubisco -c "python3 -m pip install --user --upgrade pynvim"
 su mubisco -c "nvim +'PlugInstall --sync' +qa"
-
-
-# Install extensions
 su mubisco -c "mkdir -p /home/mubisco/.config/coc/extensions"
 cd /home/mubisco/.config/coc/extensions
 if [ ! -f package.json ]
 then
     su mubisco -c "echo '{\"dependencies\":{}}'> package.json"
 fi
-# Change extension names to the extensions you need
 su mubisco -c "npm install coc-json coc-css coc-docker coc-eslint coc-gitignore coc-html coc-json coc-marketplace coc-phpls cocsh coc-stylelint coc-tsserver coc-ultisnips coc-vetur coc-webpack coc-yaml coc-python --global-style --ignore-scripts --no-bin-links --no-package-lock --only=prod"
 
 
