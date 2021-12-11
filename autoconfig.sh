@@ -15,18 +15,22 @@ echo 'Server = https://repo.archlinuxcn.org/$arch' >> /etc/pacman.conf
 
 echo "Instaling minimun deps..."
 sudo pacman -Sy --noconfirm zsh composer sudo lsd tmux composer nodejs npm python-pip fzf powerline powerline-fonts \
-  ctags zsh-theme-powerlevel10k zsh-autosuggestions zsh-syntax-highlighting wget nerd-fonts
+  ctags zsh-theme-powerlevel10k zsh-autosuggestions zsh-syntax-highlighting wget nerd-fonts \
+  binutils make gcc pkg-config fakeroot
 sudo npm install -g neovim
 
 echo "Creating normal user..."
 useradd -m -G wheel -s /bin/zsh mubisco
 #passwd mubisco
 
-echo "mubisco ALL= (ALL)ALL">> /etc/sudoers
+echo "mubisco ALL=(ALL)ALL">> /etc/sudoers
 
-#pacman -Syy --noconfirm xorg plasma plasma-wayland-session kde-applications
-#systemctl enable sddm.service
-#systemctl enable NetworkManager.service
+pacman -Syy --noconfirm xorg plasma plasma-wayland-session kde-applications
+systemctl enable sddm.service
+systemctl enable NetworkManager.service
+
+#cd /opt
+#git clone https://aur.archlinux.org/yay-git.git
 
 # ----- USER SECTION -----
 echo "Copying files..."
