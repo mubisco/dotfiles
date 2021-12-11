@@ -1,6 +1,8 @@
 echo "Copyinp files..."
 #!/bin/bash
 WHOAMI=$(who am i | awk '{print $1}')
+CURRENTDIR=$(pwd)
+
 if [[ "$WHOAMI" -ne 'root' ]]; then
     echo "Not root!!! This script should be run as root!!!!"
     exit 1
@@ -18,7 +20,7 @@ sudo npm install -g neovim
 
 echo "Creating normal user..."
 useradd -m -G wheel -s /bin/zsh mubisco
-passwd mubisco
+#passwd mubisco
 
 echo "mubisco ALL= (ALL)ALL">> /etc/sudoers
 
@@ -29,19 +31,32 @@ echo "mubisco ALL= (ALL)ALL">> /etc/sudoers
 # ----- USER SECTION -----
 echo "Copying files..."
 su mubisco -c "mkdir /home/mubisco/.config"
-su mubisco -c "cp -f zshrc ~/.zshrc"
-su mubisco -c "cp -f gitconfig ~/.gitconfig"
-cp -rvf ./config/* /home/mubisco/.config
-chown mubisco:mubisco -R /home/mubisco/.config
+su mubisco -c "mkdir /home/mubisco/Projects"
+cd /home/mubisco/Projects
+su mubisco -c "git clone https://github.com/mubisco/dotfiles"
+su mubisco -c "cp -rvf /home/mubisco/Projects/dotfiles/config/* /home/mubisco/.config"
 
-#su mubisco
-#cp -rvf ./config ~/.config/
+cd /home/mubisco
+echo "Setting up oh-my-zsh..."
+su mubisco -c 'sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
+
+su mubisco -c "cp -f /home/mubisco/Projects/dotfiles/zshrc /home/mubisco/.zshrc"
+su mubisco -c "cp -f /home/mubisco/Projects/dotfiles/gitconfig /home/mubisco/.gitconfig"
 
 echo "Setting up neovim..."
 su mubisco -c "python3 -m pip install --user --upgrade pynvim"
 su mubisco -c "nvim +'PlugInstall --sync' +qa"
-#nvim +'CocInstall coc-json coc-css coc-docker coc-eslint coc-gitignore coc-html coc-json coc-marketplace coc-phpls cocsh coc-stylelint coc-tsserver coc-ultisnips coc-vetur coc-webpack coc-yaml' +qall
-# TODO: coc-python
-# npm install --prefix ~/.config/coc/extensions
+
+
+# Install extensions
+su mubisco -c "mkdir -p /home/mubisco/.config/coc/extensions"
+cd /home/mubisco/.config/coc/extensions
+if [ ! -f package.json ]
+then
+    su mubisco -c "echo '{\"dependencies\":{}}'> package.json"
+fi
+# Change extension names to the extensions you need
+su mubisco -c "npm install coc-json coc-css coc-docker coc-eslint coc-gitignore coc-html coc-json coc-marketplace coc-phpls cocsh coc-stylelint coc-tsserver coc-ultisnips coc-vetur coc-webpack coc-yaml coc-python --global-style --ignore-scripts --no-bin-links --no-package-lock --only=prod"
+
 
 #chsh /usr/bin/zsh
