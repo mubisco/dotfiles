@@ -53,7 +53,7 @@ if [ ! -f package.json ]
 then
     su mubisco -c "echo '{\"dependencies\":{}}'> package.json"
 fi
-su mubisco -c "npm install coc-json coc-css coc-docker coc-eslint coc-gitignore coc-html coc-json coc-marketplace coc-phpls cocsh coc-stylelint coc-tsserver coc-ultisnips coc-vetur coc-webpack coc-yaml coc-python --global-style --ignore-scripts --no-bin-links --no-package-lock --only=prod"
+su mubisco -c "npm install coc-json coc-css coc-docker coc-eslint coc-gitignore coc-html coc-json coc-marketplace coc-phpls coc-sh coc-stylelint coc-tsserver coc-ultisnips coc-vetur coc-webpack coc-yaml coc-python --global-style --ignore-scripts --no-bin-links --no-package-lock --only=prod"
 
 
 #chsh /usr/bin/zsh
