@@ -72,6 +72,7 @@ Plug 'chrisbra/csv.vim'
 Plug 'digitaltoad/vim-pug'
 
 " Themes
+Plug 'k4yt3x/ayu-vim-darker'
 Plug 'Siphalor/vim-atomified'
 Plug 'tomasiser/vim-code-dark'
 Plug 'trusktr/seti.vim'
@@ -87,7 +88,7 @@ filetype plugin indent on
 
 "THEMING
 " colorscheme jellybeans
-let g:airline_theme='soda'
+let g:airline_theme='codedark'
 let g:equinusocio_material_darker = 1
 
 " make vertsplit invisible
@@ -95,7 +96,7 @@ let g:equinusocio_material_darker = 1
 
 set termguicolors
 
-colorscheme equinusocio_material
+colorscheme codedark
 
 "ALE
 let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
@@ -104,11 +105,13 @@ let g:ale_php_phpcs_standard='PSR12'
 let g:ale_linters = {
 \ 'javascript': ['eslint'],
 \ 'php': ['phpcs', 'php', 'psalm'],
+\ 'python': ['pylint'],
 \ 'vue': ['eslint', 'vls'],
 \ 'typescript': ['tsserver', 'eslint']
 \}
 let g:ale_fixers = {
   \ 'php': ['phpcbf', 'remove_trailing_lines', 'trim_whitespace'],
+  \ 'python': ['black', 'add_blank_lines_for_python_control_statements', 'isort', 'remove_trailing_lines', 'reorder-python-imports', 'trim_whitespace', 'yapf']
   \}
 
 let g:ale_fix_on_save = 0
