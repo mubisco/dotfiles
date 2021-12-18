@@ -211,6 +211,25 @@ let g:gutentags_ctags_exclude = [
       \ '*.pdf', '*.doc', '*.docx', '*.ppt', '*.pptx',
       \ ]
 
+" COC GLOBAL EXTENSIONS
+let g:coc_global_extensions = [
+      \'coc-css',
+      \'coc-docker',
+      \'coc-eslint',
+      \'coc-gitinore',
+      \'coc-html',
+      \'coc-jedi',
+      \'coc-json',
+      \'coc-marketplace',
+      \'coc-phpls',
+      \'coc-sh',
+      \'coc-stylelint',
+      \'coc-tsserver',
+      \'coc-ultisnips',
+      \'coc-vetur',
+      \'coc-webpack',
+      \'coc-yaml',
+      \]
 " CUSTOM FUNCTIONS
 :command JsonFormat :%!python -m json.tool
 command RemoveTrail execute "%s/\s\+$//"
