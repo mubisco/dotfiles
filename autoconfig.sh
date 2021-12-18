@@ -15,7 +15,7 @@ echo 'Server = https://repo.archlinuxcn.org/$arch' >> /etc/pacman.conf
 
 echo "Instaling minimun deps..."
 sudo pacman -Sy --noconfirm zsh composer sudo lsd tmux composer nodejs npm python-pip fzf powerline powerline-fonts \
-  ctags wget curl nerd-fonts \
+  ctags wget curl nerd-fonts firefox keepassxc \
   binutils make gcc pkg-config fakeroot
 sudo npm install -g neovim
 
@@ -51,6 +51,6 @@ su mubisco -c "composer global require squizlabs/php_codesniffer"
 echo "Setting up neovim..."
 su mubisco -c "python3 -m pip install --user --upgrade pynvim jedi dbgp pylint pep8 jedi-language-server flake8 mypy"
 
-su mubisco -c "nvim +'PlugInstall --sync' +qa"
+su mubisco -c "nvim +':PlugInstall --sync' +qa"
 
 #chsh /usr/bin/zsh
