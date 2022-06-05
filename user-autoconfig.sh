@@ -1,3 +1,8 @@
+$USER_NAME=mubisco
+declare -a CONFIG_FOLDERS=('nvim', 'phpactor', 'tmux')
+# ==== TMUX PLUGINS INSTALL =====
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 # ----- USER SECTION -----
 echo "Copying files..."
 mkdir /home/mubisco/.config
@@ -5,6 +10,9 @@ mkdir /home/mubisco/Projects
 cd /home/mubisco/Projects
 git clone https://github.com/mubisco/dotfiles
 cp -rvf /home/mubisco/Projects/dotfiles/config/* /home/mubisco/.config
+
+#ln -s ~/Projects/dotfiles/config/nvim ~/.config/nvim 
+#ln -s ~/Projects/dotfiles/config/phpactor ~/.config/phpactor 
 
 cd /home/mubisco
 echo "Setting up oh-my-zsh..."
