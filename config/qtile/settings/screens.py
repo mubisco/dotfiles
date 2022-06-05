@@ -12,7 +12,7 @@ def status_bar(widgets):
     return bar.Bar(widgets, 24, opacity=0.92)
 
 
-BACKGROUND_PATH = '/home/mubisco/Downloads/Wallpapers'
+BACKGROUND_PATH = '~/.config/qtile/themes/wallpapers'
 bacgrounds = ['119851.jpg', '1APOHR.jpg', 'SVhb78h.jpg']
 
 screens = [
