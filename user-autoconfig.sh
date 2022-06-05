@@ -1,28 +1,27 @@
 $USER_NAME=mubisco
-declare -a CONFIG_FOLDERS=('nvim', 'phpactor', 'tmux', 'powerline', 'dunst', 'flameshot')
+declare -a CONFIG_FOLDERS=('rofi', 'nvim', 'phpactor', 'tmux', 'powerline', 'dunst', 'flameshot')
 # ==== TMUX PLUGINS INSTALL =====
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+# ==== COMPOSER GLOBAL DEPENDENCIES =====
+composer global require squizlabs/php_codesniffer
+# ==== PYTHON DEPS =====
+python3 -m pip install --user --upgrade pynvim jedi dbgp pylint pep8 jedi-language-server flake8 mypy
+# ==== CLONE DOTFILES REPO =====
+mkdir -p /home/mubisco/Projects
+git clone https://github.com/mubisco/dotfiles /home/mubisco/Projects
 
 # ----- USER SECTION -----
-echo "Copying files..."
 mkdir /home/mubisco/.config
-mkdir /home/mubisco/Projects
-cd /home/mubisco/Projects
-git clone https://github.com/mubisco/dotfiles
 cp -rvf /home/mubisco/Projects/dotfiles/config/* /home/mubisco/.config
 
 #ln -s ~/Projects/dotfiles/config/nvim ~/.config/nvim 
 #ln -s ~/Projects/dotfiles/config/phpactor ~/.config/phpactor 
 
 cd /home/mubisco
-echo "Setting up oh-my-zsh..."
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 cp -f /home/mubisco/Projects/dotfiles/gitconfig /home/mubisco/.gitconfig
-composer global require squizlabs/php_codesniffer
 
-echo "Setting up neovim..."
-python3 -m pip install --user --upgrade pynvim jedi dbgp pylint pep8 jedi-language-server flake8 mypy
 nvim +':PlugInstall --sync' +qa
 
 cd /opt
