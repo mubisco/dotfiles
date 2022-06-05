@@ -10,23 +10,26 @@ else
     echo "Root user ok!. Continuing..."
 fi
 echo "Adding archlinuxcn repo"
+echo '[archlinuxcn]' >> /etc/pacman.conf
 echo 'Server = https://repo.archlinuxcn.org/$arch' >> /etc/pacman.conf
-pacman -Sy --noconfirm && pacman -S --noconfirm archlinuxcn-keyring
 
 echo "Instaling minimun deps..."
-sudo pacman -Sy --noconfirm zsh composer sudo lsd tmux composer nodejs npm python-pip fzf \
+pacman-key --init && pacman-key --populate archlinux
+pacman -Sy --noconfirm zsh composer sudo lsd tmux nodejs npm python-pip fzf \
   powerline powerline-fonts qtile ranger mycli flameshot alacritty \
   ctags wget curl nerd-fonts dunst firefox chromium keepassxc volumeicon \
   binutils make gcc pkg-config fakeroot playerctl brightnessctl \
   docker docker-compose xorg
 
-sudo npm install -g neovim @vue/cli npm-check-updates
+npm install -g neovim @vue/cli npm-check-updates
 
 echo "Creating normal user..."
 useradd -m -G wheel -s /bin/zsh mubisco
 #passwd mubisco
 
-echo "mubisco ALL=(ALL)ALL">> /etc/sudoers
+echo "root ALL=(ALL)ALL" >> /etc/sudoers
+echo "mubisco ALL=(ALL)ALL" >> /etc/sudoers
+echo "@includedir /etc/sudoers.d" >> /etc/sudoers
 
 echo "Installing yay"
 git clone https://aur.archlinux.org/yay-git.git /opt/yay-git

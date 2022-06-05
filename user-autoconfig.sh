@@ -1,19 +1,20 @@
 #!/bin/bash
 
 USER_NAME=mubisco
-CONFIG_TARGET_FOLDER=~/test-config
+CONFIG_TARGET_FOLDER=~/.config
 cd ~
 
-declare -a CONFIG_FOLDERS=()
 # ==== TMUX PLUGINS INSTALL =====
-#git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 # ==== COMPOSER GLOBAL DEPENDENCIES =====
-#composer global require squizlabs/php_codesniffer
+composer global require squizlabs/php_codesniffer
 # ==== PYTHON DEPS =====
-#python3 -m pip install --user --upgrade pynvim jedi dbgp pylint pep8 jedi-language-server flake8 mypy
+python3 -m pip install --user --upgrade pynvim jedi dbgp pylint pep8 jedi-language-server flake8 mypy
 # ==== CLONE DOTFILES REPO =====
-#mkdir -p /home/mubisco/Projects
-#git clone https://github.com/mubisco/dotfiles /home/mubisco/Projects
+mkdir -p /home/mubisco/Projects
+git clone https://github.com/mubisco/dotfiles /home/mubisco/Projects
+
+declare -a CONFIG_FOLDERS=()
 
 # LINK CONFIG FOLDERS
 mkdir -p $CONFIG_TARGET_FOLDER
@@ -27,9 +28,7 @@ for RAW_FOLDER in "${CONFIG_FOLDERS[@]}"; do
   ln -s $RAW_FOLDER $CONFIG_TARGET_FOLDER/$FOLDER
 done
 
-echo "==========="
-echo "Hasta aqui"
-exit 0
+
 # ZSH/OH-MY-ZSH
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 mv ~/.zshrc ~/.zshrc-pre-dotfiles
@@ -44,7 +43,7 @@ ln -s ~/Projects/dotfiles/config/.gitignore ~/.config/.gitignore
 cd /opt/yay-git
 makepkg -si
 
-sudo yay -Sy --noconfirm nerd-fonts-ubuntu-mono nerd-fonts-fantasque-sans-mono zsh-syntax-highlighting \
+yay -Sy --noconfirm nerd-fonts-ubuntu-mono nerd-fonts-fantasque-sans-mono zsh-syntax-highlighting \
   zsh-autosuggestions zsh-theme-powerlevel10k-git via-bin google-chrome \
   spotify symfony-cli vivaldi-stable
 
