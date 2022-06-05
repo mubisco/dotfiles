@@ -62,7 +62,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod, "mod1"], "b", lazy.spawn("google-chrome-stable")),
 
     # File Explorer
-    ([mod], "e", lazy.spawn("ranger")),
+    ([mod], "e", lazy.spawn("alacritty -e ranger")),
 
     # Terminal
     ([mod], "Return", lazy.spawn("alacritty")),

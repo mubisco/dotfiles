@@ -14,7 +14,7 @@ def status_bar(widgets):
     return bar.Bar(widgets, 24, opacity=0.92)
 
 BACKGROUND_PATH = '~/.config/qtile/themes/wallpapers'
-additional_bacgrounds = ['1APOHR.jpg', 'SVhb78h.jpg']
+additional_bacgrounds = ['/1APOHR.jpg', '/SVhb78h.jpg']
 additional_widgets = [secondary_widgets, tertiary_widgets]
 
 screens = [Screen(
