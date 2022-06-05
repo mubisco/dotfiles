@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [[ ! -d '~/Projects/dotfiles' ]]
+then
+  echo "No dotfiles folder inside ~/Projects/dotfiles. Stopping...."
+  exit 1
+fi
 USER_NAME=mubisco
 CONFIG_TARGET_FOLDER=~/.config
 cd ~
@@ -10,9 +15,6 @@ git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 composer global require squizlabs/php_codesniffer
 # ==== PYTHON DEPS =====
 python3 -m pip install --user --upgrade pynvim jedi dbgp pylint pep8 jedi-language-server flake8 mypy
-# ==== CLONE DOTFILES REPO =====
-mkdir -p /home/mubisco/Projects
-git clone https://github.com/mubisco/dotfiles /home/mubisco/Projects
 
 declare -a CONFIG_FOLDERS=()
 
