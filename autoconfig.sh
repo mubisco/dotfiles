@@ -25,32 +25,6 @@ useradd -m -G wheel -s /bin/zsh mubisco
 
 echo "mubisco ALL=(ALL)ALL">> /etc/sudoers
 
-pacman -Syy --noconfirm xorg plasma plasma-wayland-session kde-applications
+pacman -Syy --noconfirm xorg plasma plasma-wayland-session kde-applications latte-dock spotify
 systemctl enable sddm.service
 systemctl enable NetworkManager.service
-
-#cd /opt
-#git clone https://aur.archlinux.org/yay-git.git
-
-# ----- USER SECTION -----
-echo "Copying files..."
-su mubisco -c "mkdir /home/mubisco/.config"
-su mubisco -c "mkdir /home/mubisco/Projects"
-cd /home/mubisco/Projects
-su mubisco -c "git clone https://github.com/mubisco/dotfiles"
-su mubisco -c "cp -rvf /home/mubisco/Projects/dotfiles/config/* /home/mubisco/.config"
-
-cd /home/mubisco
-echo "Setting up oh-my-zsh..."
-su mubisco -c 'sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
-
-#su mubisco -c "cp -f /home/mubisco/Projects/dotfiles/zshrc /home/mubisco/.zshrc"
-su mubisco -c "cp -f /home/mubisco/Projects/dotfiles/gitconfig /home/mubisco/.gitconfig"
-su mubisco -c "composer global require squizlabs/php_codesniffer"
-
-echo "Setting up neovim..."
-su mubisco -c "python3 -m pip install --user --upgrade pynvim jedi dbgp pylint pep8 jedi-language-server flake8 mypy"
-
-su mubisco -c "nvim +':PlugInstall --sync' +qa"
-
-#chsh /usr/bin/zsh
