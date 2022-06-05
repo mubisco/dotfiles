@@ -15,8 +15,8 @@ pacman -Sy --noconfirm && pacman -S --noconfirm archlinuxcn-keyring
 
 echo "Instaling minimun deps..."
 sudo pacman -Sy --noconfirm zsh composer sudo lsd tmux composer nodejs npm python-pip fzf \
-  powerline powerline-fonts qtile ranger mycli \
-  ctags wget curl nerd-fonts dunst firefox keepassxc \
+  powerline powerline-fonts qtile ranger mycli flameshot alacritty \
+  ctags wget curl nerd-fonts dunst firefox keepassxc volumeicon \
   binutils make gcc pkg-config fakeroot \
   docker docker-compose
 
