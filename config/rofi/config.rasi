@@ -1,6 +1,6 @@
 configuration {
 /*	modi: "window,run,ssh";*/
-/*	font: "mono 12";*/
+  font: "FantasqueSansMono Nerd Font Mono 14";
 /*	location: 0;*/
 /*	yoffset: 0;*/
 /*	xoffset: 0;*/
