@@ -18,7 +18,7 @@ sudo pacman -Sy --noconfirm zsh composer sudo lsd tmux composer nodejs npm pytho
   powerline powerline-fonts qtile ranger mycli flameshot alacritty \
   ctags wget curl nerd-fonts dunst firefox chromium keepassxc volumeicon \
   binutils make gcc pkg-config fakeroot playerctl brightnessctl \
-  docker docker-compose
+  docker docker-compose xorg
 
 sudo npm install -g neovim @vue/cli npm-check-updates
 
@@ -33,7 +33,6 @@ git clone https://aur.archlinux.org/yay-git.git /opt/yay-git
 chown -R mubisco:mubisco /opt/yay-git
 
 echo "Configuring docker"
-systemctl start docker.service
 systemctl enable docker.service
 usermod -aG docker mubisco
 # pacman -Syy --noconfirm xorg plasma plasma-wayland-session kde-applications latte-dock spotify
