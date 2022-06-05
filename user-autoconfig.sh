@@ -1,8 +1,8 @@
 #!/bin/bash
 
-if [[ ! -d '~/Projects/dotfiles' ]]
+if [[ ! -d '/home/mubisco/Projects/dotfiles' ]]
 then
-  echo "No dotfiles folder inside ~/Projects/dotfiles. Stopping...."
+  echo "No dotfiles folder inside Projects/dotfiles. Stopping...."
   exit 1
 fi
 USER_NAME=mubisco
