@@ -44,7 +44,7 @@ ln -s ~/Projects/dotfiles/config/.gitignore ~/.config/.gitignore
 cd /opt/yay-git
 makepkg -si
 
-sudo yay -Sy --noconfirm nerd-fonts-fantasque-sans-mono zsh-syntax-highlighting \
+sudo yay -Sy --noconfirm nerd-fonts-ubuntu-mono nerd-fonts-fantasque-sans-mono zsh-syntax-highlighting \
   zsh-autosuggestions zsh-theme-powerlevel10k-git via-bin google-chrome \
   spotify symfony-cli vivaldi-stable
 
