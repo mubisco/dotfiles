@@ -62,7 +62,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod, "mod1"], "b", lazy.spawn("google-chrome-stable")),
 
     # File Explorer
-    ([mod], "e", lazy.spawn("dolphin")),
+    ([mod], "e", lazy.spawn("ranger")),
 
     # Terminal
     ([mod], "Return", lazy.spawn("alacritty")),
@@ -83,6 +83,12 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([], "XF86AudioMute", lazy.spawn(
         "pactl set-sink-mute @DEFAULT_SINK@ toggle"
     )),
+
+    # Media keys
+    ([], "XF86AudioPlay", lazy.spawn("playerctl play-pause")),
+    ([], "XF86AudioNext", lazy.spawn("playerctl next")),
+    ([], "XF86AudioPrev", lazy.spawn("playerctl previous")),
+    ([], "XF86AudioStop", lazy.spawn("playerctl stop")),
 
     # Brightness
     ([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +10%")),

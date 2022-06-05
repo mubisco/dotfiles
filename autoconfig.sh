@@ -16,8 +16,8 @@ pacman -Sy --noconfirm && pacman -S --noconfirm archlinuxcn-keyring
 echo "Instaling minimun deps..."
 sudo pacman -Sy --noconfirm zsh composer sudo lsd tmux composer nodejs npm python-pip fzf \
   powerline powerline-fonts qtile ranger mycli flameshot alacritty \
-  ctags wget curl nerd-fonts dunst firefox keepassxc volumeicon \
-  binutils make gcc pkg-config fakeroot \
+  ctags wget curl nerd-fonts dunst firefox chromium keepassxc volumeicon \
+  binutils make gcc pkg-config fakeroot playerctl brightnessctl \
   docker docker-compose
 
 sudo npm install -g neovim @vue/cli npm-check-updates
