@@ -1,5 +1,5 @@
 $USER_NAME=mubisco
-declare -a CONFIG_FOLDERS=('nvim', 'phpactor', 'tmux')
+declare -a CONFIG_FOLDERS=('nvim', 'phpactor', 'tmux', 'powerline', 'dunst', 'flameshot')
 # ==== TMUX PLUGINS INSTALL =====
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
