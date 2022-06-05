@@ -9,17 +9,18 @@ if [[ "$WHOAMI" -ne 'root' ]]; then
 else
     echo "Root user ok!. Continuing..."
 fi
-echo "Adding repos"
-echo "[archlinuxcn]"
+echo "Adding archlinuxcn repo"
 echo 'Server = https://repo.archlinuxcn.org/$arch' >> /etc/pacman.conf
+pacman -Sy --noconfirm && pacman -S --noconfirm archlinuxcn-keyring
 
 echo "Instaling minimun deps..."
 sudo pacman -Sy --noconfirm zsh composer sudo lsd tmux composer nodejs npm python-pip fzf \
-  powerline powerline-fonts qtile \
-  ctags wget curl nerd-fonts firefox keepassxc \
-  binutils make gcc pkg-config fakeroot
+  powerline powerline-fonts qtile ranger mycli \
+  ctags wget curl nerd-fonts dunst firefox keepassxc \
+  binutils make gcc pkg-config fakeroot \
+  docker docker-compose
 
-sudo npm install -g neovim
+sudo npm install -g neovim @vue/cli npm-check-updates
 
 echo "Creating normal user..."
 useradd -m -G wheel -s /bin/zsh mubisco
@@ -27,6 +28,14 @@ useradd -m -G wheel -s /bin/zsh mubisco
 
 echo "mubisco ALL=(ALL)ALL">> /etc/sudoers
 
+echo "Installing yay"
+git clone https://aur.archlinux.org/yay-git.git /opt/yay-git
+chown -R mubisco:mubisco /opt/yay-git
+
+echo "Configuring docker"
+systemctl start docker.service
+systemctl enable docker.service
+usermod -aG docker mubisco
 # pacman -Syy --noconfirm xorg plasma plasma-wayland-session kde-applications latte-dock spotify
 # systemctl enable sddm.service
 # systemctl enable NetworkManager.service

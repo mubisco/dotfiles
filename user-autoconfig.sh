@@ -24,14 +24,12 @@ cp -f /home/mubisco/Projects/dotfiles/gitconfig /home/mubisco/.gitconfig
 
 nvim +':PlugInstall --sync' +qa
 
-cd /opt
-sudo git clone https://aur.archlinux.org/yay-git.git
-chown -R mubisco:mubisco ./yay-git
-cd yay-git
-su mubisco -c "makepkg -si"
+cd /opt/yay-git
+makepkg -si
 
 sudo yay -Sy --noconfirm nerd-fonts-fantasque-sans-mono zsh-syntax-highlighting \
-  zsh-autosuggestions zsh-theme-powerlevel10k-git via-bin google-chrome
+  zsh-autosuggestions zsh-theme-powerlevel10k-git via-bin google-chrome \
+  spotify symfony-cli
 
 cp -f /home/mubisco/Projects/dotfiles/zshrc /home/mubisco/.zshrc
 source /home/mubisco/.zshrc
