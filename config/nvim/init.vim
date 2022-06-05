@@ -36,7 +36,6 @@ Plug 'w0rp/ale'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
-Plug 'vim-vdebug/vdebug'
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-fugitive'
 Plug 'tommcdo/vim-fubitive'
@@ -61,6 +60,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'posva/vim-vue'
 Plug 'mxw/vim-jsx'
 Plug 'leafgarland/typescript-vim'
+Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
 
 " Uuid Generator
 Plug 'kburdett/vim-nuuid'
@@ -79,24 +79,39 @@ Plug 'trusktr/seti.vim'
 Plug 'patstockwell/vim-monokai-tasty'
 Plug 'nanotech/jellybeans.vim' , {'as': 'jellybeans'}
 Plug 'chuling/vim-equinusocio-material'
+Plug 'jaredgorski/spacecamp'
+Plug 'arcticicestudio/nord-vim'
+Plug 'sainnhe/sonokai'
+Plug 'kyoz/purify', { 'rtp': 'vim' }
+Plug 'morhetz/gruvbox'
 
 "Tags
 Plug 'ludovicchabant/vim-gutentags'
+
+"Markdown
+Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown', 'do': 'yarn install'}
 call plug#end()
 
 filetype plugin indent on
 
-"THEMING
-" colorscheme jellybeans
-let g:airline_theme='codedark'
-let g:equinusocio_material_darker = 1
-
-" make vertsplit invisible
-" let g:equinusocio_material_hide_vertsplit = 1
-
 set termguicolors
 
-colorscheme codedark
+"THEMING
+let ayucolor='dark'
+let g:equinusocio_material_darker = 1
+let g:sonokai_style = 'shusia'
+let g:sonokai_enable_italic = 1
+let g:sonokai_disable_italic_comment = 0
+
+let g:gruvbox_italic=1
+let g:gruvbox_italicize_comments=1
+let g:gruvbox_contrast_dark='hard'
+
+colorscheme purify
+let g:airline_theme='purify'
+
+"colorscheme purify
+"let g:airline_theme='purify'
 
 "ALE
 let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
@@ -107,10 +122,12 @@ let g:ale_linters = {
 \ 'php': ['phpcs', 'php', 'psalm'],
 \ 'python': ['pylint'],
 \ 'vue': ['eslint', 'vls'],
-\ 'typescript': ['tsserver', 'eslint']
+\ 'typescript': ['eslint']
 \}
 let g:ale_fixers = {
   \ 'php': ['phpcbf', 'remove_trailing_lines', 'trim_whitespace'],
+  \ 'javascript': ['eslint'],
+  \ 'typescript': ['eslint'],
   \ 'python': ['black', 'add_blank_lines_for_python_control_statements', 'isort', 'remove_trailing_lines', 'reorder-python-imports', 'trim_whitespace', 'yapf']
   \}
 
@@ -123,6 +140,7 @@ let Vimphpcs_Standard='PSR12'"
 
 let g:vdebug_options = {
 \    "break_on_open" : 0,
+\    "port" : 9003,
 \}
 let g:vdebug_keymap = {
 \    "eval_under_cursor" : "<Leader>ee"
@@ -213,10 +231,11 @@ let g:gutentags_ctags_exclude = [
 
 " COC GLOBAL EXTENSIONS
 let g:coc_global_extensions = [
+      \'@yaegassy/coc-volar',
       \'coc-css',
       \'coc-docker',
       \'coc-eslint',
-      \'coc-gitinore',
+      \'coc-gitignore',
       \'coc-html',
       \'coc-jedi',
       \'coc-json',
@@ -226,8 +245,8 @@ let g:coc_global_extensions = [
       \'coc-stylelint',
       \'coc-tsserver',
       \'coc-ultisnips',
-      \'coc-vetur',
       \'coc-webpack',
+      \'coc-xml',
       \'coc-yaml',
       \]
 " CUSTOM FUNCTIONS
@@ -265,19 +284,28 @@ function! DoPrettyXML()
 endfunction
 command! XmlFormat call DoPrettyXML()
 
-function! ConfigVdebug(project, branch, webfolder)
-  VdebugOpt ide_key PHPSTORM
-  let g:vdebug_options.path_maps = {"/var/www/html": "/home/mubisco/Projects/Bahia/" . a:project . "/svn/" . a:branch . "/" . a:webfolder . "/src/main/php"}
+function! ConfigVdebug(project)
+  VdebugOpt ide_key GETLIFE_DOCKER
+  let g:vdebug_options.path_maps = {"/app": "/home/mubisco/Projects/Getlife/monorepo/" . a:project}
 endfunction
 
-command! VdbgCorpuDevelop call ConfigVdebug('Corpu', 'branches/develop', 'corpu-web')
-command! VdbgCorpuNext call ConfigVdebug('Corpu', 'branches/corpu-next', 'corpu-web')
-command! VdbgCorpuTrunk call ConfigVdebug('Corpu', 'trunk', 'corpu-web')
-command! VdbgXorforSimplificacion call ConfigVdebug('Xorfor', 'branches/simplificacion', 'xorfor-web')
+command! VdbgCustomer call ConfigVdebug('customer/back')
+command! VdbgAdmin call ConfigVdebug('admin/back')
+command! VdbgBroker call ConfigVdebug('customer/back')
+
+function! s:Snakeize(range) abort
+  if a:range == 0
+    s#\C\(\<\u[a-z0-9]\+\|[a-z0-9]\+\)\(\u\)#\l\1_\l\2#g
+  else
+    s#\%V\C\(\<\u[a-z0-9]\+\|[a-z0-9]\+\)\(\u\)\%V#\l\1_\l\2#g
+  endif
+endfunction
+
+command! -range SnakeCase silent! call <SID>Snakeize(<range>)
 
 "REMAPS
 "map <Leader>a :NERDTreeToggle<CR>
-"map <Leader>s :NERDTreeFocus<CR>
+"map <Leader>s :NERDTreeFocus<CR/back>
 
 map <Leader>a :vs .<CR>
 
@@ -335,16 +363,11 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-if has("autocmd")
-  augroup templates
-    autocmd BufNewFile *.vue 0r ~/.config/nvim/templates/skeleton.vue
-  augroup END
-endif
-
 " imap cll console.log()<Esc>==f(a
 au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 nmap <S-F4> :execute "silent grep! -R " . expand("<cword>") . " ./**" <Bar> cw<CR>
-"
+" Highlight jenkinsfiles
+au BufNewFile,BufRead Jenkinsfile setf groovy
 " Extract expression (normal mode)
 nmap <silent><Leader>ef :CocCommand eslint.executeAutofix<CR>
 " UltiSnips Configuration

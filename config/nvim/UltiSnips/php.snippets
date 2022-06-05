@@ -1,8 +1,18 @@
 snippet phptest
 /**
-* @test
-*/
-public function ${1}()
+ * @test
+ */
+public function ${1}(): void
+{
+}
+endsnippet
+
+snippet zacatests
+/**
+ * @test
+ * $1
+ */
+public function ${1}(): void
 {
 }
 endsnippet
@@ -26,4 +36,8 @@ $this->${1}
      ->expects($this->any())
     ->method(${2})
      ->will($this->throwException(new ${3}));
+endsnippet
+
+snippet rtException
+throw new \RuntimeException(sprintf('Implement %s', __METHOD__));
 endsnippet
