@@ -19,7 +19,11 @@ pacman -Sy --noconfirm zsh composer sudo lsd tmux nodejs npm python-pip fzf \
   powerline powerline-fonts qtile ranger mycli flameshot alacritty \
   ctags wget curl nerd-fonts dunst firefox chromium keepassxc volumeicon \
   binutils make gcc pkg-config fakeroot playerctl brightnessctl \
-  docker docker-compose xorg
+  docker docker-compose xorg xorg-xinit bluez bluez-utils \
+  pulseaudio pulseaudio-alsa pulseaudio-bluetooth pavucontrol \
+  rofi python-dbus
+
+# TODO: Comprobar grafica
 
 npm install -g neovim @vue/cli npm-check-updates
 
