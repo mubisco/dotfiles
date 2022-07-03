@@ -14,7 +14,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 # ==== COMPOSER GLOBAL DEPENDENCIES =====
 composer global require squizlabs/php_codesniffer
 # ==== PYTHON DEPS =====
-python3 -m pip install --user --upgrade pynvim jedi dbgp pylint pep8 jedi-language-server flake8 mypy
+python3 -m pip install --user --upgrade dbus-next psutil pynvim jedi dbgp pylint pep8 jedi-language-server flake8 mypy
 
 declare -a CONFIG_FOLDERS=()
 
