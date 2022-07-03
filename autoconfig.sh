@@ -14,8 +14,8 @@ echo '[archlinuxcn]' >> /etc/pacman.conf
 echo 'Server = https://repo.archlinuxcn.org/$arch' >> /etc/pacman.conf
 
 echo "Instaling minimun deps..."
-pacman-key --init && pacman-key --populate archlinux
-pacman -Sy --noconfirm zsh composer sudo lsd tmux nodejs npm python-pip fzf \
+pacman -Sy --noconfirm && pacman -S --noconfirm archlinuxcn-keyring
+pacman -Syu --noconfirm zsh composer sudo lsd tmux nodejs npm python-pip fzf \
   powerline powerline-fonts qtile ranger mycli flameshot alacritty \
   ctags wget curl nerd-fonts dunst firefox chromium keepassxc volumeicon \
   binutils make gcc pkg-config fakeroot playerctl brightnessctl \
@@ -42,6 +42,3 @@ chown -R mubisco:mubisco /opt/yay-git
 echo "Configuring docker"
 systemctl enable docker.service
 usermod -aG docker mubisco
-# pacman -Syy --noconfirm xorg plasma plasma-wayland-session kde-applications latte-dock spotify
-# systemctl enable sddm.service
-# systemctl enable NetworkManager.service
