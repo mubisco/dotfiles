@@ -21,7 +21,7 @@ pacman -Syu --noconfirm zsh composer sudo lsd tmux nodejs npm python-pip fzf \
   binutils make gcc pkg-config fakeroot playerctl brightnessctl \
   docker docker-compose xorg xorg-xinit bluez bluez-utils \
   pulseaudio pulseaudio-alsa pulseaudio-bluetooth pavucontrol \
-  rofi python-dbus
+  rofi python-dbus openssh
 
 # TODO: Comprobar grafica
 
