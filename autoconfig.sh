@@ -42,4 +42,5 @@ chown -R mubisco:mubisco /opt/yay-git
 
 echo "Configuring docker"
 systemctl enable docker.service
+systemctl enable bluetooth.service
 usermod -aG docker mubisco
