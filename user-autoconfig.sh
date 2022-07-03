@@ -54,3 +54,5 @@ yay -Sy --noconfirm nerd-fonts-ubuntu-mono nerd-fonts-fantasque-sans-mono zsh-sy
 nvim +':PlugInstall --sync' +qa
 
 echo "Remember to close this console session and run p10k configure"
+
+sudo systemctl enable ly.service
