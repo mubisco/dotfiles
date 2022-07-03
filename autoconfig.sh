@@ -15,6 +15,7 @@ echo 'Server = https://repo.archlinuxcn.org/$arch' >> /etc/pacman.conf
 
 echo "Instaling minimun deps..."
 pacman -Sy --noconfirm && pacman -S --noconfirm archlinuxcn-keyring
+pacman-key --init && pacman-key --populate archlinux
 pacman -Syu --noconfirm zsh composer sudo lsd tmux nodejs npm python-pip fzf \
   powerline powerline-fonts qtile ranger mycli flameshot alacritty \
   ctags wget curl nerd-fonts dunst firefox chromium keepassxc volumeicon \
