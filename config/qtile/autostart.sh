@@ -9,4 +9,3 @@ setxkbmap -layout us -variant altgr-intl -option caps:escape
 # systray volume
 volumeicon &
 
-# cbatticon -u 300 &
