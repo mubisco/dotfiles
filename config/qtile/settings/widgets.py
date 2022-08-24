@@ -70,25 +70,20 @@ primary_widgets = [
 
     powerline('color4', 'dark'),
 
-    icon(bg="color4", text=' '), # Icon: nf-fa-download
+    icon(bg="color4", text=' '), # Icon: nf-fa-download
 
-    widget.CheckUpdates(
-        background=colors['color4'],
-        colour_have_updates=colors['text'],
-        colour_no_updates=colors['text'],
-        no_update_string='0',
-        display_format='{updates}',
-        update_interval=1800,
-        custom_command='checkupdates',
+    widget.Wlan(
+        **base(bg='color4'),
+        interface='wlp0s20f3',
+        disconnected_message='Off '
     ),
-
     powerline('color3', 'color4'),
 
     icon(bg="color3", text=' '),  # Icon: nf-fa-feed
 
     widget.Bluetooth(
         **base(bg='color3'),
-        hci='/dev_14_3F_A6_DB_18_E1',
+        hci='/dev_30_50_75_40_4E_22',
         mouse_callbacks = {
             'Button1': lambda : qtile.cmd_spawn("sh /home/mubisco/.config/qtile/bluetoothCtl.sh")
         }
@@ -108,6 +103,15 @@ primary_widgets = [
 
     powerline('dark', 'color1'),
 
+    widget.Battery(
+        **base(bg='dark', fg='light'),
+        format='{percent:2.0%} {char}',
+        charge_char=' ',
+        full_char=' ',
+        show_short_text=False,
+        empty_char=' ',
+        discharge_char=' ',
+    ),
     widget.Systray(background=colors['dark'], padding=5),
 ]
 
