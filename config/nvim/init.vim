@@ -9,13 +9,34 @@ set tabstop=2
 set showtabline=2
 set shiftwidth=2
 set showcmd
+set showmode
+set laststatus=2
+set mouse=a
+" Speed up scrolling in Vim
+set ttyfast
 "nnoremap <SPACE> <Nop>
 "let mapleader =
-let mapleader = '\'
-set colorcolumn=80
+"let mapleader = '\'
+let mapleader = ' '
+set colorcolumn=120
 set splitbelow
+" Highlight matching pairs of brackets. Use the '%' character to jump between them.
+set matchpairs+=<:>
+" Set status line display
+set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ [BUFFER=%n]\ %{strftime('%c')}
+" Encoding
+set encoding=utf-8
+" Highlight matching search patterns
+set hlsearch
+" Enable incremental search
+set incsearch
+" Include matching uppercase words with lowercase search term
+set ignorecase
+" Include only uppercase words with uppercase search term
+set smartcase
 
 autocmd FileType php :setlocal sw=4 ts=4 sts=4
+"autocmd VimEnter * ++nested  split term://zsh 
 filetype off
 
 if exists('py2') && has('python')
@@ -84,12 +105,15 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'sainnhe/sonokai'
 Plug 'kyoz/purify', { 'rtp': 'vim' }
 Plug 'morhetz/gruvbox'
+Plug 'preservim/nerdtree'
 
 "Tags
 Plug 'ludovicchabant/vim-gutentags'
 
 "Markdown
 Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown', 'do': 'yarn install'}
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 filetype plugin indent on
@@ -304,10 +328,10 @@ endfunction
 command! -range SnakeCase silent! call <SID>Snakeize(<range>)
 
 "REMAPS
-"map <Leader>a :NERDTreeToggle<CR>
-"map <Leader>s :NERDTreeFocus<CR/back>
+map <Leader>a :NERDTreeToggle<CR>
+map <Leader>s :NERDTreeFocus<CR/back>
 
-map <Leader>a :vs .<CR>
+"map <Leader>a :vs .<CR>
 
 " Disable Nuuid mappings - conflic with PhpActor
 let g:nuuid_no_mappings = 1
@@ -358,6 +382,9 @@ nmap <Leader>f :Files<CR>
 "nmap <Leader>fh :new<CR>:Files<CR>
 "nmap <Leader>ft :tabnew<CR>:Files<CR>
 
+" Shortcut  for ALEFix
+nmap  <Leader>af :ALEFix
+
 " Use <TAB> to select the popup menu:
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -396,3 +423,21 @@ nmap <silent><Leader>ef :CocCommand eslint.executeAutofix<CR>
 let g:UltiSnipsExpandTrigger="<nop>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+" NERDTreeConfig
+let g:NERDTreeQuitOnOpen=1
+
+let g:ultisnips_php_scalar_type=1
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+noremap <leader>s :CocSearch
+noremap <leader>tv :botright vnew <Bar> :terminal<cr>
+noremap <leader>th :botright new <Bar> :terminal<cr>
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+" Terminal exit mapping
+:tnoremap <Esc> <C-\><C-n>
