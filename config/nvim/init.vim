@@ -16,8 +16,8 @@ set mouse=a
 set ttyfast
 "nnoremap <SPACE> <Nop>
 "let mapleader =
-"let mapleader = '\'
-let mapleader = ' '
+let mapleader = '\'
+"let mapleader = ' '
 set colorcolumn=120
 set splitbelow
 " Highlight matching pairs of brackets. Use the '%' character to jump between them.
