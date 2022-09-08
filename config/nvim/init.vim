@@ -11,7 +11,7 @@ set shiftwidth=2
 set showcmd
 set showmode
 set laststatus=2
-set mouse=a
+"set mouse=a
 " Speed up scrolling in Vim
 set ttyfast
 "nnoremap <SPACE> <Nop>
@@ -427,10 +427,6 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:NERDTreeQuitOnOpen=1
 
 let g:ultisnips_php_scalar_type=1
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
 noremap <leader>s :CocSearch
 noremap <leader>tv :botright vnew <Bar> :terminal<cr>
 noremap <leader>th :botright new <Bar> :terminal<cr>
