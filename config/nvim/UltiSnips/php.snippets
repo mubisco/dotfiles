@@ -28,13 +28,13 @@ snippet mockMethod
 $this->${1}
      ->expects($this->any())
      ->method(${2})
-    ->will($this->returnValue(${3}));
+     ->will($this->returnValue(${3}));
 endsnippet
 
 snippet mockException
 $this->${1}
      ->expects($this->any())
-    ->method(${2})
+     ->method(${2})
      ->will($this->throwException(new ${3}));
 endsnippet
 
