@@ -1,3 +1,4 @@
 config/nvim/plugged
 config/tmux/plugins
 config/kitty/kitty-themes
+config/kitty/theme.conf
