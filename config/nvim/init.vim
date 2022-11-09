@@ -11,7 +11,7 @@ set shiftwidth=2
 set showcmd
 set showmode
 set laststatus=2
-"set mouse=a
+set mouse=a
 " Speed up scrolling in Vim
 set ttyfast
 "nnoremap <SPACE> <Nop>
@@ -105,7 +105,6 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'sainnhe/sonokai'
 Plug 'kyoz/purify', { 'rtp': 'vim' }
 Plug 'morhetz/gruvbox'
-Plug 'preservim/nerdtree'
 
 "Tags
 Plug 'ludovicchabant/vim-gutentags'
@@ -114,6 +113,10 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown', 'do': 'yarn install'}
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'ryanoasis/vim-devicons'
+
+"Kitty
+Plug 'fladson/vim-kitty'
+
 call plug#end()
 
 filetype plugin indent on
@@ -123,7 +126,7 @@ set termguicolors
 "THEMING
 let ayucolor='dark'
 let g:equinusocio_material_darker = 1
-let g:sonokai_style = 'shusia'
+let g:sonokai_style = 'espresso'
 let g:sonokai_enable_italic = 1
 let g:sonokai_disable_italic_comment = 0
 
@@ -131,11 +134,10 @@ let g:gruvbox_italic=1
 let g:gruvbox_italicize_comments=1
 let g:gruvbox_contrast_dark='hard'
 
-colorscheme purify
-let g:airline_theme='purify'
+let g:vim_monokai_tasty_italic = 1
 
-"colorscheme purify
-"let g:airline_theme='purify'
+colorscheme sonokai
+let g:airline_theme='sonokai'
 
 "ALE
 let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
@@ -308,14 +310,15 @@ function! DoPrettyXML()
 endfunction
 command! XmlFormat call DoPrettyXML()
 
-function! ConfigVdebug(project)
-  VdebugOpt ide_key GETLIFE_DOCKER
-  let g:vdebug_options.path_maps = {"/app": "/home/mubisco/Projects/Getlife/monorepo/" . a:project}
+function! ConfigVdebug(key, path)
+  VdebugOpt ide_key XDEBUG_KEY
+  let g:vdebug_options.path_maps = {"/home/developer/app": a:path}
+  let g:vdebug_options.port = 9003
 endfunction
 
-command! VdbgCustomer call ConfigVdebug('customer/back')
-command! VdbgAdmin call ConfigVdebug('admin/back')
-command! VdbgBroker call ConfigVdebug('customer/back')
+command! VdbgRm call ConfigVdebug('XDEBUG_KEY', '/home/mubisco/Projects/rm-manager/back')
+"command! VdbgAdmin call ConfigVdebug('admin/back')
+"command! VdbgBroker call ConfigVdebug('customer/back')
 
 function! s:Snakeize(range) abort
   if a:range == 0
@@ -327,11 +330,6 @@ endfunction
 
 command! -range SnakeCase silent! call <SID>Snakeize(<range>)
 
-"REMAPS
-map <Leader>a :NERDTreeToggle<CR>
-map <Leader>s :NERDTreeFocus<CR/back>
-
-"map <Leader>a :vs .<CR>
 
 " Disable Nuuid mappings - conflic with PhpActor
 let g:nuuid_no_mappings = 1
@@ -410,30 +408,20 @@ else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
 
-inoremap <expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<CR>"
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-" imap cll console.log()<Esc>==f(a
 au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 nmap <S-F4> :execute "silent grep! -R " . expand("<cword>") . " ./**" <Bar> cw<CR>
+"
 " Highlight jenkinsfiles
 au BufNewFile,BufRead Jenkinsfile setf groovy
+"
 " Extract expression (normal mode)
 nmap <silent><Leader>ef :CocCommand eslint.executeAutofix<CR>
 " UltiSnips Configuration
-let g:UltiSnipsExpandTrigger="<nop>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-" NERDTreeConfig
-let g:NERDTreeQuitOnOpen=1
+"let g:UltiSnipsExpandTrigger="<nop>"
+"let g:UltiSnipsJumpForwardTrigger="<tab>"
+"let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 let g:ultisnips_php_scalar_type=1
-noremap <leader>s :CocSearch
-noremap <leader>tv :botright vnew <Bar> :terminal<cr>
-noremap <leader>th :botright new <Bar> :terminal<cr>
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-" Terminal exit mapping
-:tnoremap <Esc> <C-\><C-n>
