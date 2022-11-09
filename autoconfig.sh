@@ -21,8 +21,8 @@ pacman -Syu --noconfirm zsh composer sudo lsd tmux nodejs npm python-pip fzf \
   ctags wget curl nerd-fonts dunst firefox chromium keepassxc volumeicon \
   binutils make gcc pkg-config fakeroot playerctl brightnessctl \
   docker docker-compose xorg xorg-xinit bluez bluez-utils \
-  pulseaudio pulseaudio-alsa pulseaudio-bluetooth pavucontrol \
-  rofi python-dbus openssh telegram-desktop cifs-utils ntfs-3g
+  pipewire pipewire-alsa pipewire-pulse pavucontrol \
+  rofi python-dbus openssh telegram-desktop cifs-utils ntfs-3g kitty
 
 # TODO: Comprobar grafica
 

@@ -49,6 +49,8 @@ yay -Sy --noconfirm nerd-fonts-ubuntu-mono nerd-fonts-fantasque-sans-mono zsh-sy
   zsh-autosuggestions zsh-theme-powerlevel10k-git via-bin google-chrome \
   spotify symfony-cli vivaldi ly
 
+#Kitty-themes
+git clone --depth 1 https://github.com/dexpota/kitty-themes.git ~/.config/kitty/kitty-themes
 
 # NVIM
 nvim +':PlugInstall --sync' +qa
