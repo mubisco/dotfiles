@@ -77,42 +77,27 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<CR>", opts)
 keymap("n", "<C-t>", "<cmd>Telescope live_grep<CR>", opts)
 
+-- Phpactor
+keymap("n", "<leader>cc", ":call phpactor#ClassNew()<CR>", opts) -- Generate a new class (replacing the current file)
+keymap("n", "<leader>u", ":call phpactor#UseAdd()<CR>", opts) -- Include use statement
+keymap("n", "<leader>mm", ":call phpactor#ContextMenu()<CR>", opts) -- Invoke the context menu
+keymap("n", "<leader>nn", ":call phpactor#Navigate()<CR>", opts) -- Invoke the navigation menu
+keymap("n", "<leader>o", ":call phpactor#GotoDefinition()<CR>", opts) -- Goto definition of class or class member under the cursor
+keymap("n", "<leader>ov", "<cmd>PhpactorGotoDefinition vsplit<CR>", opts) -- Goto definition in vertical split
+keymap("n", "<leader>oh", "<cmd>PhpactorGotoDefinition split<CR>", opts) -- Goto definition in horizontal split
+keymap("n", "<leader>ff", ":call phpactor#FindReferences()<CR>", opts) -- Extract expression (normal mode)
+keymap("n", "<leader>im", ":call phpactor#GotoImplementations()<CR>", opts)
+keymap("n", "<leader>k", ":call phpactor#Hover()<CR>", opts) -- Show brief information about the symbol under the cursor
+keymap("n", "<leader>tt", ":call phpactor#Transform()<CR>", opts) -- Transform the classes in the current file
+keymap("n", "<leader>ee", ":call phpactor#ExtractExpression()<CR>", opts) -- Extract expression (normal mode)
+keymap("v", "<leader>ee", ":call phpactor#ExtractExpression(v:true)<CR>", opts) -- Extract expression (visual mode)
+keymap("v", "<leader>em", ":call <C-u>PhpactorExtractMethod<CR>", opts) -- Extract method (visual mode)
+keymap("v", "<leader>ec", ":call <C-u>PhpactorExtractConstant<CR>", opts) -- Extract method (visual mode)
+
 -- -------------------------------------------------------------------------------
 -- nmap <S-F4> :execute "silent grep! -R " . expand("<cword>") . " ./**" <Bar> cw<CR>
--- nnoremap <leader>sv :source $MYVIMRC<CR>
 -- inoremap <Leader>rt :RemoveTrail<CR>
 -- cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
--- " Include use statement
--- nmap <Leader>u :call phpactor#UseAdd()<CR>
-
--- " Invoke the context menu
--- nmap <Leader>mm :call phpactor#ContextMenu()<CR>
-
--- " Invoke the navigation menu
--- nmap <Leader>nn :call phpactor#Navigate()<CR>
-
--- " Goto definition of class or class member under the cursor
--- nmap <Leader>o :call phpactor#GotoDefinition()<CR>
-
--- " Show brief information about the symbol under the cursor
--- nmap <Leader>K :call phpactor#Hover()<CR>
-
--- " Transform the classes in the current file
--- nmap <Leader>tt :call phpactor#Transform()<CR>
-
--- " Generate a new class (replacing the current file)
--- nmap <Leader>cc :call phpactor#ClassNew()<CR>
-
--- " Extract expression (normal mode)
--- nmap <silent><Leader>ee :call phpactor#ExtractExpression(v:false)<CR>
-
--- " Extract expression from selection
--- vmap <silent><Leader>ee :<C-U>call phpactor#ExtractExpression(v:true)<CR>
-
--- " Extract method from selection
--- vmap <silent><Leader>eem :<C-U>call phpactor#ExtractMethod()<CR>
--- " Extract constant from selection
--- vmap <silent><Leader>eec :<C-U>call phpactor#ExtractConstant()<CR>
 
 -- " Shortcut for :Files command
 -- nmap <Leader>f :Files<CR>
@@ -122,14 +107,3 @@ keymap("n", "<C-t>", "<cmd>Telescope live_grep<CR>", opts)
 
 -- " Shortcut  for ALEFix
 -- nmap  <Leader>af :ALEFix
-
--- " Coc-config {{
--- inoremap <silent><expr> <TAB>
-      -- \ coc#pum#visible() ? coc#pum#next(1) :
-      -- \ CheckBackspace() ? "\<Tab>" :
-      -- \ coc#refresh()
--- inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
--- inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-                              -- \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
--- inoremap <silent><expr> <c-space> coc#refresh()
-

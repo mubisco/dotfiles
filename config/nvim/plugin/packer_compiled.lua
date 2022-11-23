@@ -149,6 +149,13 @@ _G.packer_plugins = {
     path = "/home/mubisco/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
+  phpactor = {
+    loaded = false,
+    needs_bufread = true,
+    only_cond = false,
+    path = "/home/mubisco/.local/share/nvim/site/pack/packer/opt/phpactor",
+    url = "https://github.com/phpactor/phpactor"
+  },
   ["plenary.nvim"] = {
     loaded = true,
     path = "/home/mubisco/.local/share/nvim/site/pack/packer/start/plenary.nvim",
@@ -177,6 +184,13 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+vim.cmd [[augroup packer_load_aucmds]]
+vim.cmd [[au!]]
+  -- Filetype lazy-loads
+time([[Defining lazy-load filetype autocommands]], true)
+vim.cmd [[au FileType php ++once lua require("packer.load")({'phpactor'}, { ft = "php" }, _G.packer_plugins)]]
+time([[Defining lazy-load filetype autocommands]], false)
+vim.cmd("augroup END")
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
