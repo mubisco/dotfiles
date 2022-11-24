@@ -11,11 +11,19 @@ local diagnostics = null_ls.builtins.diagnostics
 null_ls.setup({
   debug = false,
   sources = {
-    diagnostics.phpcs.with({ filetypes = { "php" }}),
-    diagnostics.psalm.with({ filetypes = { "php" }}),
+    diagnostics.psalm.with({
+      extra_args = { "--config=psalm.xml" },
+      condition = function(utils)
+        return utils.root_has_file({ "psalm.xml" })
+      end,
+      command = "./vendor/bin/psalm"
+    }),
+    diagnostics.phpcs,
     formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
     formatting.black.with({ extra_args = { "--fast" } }),
     formatting.stylua,
+    formatting.phpcbf,
+    formatting.phpcsfixer,
     -- diagnostics.flake8
   },
 })
