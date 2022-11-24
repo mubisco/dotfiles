@@ -19,7 +19,9 @@ null_ls.setup({
       timeout = 10000,
       command = "./vendor/bin/psalm"
     }),
-    diagnostics.phpcs,
+    diagnostics.phpcs.with({
+      extra_args = { "--standard=PRS12" }
+    }),
     formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
     formatting.black.with({ extra_args = { "--fast" } }),
     formatting.stylua,
