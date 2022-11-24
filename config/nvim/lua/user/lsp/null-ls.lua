@@ -9,13 +9,14 @@ local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
 
 null_ls.setup({
-  debug = false,
+  debug = true,
   sources = {
     diagnostics.psalm.with({
       extra_args = { "--config=psalm.xml" },
       condition = function(utils)
         return utils.root_has_file({ "psalm.xml" })
       end,
+      timeout = 10000,
       command = "./vendor/bin/psalm"
     }),
     diagnostics.phpcs,
