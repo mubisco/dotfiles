@@ -134,6 +134,11 @@ _G.packer_plugins = {
     path = "/home/mubisco/.local/share/nvim/site/pack/packer/start/jellybeans.vim",
     url = "https://github.com/nanotech/jellybeans.vim"
   },
+  ["lualine.nvim"] = {
+    loaded = true,
+    path = "/home/mubisco/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    url = "https://github.com/nvim-lualine/lualine.nvim"
+  },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
     path = "/home/mubisco/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
