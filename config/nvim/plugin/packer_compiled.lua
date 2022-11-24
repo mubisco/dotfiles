@@ -144,6 +144,11 @@ _G.packer_plugins = {
     path = "/home/mubisco/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
+  ["nvim-treesitter"] = {
+    loaded = true,
+    path = "/home/mubisco/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/mubisco/.local/share/nvim/site/pack/packer/start/packer.nvim",

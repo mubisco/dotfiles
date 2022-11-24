@@ -87,7 +87,7 @@ keymap("n", "<leader>ov", "<cmd>PhpactorGotoDefinition vsplit<CR>", opts) -- Got
 keymap("n", "<leader>oh", "<cmd>PhpactorGotoDefinition split<CR>", opts) -- Goto definition in horizontal split
 keymap("n", "<leader>ff", ":call phpactor#FindReferences()<CR>", opts) -- Extract expression (normal mode)
 keymap("n", "<leader>im", ":call phpactor#GotoImplementations()<CR>", opts)
-keymap("n", "<leader>k", ":call phpactor#Hover()<CR>", opts) -- Show brief information about the symbol under the cursor
+-- keymap("n", "<leader>k", ":call phpactor#Hover()<CR>", opts) -- Show brief information about the symbol under the cursor
 keymap("n", "<leader>tt", ":call phpactor#Transform()<CR>", opts) -- Transform the classes in the current file
 keymap("n", "<leader>ee", ":call phpactor#ExtractExpression()<CR>", opts) -- Extract expression (normal mode)
 keymap("v", "<leader>ee", ":call phpactor#ExtractExpression(v:true)<CR>", opts) -- Extract expression (visual mode)
