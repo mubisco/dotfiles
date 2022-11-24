@@ -84,6 +84,11 @@ _G.packer_plugins = {
     path = "/home/mubisco/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ["alpha-nvim"] = {
+    loaded = true,
+    path = "/home/mubisco/.local/share/nvim/site/pack/packer/start/alpha-nvim",
+    url = "https://github.com/goolord/alpha-nvim"
+  },
   ["bufferline.nvim"] = {
     loaded = true,
     path = "/home/mubisco/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
@@ -231,10 +236,20 @@ _G.packer_plugins = {
     path = "/home/mubisco/.local/share/nvim/site/pack/packer/start/vim-bbye",
     url = "https://github.com/moll/vim-bbye"
   },
+  ["vim-illuminate"] = {
+    loaded = true,
+    path = "/home/mubisco/.local/share/nvim/site/pack/packer/start/vim-illuminate",
+    url = "https://github.com/RRethy/vim-illuminate"
+  },
   ["vim-monokai-tasty"] = {
     loaded = true,
     path = "/home/mubisco/.local/share/nvim/site/pack/packer/start/vim-monokai-tasty",
     url = "https://github.com/patstockwell/vim-monokai-tasty"
+  },
+  ["which-key.nvim"] = {
+    loaded = true,
+    path = "/home/mubisco/.local/share/nvim/site/pack/packer/start/which-key.nvim",
+    url = "https://github.com/folke/which-key.nvim"
   }
 }
 

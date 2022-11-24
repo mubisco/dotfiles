@@ -55,8 +55,8 @@ return packer.startup(function(use)
   -- use { "ahmedkhalf/project.nvim", commit = "628de7e433dd503e782831fe150bb750e56e55d6" }
   -- use { "lewis6991/impatient.nvim", commit = "b842e16ecc1a700f62adb9802f8355b99b52a5a6" }
   -- use { "lukas-reineke/indent-blankline.nvim", commit = "db7cbcb40cc00fc5d6074d7569fb37197705e7f6" }
-  -- use { "goolord/alpha-nvim", commit = "0bb6fc0646bcd1cdb4639737a1cee8d6e08bcc31" }
-  -- use {"folke/which-key.nvim"}
+  use { "goolord/alpha-nvim" }
+  use {"folke/which-key.nvim"}
 
   -- Cmp 
   use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -75,11 +75,11 @@ return packer.startup(function(use)
   use "williamboman/mason.nvim" -- simple to use language server installer
   use "williamboman/mason-lspconfig.nvim"
   use { "jose-elias-alvarez/null-ls.nvim" }
-  -- use { "RRethy/vim-illuminate", commit = "a2e8476af3f3e993bb0d6477438aad3096512e42" }
+  use { "RRethy/vim-illuminate" }
 
   -- Git
   use { "lewis6991/gitsigns.nvim" }
-  --
+
   -- Telescope
   use "nvim-telescope/telescope.nvim"
   -- Install telescope-media-files
