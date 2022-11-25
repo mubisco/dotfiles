@@ -12,14 +12,14 @@ null_ls.setup({
     diagnostics.yamllint.with({
       extra_args = { "-d { extends: default, rules: {line-length: {max: 120}}}" }
     }),
-    diagnostics.psalm.with({
-      extra_args = { "--config=psalm.xml" },
-      condition = function(utils)
-        return utils.root_has_file({ "psalm.xml" })
-      end,
-      timeout = 10000,
-      command = "./vendor/bin/psalm"
-    }),
+    --diagnostics.psalm.with({
+      --extra_args = { "--config=.psalm-nvim.xml" },
+      --condition = function(utils)
+        --return utils.root_has_file({ ".psalm-nvim.xml" })
+      --end,
+      --timeout = 10000,
+      --command = "./vendor/bin/psalm"
+    --}),
     diagnostics.phpcs.with({
       extra_args = { "--standard=PSR12" }
     }),
