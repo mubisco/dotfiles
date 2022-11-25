@@ -10,8 +10,8 @@ local servers = {
   -- "pyright",
   -- "bashls",
   "jsonls",
-  "vimls"
-  -- "yamlls",
+  "vimls",
+  "yamlls",
 }
 
 local settings = {
