@@ -30,6 +30,7 @@ null_ls.setup({
     -- diagnostics.eslint_d,
     -- formatting.eslint_d,
     code_actions.eslint,
+    formatting.json_tool,
     diagnostics.eslint,
     formatting.eslint,
     formatting.xmllint,
