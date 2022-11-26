@@ -1,17 +1,18 @@
 local servers = {
-  "sumneko_lua",
+  "bashls",
   "intelephense",
+  "jsonls",
+  "sumneko_lua",
+  "tsserver",
+  "vimls",
+  "volar",
+  "yamlls",
   -- "cssls",
-  -- "php??",
   -- "docker??",
   -- "git??",
   -- "html",
-  -- "tsserver",
   -- "pyright",
-  -- "bashls",
-  "jsonls",
-  "vimls",
-  "yamlls",
+  -- "tsserver",
 }
 
 local settings = {

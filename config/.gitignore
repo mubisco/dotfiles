@@ -3,3 +3,4 @@ tags.lock
 tags.temp
 node_modules/
 vendor/
+.null-ls-root
