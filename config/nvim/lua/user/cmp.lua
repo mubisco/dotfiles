@@ -8,6 +8,13 @@ if not snip_status_ok then
   return
 end
 
+-- local ulti_snip_status_ok, cmp_ultisnips_mappings = pcall(require, "cmp_nvim_ultisnips.mappings")
+-- if not ulti_snip_status_ok then
+--   return
+-- end
+
+local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings")
+
 require("luasnip/loaders/from_vscode").lazy_load()
 
 local check_backspace = function()
@@ -49,6 +56,7 @@ cmp.setup {
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body) -- For `luasnip` users.
+      vim.fn["UltiSnips#Anon"](args.body)
     end,
   },
   mapping = {
@@ -75,7 +83,8 @@ cmp.setup {
       elseif check_backspace() then
         fallback()
       else
-        fallback()
+        -- fallback()
+        cmp_ultisnips_mappings.expand_or_jump_forwards(fallback)
       end
     end, {
       "i",
@@ -87,7 +96,8 @@ cmp.setup {
       elseif luasnip.jumpable(-1) then
         luasnip.jump(-1)
       else
-        fallback()
+        cmp_ultisnips_mappings.jump_backwards(fallback)
+        -- fallback()
       end
     end, {
       "i",
@@ -101,6 +111,7 @@ cmp.setup {
       -- vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
       vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
       vim_item.menu = ({
+        ultisnips = "[US]",
         volar = "[VUE]",
         tsserver = "[TS]",
         bashls = "[BASH]",
@@ -115,6 +126,7 @@ cmp.setup {
     end,
   },
   sources = {
+    { name = "ultisnips" },
     { name = "tsserver" },
     { name = "bashls" },
     { name = "nvim_lua" },

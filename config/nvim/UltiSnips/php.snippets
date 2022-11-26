@@ -1,0 +1,129 @@
+global !p
+import vim
+endglobal
+
+snippet gm "PHP Class Getter" b
+public function ${1/\w+\s*/\l$0/}(): ${2:void}
+{
+    return $this->$1;
+}
+endsnippet
+
+snippet phptest
+/**
+ * @test
+ */
+public function ${1}(): void
+{
+}
+endsnippet
+
+snippet __te 
+/**
+ * @test
+ * $1
+ * ${1//
+ * @group `!p snip.rv = snip.basename`
+ */
+public function itShould${1}(): void
+{
+}
+endsnippet 
+
+snippet VarDebug
+echo "<pre>";
+var_dump(${1});
+echo "</pre>";
+exit;
+endsnippet
+
+snippet mockMethod
+$this->${1}
+     ->expects($this->any())
+     ->method(${2})
+    ->will($this->returnValue(${3}));
+endsnippet
+
+snippet mockException
+$this->${1}
+     ->expects($this->any())
+    ->method(${2})
+     ->will($this->throwException(new ${3}));
+endsnippet
+
+snippet rtException
+throw new \RuntimeException(sprintf('Implement %s', __METHOD__));
+endsnippet
+
+snippet __todo
+//TODO `!v strftime("%Y-%m-%d")` `!v whoami` : 
+endsnippet
+
+snippet pub "Public function" b
+public function ${1:name}(${2:$param}): ${3:void}
+{
+	${VISUAL}${4:return;}
+}
+$0
+endsnippet
+
+snippet pri "Private function" b
+private function ${1:name}(${2:$param}): ${3:void}
+{
+	${VISUAL}${4:return;}
+}
+$0
+endsnippet
+
+
+snippet new "New class instance" b
+$${1:variableName} = new ${2:${1/\w+\s*/\u$0/}}($3);
+$0
+endsnippet
+
+snippet ns "namespace declaration" b
+namespace ${1:`!p
+relpath = os.path.relpath(path)
+m = re.search(r'[A-Z].+(?=/)', relpath)
+if m:
+	snip.rv = m.group().replace('/', '\\')
+`};
+endsnippet
+
+snippet class "Class declaration template" b
+<?php
+declare(strict_types=1);
+
+namespace ${1:`!p
+relpath = os.path.relpath(path)
+m = re.search(r'[A-Z].+(?=/)', relpath)
+if m:
+	snip.rv = m.group().replace('/', '\\')
+`};
+
+class $1
+{
+public function __construct(${2})
+{
+}
+$0
+}
+endsnippet
+
+snippet interface "Interface declaration template" b
+<?php
+
+declare(strict_types=1);
+
+namespace ${1:`!p
+relpath = os.path.relpath(path)
+m = re.search(r'[A-Z].+(?=/)', relpath)
+if m:
+	snip.rv = m.group().replace('/', '\\')
+`};
+
+interface $1
+{
+	public function ${3:someFunction}();$4
+}
+endsnippet
