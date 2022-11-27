@@ -65,15 +65,10 @@ return packer.startup(function(use)
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/cmp-nvim-lua"
-  use { "quangnguyen30192/cmp-nvim-ultisnips", config = function ()
-    require("cmp_nvim_ultisnips").setup{}
-  end
-  }
 
   -- Snippets
   use "L3MON4D3/LuaSnip" --snippet engine
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
-  use "SirVer/ultisnips"
 
   -- LSP
   use "neovim/nvim-lspconfig" -- enable LSP

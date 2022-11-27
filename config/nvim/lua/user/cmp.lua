@@ -8,14 +8,8 @@ if not snip_status_ok then
   return
 end
 
--- local ulti_snip_status_ok, cmp_ultisnips_mappings = pcall(require, "cmp_nvim_ultisnips.mappings")
--- if not ulti_snip_status_ok then
---   return
--- end
-
-local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings")
-
 require("luasnip/loaders/from_vscode").lazy_load()
+require("luasnip.loaders.from_lua").lazy_load({paths = "~/.config/nvim/LuaSnip"})
 
 local check_backspace = function()
   local col = vim.fn.col "." - 1
@@ -56,7 +50,6 @@ cmp.setup {
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body) -- For `luasnip` users.
-      vim.fn["UltiSnips#Anon"](args.body)
     end,
   },
   mapping = {
@@ -83,8 +76,7 @@ cmp.setup {
       elseif check_backspace() then
         fallback()
       else
-        -- fallback()
-        cmp_ultisnips_mappings.expand_or_jump_forwards(fallback)
+        fallback()
       end
     end, {
       "i",
@@ -96,8 +88,7 @@ cmp.setup {
       elseif luasnip.jumpable(-1) then
         luasnip.jump(-1)
       else
-        cmp_ultisnips_mappings.jump_backwards(fallback)
-        -- fallback()
+        fallback()
       end
     end, {
       "i",

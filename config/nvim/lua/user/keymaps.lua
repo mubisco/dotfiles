@@ -1,6 +1,6 @@
 local opts = { noremap = true, silent = true }
 
-local term_opts = { silent = true }
+-- local term_opts = { silent = true }
 
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
@@ -39,6 +39,9 @@ keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 -- Reload nvim config
 keymap("n", "<Leader>sv", ":source $MYVIMRC<CR>", opts)
 
+-- Edit snippets
+keymap("n", "<Leader>se", ":lua require('luasnip.loaders').edit_snippet_files()<CR>", opts)
+
 -- Insert --
 -- Press jk fast to exit insert mode 
 keymap("i", "jj", "<ESC>", opts)
@@ -70,6 +73,7 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 -- Command
 -- Expand current folder
 keymap("c", "%%", [[getcmdtype() == ':' ? expand('%:h').'/' : '%%']], { noremap = true, silent = false, expr = true })
+keymap("c", "Q", "Bdelete", { noremap = true, silent = true })
 
 -- Telescope
 keymap("n", "<leader>f", "<cmd>Telescope find_files<CR>", opts)
