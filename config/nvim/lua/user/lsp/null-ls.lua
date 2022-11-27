@@ -10,6 +10,9 @@ local code_actions = null_ls.builtins.code_actions
 null_ls.setup({
   debug = true,
   sources = {
+    diagnostics.phpstan.with({
+      command = "./vendor/bin/phpstan"
+    }),
     diagnostics.yamllint.with({
       extra_args = { "-d { extends: default, rules: {line-length: {max: 120}}}" }
     }),
