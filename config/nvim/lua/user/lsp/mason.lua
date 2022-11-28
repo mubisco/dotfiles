@@ -6,7 +6,7 @@ local servers = {
   "tsserver",
   "vimls",
   "volar",
-  "docekrls",
+  "dockerls",
   "yamlls",
   "sqls",
   -- "cssls",

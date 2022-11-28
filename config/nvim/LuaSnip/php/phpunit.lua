@@ -1,3 +1,7 @@
+local function snakeize(args, parent)
+  return string.lower(string.gsub(args[1][1], "%u", "_%1"))
+end
+
 local placeholderMap = { i(1, "expected"), i(2, "actual") }
 local singlePlaceholderMap = { i(1, "actual") }
 

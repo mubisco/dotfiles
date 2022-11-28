@@ -1,7 +1,3 @@
-local function snakeize(args, parent)
-  return string.lower(string.gsub(args[1][1], "%u", "_%1"))
-end
-
 local function currentDate()
   return os.date("%Y-%m-%d")
 end
