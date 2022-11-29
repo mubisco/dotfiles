@@ -44,6 +44,7 @@ null_ls.setup({
     formatting.yamlfmt,
     formatting.phpcbf.with({ extra_args = { "--standard=PSR12" } }),
     formatting.phpcsfixer,
+    formatting.shfmt
     -- diagnostics.flake8
   },
 })
