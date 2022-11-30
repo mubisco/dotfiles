@@ -52,6 +52,9 @@ return packer.startup(function(use)
   use { "moll/vim-bbye" }
   use { "nvim-lualine/lualine.nvim" }
   use { "akinsho/toggleterm.nvim" }
+  use { "vim-vdebug/vdebug" } -- Vdebug
+  use { "kburdett/vim-nuuid" } -- Uuuid generator
+  use { "chrisbra/csv.vim" } -- Improve Csv visualization
   -- use { "ahmedkhalf/project.nvim", commit = "628de7e433dd503e782831fe150bb750e56e55d6" }
   -- use { "lewis6991/impatient.nvim", commit = "b842e16ecc1a700f62adb9802f8355b99b52a5a6" }
   -- use { "lukas-reineke/indent-blankline.nvim", commit = "db7cbcb40cc00fc5d6074d7569fb37197705e7f6" }
@@ -106,22 +109,6 @@ return packer.startup(function(use)
   -- Plug 'kyoz/purify', { 'rtp': 'vim' }
   -- use 'morhetz/gruvbox'
 
-  -- "Airline
-  -- Plug 'vim-airline/vim-airline'
-  -- Plug 'vim-airline/vim-airline-themes'
-  -- Plug 'airblade/vim-gitgutter'
-  -- Plug 'Yggdroot/indentLine'
-  -- Plug 'tpope/vim-fugitive'
-  -- Plug 'tommcdo/vim-fubitive'
-  -- Plug 'ap/vim-css-color'
-  -- Plug 'junegunn/fzf'
-  -- Plug 'junegunn/fzf.vim'
-  -- "Plug 'TaDaa/vimade'
-  -- Plug 'SirVer/ultisnips'
-
-  -- "Autocompletion
-  -- Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
   -- " PHP Development
   -- Plug 'phpactor/phpactor' ,  {'do': 'composer install', 'for': 'php'}
   -- Plug 'StanAngeloff/php.vim', {'for': 'php'}
@@ -136,10 +123,8 @@ return packer.startup(function(use)
   -- Plug 'leafgarland/typescript-vim'
   -- Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
 
-  -- " Uuid Generator
+  -- Plug 'vim-vdebug/vdebug'
   -- Plug 'kburdett/vim-nuuid'
-
-  -- " Csv Files
   -- Plug 'chrisbra/csv.vim'
 
   -- " Pug

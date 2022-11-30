@@ -7,3 +7,10 @@ vim.cmd [[
 
 vim.cmd([[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]])
 
+vim.cmd [[
+  augroup _custom_filetypes
+    autocmd!
+    autocmd BufNewFile,BufRead .env.* setf sh
+  augroup end
+]]
+

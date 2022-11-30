@@ -43,7 +43,7 @@ null_ls.setup({
     formatting.stylua,
     formatting.yamlfmt,
     formatting.phpcbf.with({ extra_args = { "--standard=PSR12" } }),
-    formatting.phpcsfixer,
+    -- formatting.phpcsfixer,
     formatting.shfmt
     -- diagnostics.flake8
   },

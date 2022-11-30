@@ -73,7 +73,6 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 -- Command
 -- Expand current folder
 keymap("c", "%%", [[getcmdtype() == ':' ? expand('%:h').'/' : '%%']], { noremap = true, silent = false, expr = true })
-keymap("c", "Q", "Bdelete", { noremap = true, silent = true })
 
 -- Telescope
 keymap("n", "<leader>f", "<cmd>Telescope find_files<CR>", opts)
@@ -82,6 +81,10 @@ keymap("n", "<C-t>", "<cmd>Telescope live_grep<CR>", opts)
 
 -- NvimTree
 keymap("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", opts)
+
+-- ToggleTerm
+keymap("n", "<F12>", ":ToggleTerm <CR>", opts)
+keymap("n", "<leader>g", ":lua _LAZYGIT_TOGGLE()<CR>", opts)
 
 -- Phpactor
 keymap("n", "<leader>cc", ":call phpactor#ClassNew()<CR>", opts) -- Generate a new class (replacing the current file)
