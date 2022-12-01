@@ -52,7 +52,6 @@ return packer.startup(function(use)
   use { "moll/vim-bbye" }
   use { "nvim-lualine/lualine.nvim" }
   use { "akinsho/toggleterm.nvim" }
-  use { "vim-vdebug/vdebug" } -- Vdebug
   use { "kburdett/vim-nuuid" } -- Uuuid generator
   use { "chrisbra/csv.vim" } -- Improve Csv visualization
   -- use { "ahmedkhalf/project.nvim", commit = "628de7e433dd503e782831fe150bb750e56e55d6" }
@@ -94,10 +93,14 @@ return packer.startup(function(use)
     run = ":TSUpdate"
   }
 
+  -- Debugger
+  use {'mfussenegger/nvim-dap'}
+  use {'theHamsta/nvim-dap-virtual-text'}
+  use {"rcarriga/nvim-dap-ui"}
+
   -- Colorschemes
   use "lunarvim/colorschemes"
-  -- use { "folke/tokyonight.nvim", commit = "66bfc2e8f754869c7b651f3f47a2ee56ae557764" }
-  -- use { "lunarvim/darkplus.nvim", commit = "13ef9daad28d3cf6c5e793acfc16ddbf456e1c83" }
+  use { "folke/tokyonight.nvim" }
   -- use 'k4yt3x/ayu-vim-darker'
   use 'Siphalor/vim-atomified'
   -- use 'tomasiser/vim-code-dark'
@@ -109,48 +112,12 @@ return packer.startup(function(use)
   -- Plug 'kyoz/purify', { 'rtp': 'vim' }
   -- use 'morhetz/gruvbox'
 
-  -- " PHP Development
-  -- Plug 'phpactor/phpactor' ,  {'do': 'composer install', 'for': 'php'}
-  -- Plug 'StanAngeloff/php.vim', {'for': 'php'}
-  -- Plug 'lumiliet/vim-twig'
-  -- Plug 'adoy/vim-php-refactoring-toolbox', {'for': 'php'}
-  -- Plug 'vim-vdebug/vdebug'
-
-  -- " Javascript Development
-  -- Plug 'pangloss/vim-javascript'
-  -- Plug 'posva/vim-vue'
-  -- Plug 'mxw/vim-jsx'
-  -- Plug 'leafgarland/typescript-vim'
-  -- Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
-
-  -- Plug 'vim-vdebug/vdebug'
-  -- Plug 'kburdett/vim-nuuid'
-  -- Plug 'chrisbra/csv.vim'
-
-  -- " Pug
-  -- Plug 'digitaltoad/vim-pug'
-
-  -- " Themes
-  -- Plug 'k4yt3x/ayu-vim-darker'
-  -- Plug 'Siphalor/vim-atomified'
-  -- Plug 'tomasiser/vim-code-dark'
-  -- Plug 'trusktr/seti.vim'
-  -- Plug 'patstockwell/vim-monokai-tasty'
-  -- Plug 'nanotech/jellybeans.vim' , {'as': 'jellybeans'}
-  -- Plug 'chuling/vim-equinusocio-material'
-  -- Plug 'jaredgorski/spacecamp'
-  -- Plug 'arcticicestudio/nord-vim'
-  -- Plug 'sainnhe/sonokai'
-  -- Plug 'kyoz/purify', { 'rtp': 'vim' }
-  -- Plug 'morhetz/gruvbox'
 
   -- "Tags
   -- Plug 'ludovicchabant/vim-gutentags'
 
   -- "Markdown
   -- Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown', 'do': 'yarn install'}
-  -- Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-  -- Plug 'ryanoasis/vim-devicons'
 
   -- "Kitty
   -- Plug 'fladson/vim-kitty'
