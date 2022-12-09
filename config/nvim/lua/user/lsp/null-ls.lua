@@ -10,6 +10,7 @@ local code_actions = null_ls.builtins.code_actions
 null_ls.setup({
   debug = true,
   sources = {
+    diagnostics.twigcs,
     diagnostics.phpstan.with({
       command = "./vendor/bin/phpstan"
     }),

@@ -22,7 +22,8 @@ pacman -Syu --noconfirm zsh composer sudo lsd tmux nodejs npm python-pip fzf \
   binutils make gcc pkg-config fakeroot playerctl brightnessctl \
   docker docker-compose xorg xorg-xinit bluez bluez-utils \
   pipewire pipewire-alsa pipewire-pulse pavucontrol \
-  rofi python-dbus openssh telegram-desktop cifs-utils ntfs-3g kitty
+  rofi python-dbus openssh telegram-desktop cifs-utils ntfs-3g kitty \
+  shfmt
 
 # TODO: Comprobar grafica
 

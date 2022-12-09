@@ -12,7 +12,7 @@ cd ~
 # ==== TMUX PLUGINS INSTALL =====
 git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 # ==== COMPOSER GLOBAL DEPENDENCIES =====
-composer global require squizlabs/php_codesniffer
+composer global require squizlabs/php_codesniffer friendsoftwig/twigcs
 # ==== PYTHON DEPS =====
 python3 -m pip install --user --upgrade dbus-next psutil pynvim jedi dbgp pylint pep8 jedi-language-server flake8 mypy
 
@@ -52,9 +52,5 @@ yay -Sy --noconfirm nerd-fonts-ubuntu-mono nerd-fonts-fantasque-sans-mono zsh-sy
 #Kitty-themes
 git clone --depth 1 https://github.com/dexpota/kitty-themes.git ~/.config/kitty/kitty-themes
 
-# NVIM
-nvim +':PlugInstall --sync' +qa
-
 echo "Remember to close this console session and run p10k configure"
-
 sudo systemctl enable ly.service
