@@ -15,7 +15,7 @@ echo 'Server = https://repo.archlinuxcn.org/$arch' >> /etc/pacman.conf
 
 echo "Instaling minimun deps..."
 pacman -Sy --noconfirm && pacman -S --noconfirm archlinuxcn-keyring
-pacman-key --init && pacman-key --populate archlinux
+pacman-key --init && pacman-key --populate archlinux archlinuxcn
 pacman -Syu --noconfirm zsh composer sudo lsd tmux nodejs npm python-pip fzf \
   powerline powerline-fonts qtile ranger mycli flameshot alacritty \
   ctags wget curl nerd-fonts dunst firefox chromium keepassxc volumeicon \
@@ -23,7 +23,7 @@ pacman -Syu --noconfirm zsh composer sudo lsd tmux nodejs npm python-pip fzf \
   docker docker-compose xorg xorg-xinit bluez bluez-utils \
   pipewire pipewire-alsa pipewire-pulse pavucontrol \
   rofi python-dbus openssh telegram-desktop cifs-utils ntfs-3g kitty \
-  shfmt
+  shfmt vlc
 
 # TODO: Comprobar grafica
 
