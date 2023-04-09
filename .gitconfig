@@ -3,3 +3,5 @@
 [user]
 	email = xan.bellon@gmail.com
 	name = Xan Bellón
+[init]
+	defaultBranch = main
