@@ -9,6 +9,7 @@ configs.setup({
     "c",
     "css",
     "dockerfile",
+    "go",
     "html",
     "java",
     "javascript",

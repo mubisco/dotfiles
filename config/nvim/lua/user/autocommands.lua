@@ -5,7 +5,7 @@ vim.cmd [[
   augroup end
 ]]
 
-vim.cmd([[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]])
+-- vim.cmd([[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]])
 
 vim.cmd [[
   augroup _custom_filetypes
