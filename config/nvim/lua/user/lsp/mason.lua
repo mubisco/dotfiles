@@ -9,7 +9,7 @@ local servers = {
   "volar",
   "dockerls",
   "yamlls",
-  "sqls",
+  "sqlls",
   -- "cssls",
   -- "docker??",
   -- "git??",
