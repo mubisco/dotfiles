@@ -47,7 +47,7 @@ require("dapui").setup({
         "stacks",
         "watches",
       },
-      size = 40, -- 40 columns
+      size = 80, -- 40 columns
       position = "left",
     },
     {

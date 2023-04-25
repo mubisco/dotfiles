@@ -9,7 +9,7 @@ fi
 export PATH=$HOME/go/bin:$HOME/.local/bin:$HOME/.config/composer/vendor/bin:$HOME/.symfony/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/mubisco/.oh-my-zsh"
+export ZSH="/home/xbellon/.oh-my-zsh"
 
 export EDITOR="nvim"
 
@@ -108,39 +108,6 @@ export LANG=en_US.UTF-8
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-#alias zshconfig="nvim ~/.zshrc"
-#alias vimconfig="nvim ~/.config/nvim/init.vim"
-#alias ohmyzsh="nvim ~/.oh-my-zsh"
-#alias cfgreload="source ~/.zshrc"
-#alias sf="symfony"
-#alias sfc="symfony console"
-#alias scc="symfony console cache:clear"
-#alias sft="php bin/phpunit"
-#alias sftu="php bin/phpunit tests/unit"
-#alias ll="lsd -l"
-#alias ls="lsd"
-#alias la="lsd -la"
-#alias rfd="rofi -show drun -show-icons"
-#alias rfw="rofi -show window -show-icons"
-#alias rff="rofi -show file-browser -show-icons"
-#alias mntxorfor="sudo mount.cifs -v -o credentials=/etc/credentials,dir_mode=0755,file_mode=0664,uid=1000,gid=1000 //192.168.0.19/xorfor_files /home/mubisco/Projects/Bahia/Xorfor/xorfor_files_win"
-#alias umnt="sudo umount /home/mubisco/Projects/Bahia/Xorfor/xorfor_files_win"
-#alias gfdir="cd /home/mubisco/Projects/Getlife"
-#alias monorepo="cd /home/mubisco/Projects/Getlife/monorepo"
-#alias gfdev="ssh aitor_getlife_es@app.dev.getlife.es"
-#alias gftest="gcloud compute ssh kube-1 --zone 'europe-west1-b'"
-#alias gfprod="gcloud compute ssh api-1 --zone 'europe-west1-b'"
-#alias wpprod="gcloud compute ssh wordpress-1-vm --zone 'europe-west4-a'"
-#alias scptest="scp -i /home/mubisco/.ssh/google_compute_engine"
-#alias gfdemo="ssh aitor_getlife_es@app.demo.getlife.es"
-#alias gfkube="ssh aitor_getlife_es@kube.getlife.es"
-#alias gfscrapper="ssh aitor_getlife_es@scrapper.getlife.es"
-#alias gfdbd="mycli -d getlife_docker"
-#alias gfdbl="mycli -d getlife_local"
-#alias gfbundles="rm -rf vendor/getlife/ && composer run update-bundles"
-#alias gfapibal='gcloud compute ssh --zone "europe-west1-b" "new-api-bal-1"  --project "central-octane-307111"'
-#alias gfapibal2='gcloud compute ssh --zone "europe-west1-b" "api-bal-2"  --project "central-octane-307111"'
-#alias gfbalancer='gcloud compute ssh --zone "europe-west1-b" "balancer-1"  --project "central-octane-307111"'
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -148,3 +115,10 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/xbellon/apps/google-cloud-sdk/path.zsh.inc' ]; then . '/home/xbellon/apps/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/xbellon/apps/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/xbellon/apps/google-cloud-sdk/completion.zsh.inc'; fi
+source <(kubectl completion zsh)

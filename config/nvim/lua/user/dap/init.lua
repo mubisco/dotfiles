@@ -9,18 +9,17 @@ require('user.dap.ui')
 dap.adapters.php = {
   type = 'executable',
   command = 'node',
-  args = { '/home/mubisco/.local/share/vscode-php-debug/out/phpDebug.js' }
+  args = { os.getenv('HOME')..'/.local/share/vscode-php-debug/out/phpDebug.js' }
 }
-
-local mappings = {}
-mappings['/home/developer/app'] = '/home/mubisco/Projects/rm-manager/back'
 
 dap.configurations.php = {
   {
     type = 'php',
     request = 'launch',
-    name = 'Listen for Xdebug',
-    pathMappings = mappings,
+    name = 'Gf Backend Xdebug',
+    pathMappings = {
+      ["/app"] = "${workspaceFolder}"
+    },
     port = 9003
   }
 }

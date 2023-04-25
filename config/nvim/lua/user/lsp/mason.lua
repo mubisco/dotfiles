@@ -7,15 +7,14 @@ local servers = {
   "gopls",
   "vimls",
   "volar",
+  "html",
   "dockerls",
   "yamlls",
   "sqlls",
+  "phpactor"
   -- "cssls",
-  -- "docker??",
   -- "git??",
-  -- "html",
   -- "pyright",
-  -- "tsserver",
 }
 
 local settings = {
