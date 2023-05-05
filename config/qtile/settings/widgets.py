@@ -27,9 +27,9 @@ def icon(fg='text', bg='dark', fontsize=16, text="?"):
 def powerline(fg="light", bg="dark"):
     return widget.TextBox(
         **base(fg, bg),
-        text="", # Icon: nf-oct-triangle_left
+        text="", # Icon: nf-oct-triangle_left
         fontsize=37,
-        padding=-3
+        padding=0
     )
 
 
@@ -39,7 +39,7 @@ def workspaces():
         widget.GroupBox(
             **base(fg='light'),
             font='UbuntuMono Nerd Font',
-            fontsize=19,
+            fontsize=14,
             margin_y=3,
             margin_x=0,
             padding_y=8,
@@ -97,7 +97,7 @@ primary_widgets = [
 
     powerline('color1', 'color2'),
 
-    icon(bg="color1", fontsize=17, text=' '), # Icon: nf-mdi-calendar_clock
+    icon(bg="color1", fontsize=14, text=' '), # Icon: nf-mdi-calendar_clock
 
     widget.Clock(**base(bg='color1'), format='%d/%m/%Y - %H:%M '),
 
@@ -152,7 +152,7 @@ tertiary_widgets = [
 ]
 
 widget_defaults = {
-    'font': 'UbuntuMono Nerd Font Bold',
+    'font': 'UbuntuMono Nerd Font',
     'fontsize': 14,
     'padding': 1,
 }
