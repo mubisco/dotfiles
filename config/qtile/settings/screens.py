@@ -16,7 +16,19 @@ def status_bar(widgets):
 
 BACKGROUND_PATH = '~/.config/qtile/themes/wallpapers/'
 additional_bacgrounds = ['/1APOHR.jpg', '/SVhb78h.jpg']
-random_backgrounds = ['d_and_d_logo.jpg', 'red_dragon.jpg', 'tiamat.jpg', 'd20_dice.jpg', 'mindflyer.jpg', 'dices.jpg', 'drizzt.jpg', 'dnd_1.jpg', 'dnd_2.jpg', 'dnd_3.jpg', 'dnd_4.jpg']
+random_backgrounds = [
+    'd_and_d_logo.jpg',
+    'red_dragon.jpg',
+    'tiamat.jpg',
+    'd20_dice.jpg',
+    'mindflyer.jpg',
+    'dices.jpg',
+    'drizzt.jpg',
+    'dnd_1.jpg',
+    'dnd_2.jpg',
+    'dnd_3.jpg',
+    'dnd_4.jpg'
+]
 selected_background = random.choice(random_backgrounds)
 additional_widgets = [secondary_widgets, tertiary_widgets]
 
