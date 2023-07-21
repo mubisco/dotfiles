@@ -5,6 +5,7 @@
 # Multimonitor support
 
 import subprocess
+import random
 from libqtile.config import Screen
 from libqtile import bar
 from libqtile.log_utils import logger
@@ -13,13 +14,15 @@ from .widgets import primary_widgets, secondary_widgets, tertiary_widgets
 def status_bar(widgets):
     return bar.Bar(widgets, 24, opacity=0.92)
 
-BACKGROUND_PATH = '~/.config/qtile/themes/wallpapers'
+BACKGROUND_PATH = '~/.config/qtile/themes/wallpapers/'
 additional_bacgrounds = ['/1APOHR.jpg', '/SVhb78h.jpg']
+random_backgrounds = ['d_and_d_logo.jpg', 'red_dragon.jpg', 'tiamat.jpg', 'd20_dice.jpg', 'mindflyer.jpg', 'dices.jpg', 'drizzt.jpg', 'dnd_1.jpg', 'dnd_2.jpg', 'dnd_3.jpg', 'dnd_4.jpg']
+selected_background = random.choice(random_backgrounds)
 additional_widgets = [secondary_widgets, tertiary_widgets]
 
 screens = [Screen(
     top=status_bar(primary_widgets),
-    wallpaper=BACKGROUND_PATH + '/119851.jpg',
+    wallpaper=BACKGROUND_PATH + selected_background,
     wallpaper_mode='stretch'
 )]
 

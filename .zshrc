@@ -1,15 +1,15 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# fi
 
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/go/bin:$HOME/.local/bin:$HOME/.config/composer/vendor/bin:$HOME/.symfony/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/xbellon/.oh-my-zsh"
+export ZSH="/home/mubisco/.oh-my-zsh"
 
 export EDITOR="nvim"
 
@@ -117,8 +117,8 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/xbellon/apps/google-cloud-sdk/path.zsh.inc' ]; then . '/home/xbellon/apps/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/home/mubisco/apps/google-cloud-sdk/path.zsh.inc' ]; then . '/home/mubisco/apps/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/home/xbellon/apps/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/xbellon/apps/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '/home/mubisco/apps/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/mubisco/apps/google-cloud-sdk/completion.zsh.inc'; fi
 source <(kubectl completion zsh)
