@@ -68,14 +68,15 @@ primary_widgets = [
 
     separator(),
 
+    widget.CPUGraph(**base(bg='dark'), type='box'),
+    widget.MemoryGraph(**base(bg='dark')),
+
     powerline('color4', 'dark'),
+    icon(bg="color4", text=' '), # Icon: nf-fa-download
+    widget.ThermalSensor(**base(bg='color4')),
 
-    icon(bg="color4", text=' '), # Icon: nf-fa-volume_off
-
-    widget.PulseVolume(
-        **base(bg='color4'),
-        fmt='Vol: {}'
-    ),
+    icon(bg="color4", text='  '), # Icon: nf-fa-download
+    widget.NvidiaSensors(**base(bg='color4')),
 
     powerline('color3', 'color4'),
 
@@ -103,6 +104,12 @@ primary_widgets = [
 
     powerline('dark', 'color1'),
 
+    icon(bg="dark", fg='light', text=' '), # Icon: nf-fa-volume_off
+
+    widget.PulseVolume(
+        **base(bg='dark', fg='light'),
+        fmt='{}',
+    ),
     widget.Systray(background=colors['dark'], padding=5),
 ]
 
@@ -111,12 +118,13 @@ secondary_widgets = [
 
     separator(),
 
-    powerline('color3', 'dark'),
+    powerline('color4', 'dark'),
 
-    icon(bg="color3", text=' '), # Icon: nf-fa-download
-
+    icon(bg="color4", text=' '), # Icon: nf-fa-download
     widget.ThermalSensor(**base(bg='color3')),
 
+    powerline('color3', 'dark'),
+    icon(bg="color3", text=' '), # Icon: nf-fa-download
     widget.NvidiaSensors(**base(bg='color3')),
 
     powerline('color1', 'color3'),
@@ -136,7 +144,6 @@ tertiary_widgets = [
     *workspaces(),
 
     separator(),
-
 
     powerline('color1', 'dark'),
 
