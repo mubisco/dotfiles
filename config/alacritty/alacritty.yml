@@ -111,16 +111,16 @@
 font:
   # Normal (roman) font face
   normal:
-    family: FantasqueSansMono Nerd Font Mono
+    family: FantasqueSansM Nerd Font Mono
     style: Regular
   bold:
-    family: FantasqueSansMono Nerd Font Mono
+    family: FantasqueSansM Nerd Font Mono
     style: Bold
   italic:
-    family: FantasqueSansMono Nerd Font Mono
+    family: FantasqueSansM Nerd Font Mono
     style: Italic
   bold_italic:
-    family: FantasqueSansMono Nerd Font Mono
+    family: FantasqueSansM Nerd Font Mono
     style: Bold Italic
   size: 10
 

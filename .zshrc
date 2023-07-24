@@ -122,3 +122,4 @@ if [ -f '/home/xbellon/apps/google-cloud-sdk/path.zsh.inc' ]; then . '/home/xbel
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/xbellon/apps/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/xbellon/apps/google-cloud-sdk/completion.zsh.inc'; fi
 source <(kubectl completion zsh)
+eval "$(zoxide init zsh)"
