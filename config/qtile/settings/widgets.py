@@ -75,8 +75,8 @@ primary_widgets = [
     icon(bg="color4", text=' '), # Icon: nf-fa-download
     widget.ThermalSensor(**base(bg='color4')),
 
-    icon(bg="color4", text='  '), # Icon: nf-fa-download
-    widget.NvidiaSensors(**base(bg='color4')),
+    # icon(bg="color4", text='  '), # Icon: nf-fa-download
+    # widget.NvidiaSensors(**base(bg='color4')),
 
     powerline('color3', 'color4'),
 

@@ -9,6 +9,6 @@ setxkbmap -layout us -variant altgr-intl
 #xrandr --output eDP1 --auto --output HDMI1 --auto --right-of eDP1
 
 # systray volume
-volumeicon &
+# volumeicon &
 
 # cbatticon -u 300 &
