@@ -1,6 +1,7 @@
 from libqtile import widget
 from .theme import colors
 from libqtile import qtile
+from spotify import Spotify
 
 # Get the icons at https://www.nerdfonts.com/cheat-sheet (you need a Nerd Font)
 
@@ -68,19 +69,21 @@ primary_widgets = [
 
     separator(),
 
-    widget.CPUGraph(**base(bg='dark'), type='box'),
-    widget.MemoryGraph(**base(bg='dark')),
+    Spotify(background='#292d3e', play_icon=' ', pause_icon='󰏤 '),
 
     powerline('color4', 'dark'),
     icon(bg="color4", text=' '), # Icon: nf-fa-download
-    widget.ThermalSensor(**base(bg='color4')),
+    widget.CPU(**base(bg='color4'), format='{load_percent}%', update_interval=10),
+    widget.ThermalSensor(**base(bg='color4'), format=' {temp:.0f}{unit}'),
 
-    icon(bg="color4", text='  '), # Icon: nf-fa-download
+    icon(bg="color4", text=' 󰍛 '),
+    widget.Memory(**base(bg='color4'), measure_mem='G', format='{MemUsed:.0f}/{MemTotal:.0f}{mm}'),
+    icon(bg="color4", text='  '),
     widget.NvidiaSensors(**base(bg='color4')),
 
     powerline('color3', 'color4'),
 
-    icon(bg="color3", text=' '),  # Icon: nf-fa-feed
+    icon(bg="color3", text=' '),
 
     widget.Bluetooth(
         **base(bg='color3'),
