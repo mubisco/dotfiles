@@ -1,9 +1,13 @@
+local ls = require("luasnip")
+local s = ls.snippet
+local fmta = require("luasnip.extras.fmt").fmta
+local f = ls.function_node
+local fmt = require("luasnip.extras.fmt").fmt
+local i = ls.insert_node
+
 local function snakeize(args, parent)
   return string.lower(string.gsub(args[1][1], "%u", "_%1"))
 end
-
--- local placeholderMap = { i(1, "expected"), i(2, "actual") }
--- local singlePlaceholderMap = { i(1, "actual") }
 
 return {
   s(
