@@ -77,6 +77,7 @@ return packer.startup(function(use)
   use "williamboman/mason.nvim" -- simple to use language server installer
   use "williamboman/mason-lspconfig.nvim"
   use { "jose-elias-alvarez/null-ls.nvim" }
+  use { "jose-elias-alvarez/nvim-lsp-ts-utils"}
   use { "RRethy/vim-illuminate" }
 
   -- Git
