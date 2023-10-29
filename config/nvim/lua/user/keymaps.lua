@@ -86,6 +86,15 @@ keymap("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", opts)
 keymap("n", "<F12>", ":ToggleTerm <CR>", opts)
 keymap("n", "<leader>g", ":lua _LAZYGIT_TOGGLE()<CR>", opts)
 
+-- Neotest
+keymap("n", "<leader>tr", "<cmd>TextCaseOpenTelescope<cr>", opts)
+keymap("n", "<leader>to", "<esc><cmd>lua require('neotest').output_panel.open()<cr>", opts)
+keymap("n", "<leader>tc", "<esc><cmd>lua require('neotest').output_panel.close()<cr>", opts)
+keymap("n", "<leader>te", "<esc><cmd>lua require('neotest').run.run(vim.fn.expand('%'))<cr>", opts)
+keymap("n", "<leader>tm", "<esc><cmd>lua require('neotest').run.run()<cr>", opts)
+-- To test a directory run lua require("neotest").run.run("path/to/directory")
+-- To test the full test suite run lua require("neotest").run.run({ suite = true })
+
 -- Phpactor
 -- keymap("n", "<leader>cc", ":call phpactor#ClassNew()<CR>", opts) -- Generate a new class (replacing the current file)
 -- keymap("n", "<leader>u", ":call phpactor#UseAdd()<CR>", opts) -- Include use statement
@@ -113,6 +122,3 @@ keymap("n", "<leader>g", ":lua _LAZYGIT_TOGGLE()<CR>", opts)
 -- "nmap <Leader>fv :vnew<CR>:Files<CR>
 -- "nmap <Leader>fh :new<CR>:Files<CR>
 -- "nmap <Leader>ft :tabnew<CR>:Files<CR>
-
--- " Shortcut  for ALEFix
--- nmap  <Leader>af :ALEFix

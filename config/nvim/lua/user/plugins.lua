@@ -99,6 +99,18 @@ return packer.startup(function(use)
   use {'theHamsta/nvim-dap-virtual-text'}
   use {"rcarriga/nvim-dap-ui"}
 
+  -- Tests
+  use {
+    "nvim-neotest/neotest",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "antoinemadec/FixCursorHold.nvim",
+      "olimorris/neotest-phpunit",
+      "marilari88/neotest-vitest"
+    }
+  }
+
   -- Colorschemes
   use "lunarvim/colorschemes"
   use { "folke/tokyonight.nvim" }
