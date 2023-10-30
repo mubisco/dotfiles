@@ -86,6 +86,15 @@ keymap("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", opts)
 keymap("n", "<F12>", ":ToggleTerm <CR>", opts)
 keymap("n", "<leader>g", ":lua _LAZYGIT_TOGGLE()<CR>", opts)
 
+-- Neotest
+keymap("n", "<leader>tr", "<cmd>TextCaseOpenTelescope<cr>", opts)
+keymap("n", "<leader>to", "<esc><cmd>lua require('neotest').output_panel.open()<cr>", opts)
+keymap("n", "<leader>tc", "<esc><cmd>lua require('neotest').output_panel.close()<cr>", opts)
+keymap("n", "<leader>te", "<esc><cmd>lua require('neotest').run.run(vim.fn.expand('%'))<cr>", opts)
+keymap("n", "<leader>tm", "<esc><cmd>lua require('neotest').run.run()<cr>", opts)
+-- To test a directory run lua require("neotest").run.run("path/to/directory")
+-- To test the full test suite run lua require("neotest").run.run({ suite = true })
+
 -- Phpactor
 -- keymap("n", "<leader>cc", ":call phpactor#ClassNew()<CR>", opts) -- Generate a new class (replacing the current file)
 keymap("n", "<leader>u", ":call phpactor#UseAdd()<CR>", opts) -- Include use statement
@@ -96,7 +105,7 @@ keymap("n", "<leader>nn", ":call phpactor#Navigate()<CR>", opts) -- Invoke the n
 -- keymap("n", "<leader>oh", "<cmd>PhpactorGotoDefinition split<CR>", opts) -- Goto definition in horizontal split
 -- keymap("n", "<leader>ff", ":call phpactor#FindReferences()<CR>", opts) -- Extract expression (normal mode)
 -- keymap("n", "<leader>im", ":call phpactor#GotoImplementations()<CR>", opts)
--- -- keymap("n", "<leader>k", ":call phpactor#Hover()<CR>", opts) -- Show brief information about the symbol under the cursor
+-- keymap("n", "<leader>k", ":call phpactor#Hover()<CR>", opts) -- Show brief information about the symbol under the cursor
 -- keymap("n", "<leader>tt", ":call phpactor#Transform()<CR>", opts) -- Transform the classes in the current file
 keymap("n", "<leader>ee", ":call phpactor#ExtractExpression()<CR>", opts) -- Extract expression (normal mode)
 keymap("v", "<leader>ee", ":call phpactor#ExtractExpression(v:true)<CR>", opts) -- Extract expression (visual mode)
@@ -113,6 +122,3 @@ keymap("v", "<leader>ec", ":call <C-u>PhpactorExtractConstant<CR>", opts) -- Ext
 -- "nmap <Leader>fv :vnew<CR>:Files<CR>
 -- "nmap <Leader>fh :new<CR>:Files<CR>
 -- "nmap <Leader>ft :tabnew<CR>:Files<CR>
-
--- " Shortcut  for ALEFix
--- nmap  <Leader>af :ALEFix

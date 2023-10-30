@@ -77,6 +77,7 @@ return packer.startup(function(use)
   use "williamboman/mason.nvim" -- simple to use language server installer
   use "williamboman/mason-lspconfig.nvim"
   use { "jose-elias-alvarez/null-ls.nvim" }
+  use { "jose-elias-alvarez/nvim-lsp-ts-utils"}
   use { "RRethy/vim-illuminate" }
 
   -- Git
@@ -97,6 +98,18 @@ return packer.startup(function(use)
   use {'mfussenegger/nvim-dap'}
   use {'theHamsta/nvim-dap-virtual-text'}
   use {"rcarriga/nvim-dap-ui"}
+
+  -- Tests
+  use {
+    "nvim-neotest/neotest",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "antoinemadec/FixCursorHold.nvim",
+      "olimorris/neotest-phpunit",
+      "marilari88/neotest-vitest"
+    }
+  }
 
   -- Colorschemes
   use "lunarvim/colorschemes"
