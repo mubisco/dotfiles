@@ -11,6 +11,7 @@ configs.setup({
     "dockerfile",
     "go",
     "html",
+    "http",
     "java",
     "javascript",
     "json",

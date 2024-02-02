@@ -122,3 +122,8 @@ keymap("v", "<leader>ec", ":call <C-u>PhpactorExtractConstant<CR>", opts) -- Ext
 -- "nmap <Leader>fv :vnew<CR>:Files<CR>
 -- "nmap <Leader>fh :new<CR>:Files<CR>
 -- "nmap <Leader>ft :tabnew<CR>:Files<CR>
+--
+-- Rest Nvim
+keymap("n", "<leader>rr", "<cmd>lua require('rest-nvim').run()<cr>", opts)
+keymap("n", "<leader>rl", "<cmd>lua require('rest-nvim').last()<cr>", opts)
+keymap("n", "<leader>rt", "<cmd>lua require('rest-nvim').run(true)<cr>", opts)

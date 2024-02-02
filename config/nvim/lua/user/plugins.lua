@@ -44,6 +44,7 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim" -- Useful lua functions used by lots of plugins
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
   use { "phpactor/phpactor", run = "composer install", ft = "php"}
+  use { "rest-nvim/rest.nvim", requires = {"nvim-lua/plenary.nvim"} }
   use { "numToStr/Comment.nvim" }
   use { "JoosepAlviste/nvim-ts-context-commentstring" }
   use { "kyazdani42/nvim-web-devicons" }
@@ -107,6 +108,7 @@ return packer.startup(function(use)
       "nvim-treesitter/nvim-treesitter",
       "antoinemadec/FixCursorHold.nvim",
       "olimorris/neotest-phpunit",
+      "nvim-neotest/neotest-go",
       "marilari88/neotest-vitest"
     }
   }

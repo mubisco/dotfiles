@@ -24,6 +24,48 @@ dap.configurations.php = {
   }
 }
 
+-- dap.adapters.delve = {
+--   type = 'server',
+--   port = '${port}',
+--   executable = {
+--     command = 'dlv',
+--     args = {'dap', '-l', '127.0.0.1:${port}'},
+--   }
+-- }
+
+-- https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation#go
+dap.adapters.delve = {
+  type = "server",
+  host = "127.0.0.1",
+  port = 38697,
+}
+-- dlv dap -l 127.0.0.1:38697 --log --log-output="dap"
+
+-- https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_dap.md
+dap.configurations.go = {
+  {
+    type = "delve",
+    name = "Debug",
+    request = "launch",
+    program = "${file}"
+  },
+  {
+    type = "delve",
+    name = "Debug test", -- configuration for debugging test files
+    request = "launch",
+    mode = "test",
+    program = "${file}"
+  },
+  -- works with go.mod packages and sub packages 
+  {
+    type = "delve",
+    name = "Debug test (go.mod)",
+    request = "launch",
+    mode = "test",
+    program = "./${relativeFileDirname}"
+  }
+}
+
 local keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
