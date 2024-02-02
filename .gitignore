@@ -4,3 +4,4 @@ config/tmux/plugins
 config/kitty/kitty-themes
 config/kitty/theme.conf
 config/nvim/plugin/*
+config/alacritty/themes/*
