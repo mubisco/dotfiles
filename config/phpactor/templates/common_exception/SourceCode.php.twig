@@ -1,0 +1,11 @@
+<?php
+
+namespace {{ prototype.namespace }};
+
+use Exception;
+
+{% for class in prototype.classes %}
+class {{ class.name }} extends Exception
+{
+}
+{% endfor %}
