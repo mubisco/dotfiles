@@ -116,6 +116,7 @@ return packer.startup(function(use)
   -- Colorschemes
   use "lunarvim/colorschemes"
   use { "folke/tokyonight.nvim" }
+  use { "loctvl842/monokai-pro.nvim" }
   -- use 'k4yt3x/ayu-vim-darker'
   use 'Siphalor/vim-atomified'
   -- use 'tomasiser/vim-code-dark'
