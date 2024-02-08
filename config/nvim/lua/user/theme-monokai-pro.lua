@@ -12,7 +12,7 @@ require("monokai-pro").setup({
     annotation = { italic = true },
     tag_attribute = { italic = true }, -- attribute of tag in reactjs
   },
-  filter = "machine", -- classic | octagon | pro | machine | ristretto | spectrum
+  filter = "pro", -- classic | octagon | pro | machine | ristretto | spectrum
   -- Enable this will disable filter option
   day_night = {
     enable = false, -- turn off by default
