@@ -6,10 +6,10 @@
 # fi
 
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/go/bin:$HOME/.local/bin:$HOME/.config/composer/vendor/bin:$HOME/.symfony/bin:$PATH
+export PATH=$HOME/apps/google-cloud-sdk/bin:$HOME/go/bin:$HOME/.local/bin:$HOME/.config/composer/vendor/bin:$HOME/.symfony/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/mubisco/.oh-my-zsh"
+export ZSH="/home/xbellon/.oh-my-zsh"
 
 export EDITOR="nvim"
 
@@ -122,3 +122,4 @@ if [ -f '/home/mubisco/apps/google-cloud-sdk/path.zsh.inc' ]; then . '/home/mubi
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/mubisco/apps/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/mubisco/apps/google-cloud-sdk/completion.zsh.inc'; fi
 source <(kubectl completion zsh)
+eval "$(zoxide init zsh)"

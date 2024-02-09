@@ -97,9 +97,9 @@ keymap("n", "<leader>tm", "<esc><cmd>lua require('neotest').run.run()<cr>", opts
 
 -- Phpactor
 -- keymap("n", "<leader>cc", ":call phpactor#ClassNew()<CR>", opts) -- Generate a new class (replacing the current file)
--- keymap("n", "<leader>u", ":call phpactor#UseAdd()<CR>", opts) -- Include use statement
--- keymap("n", "<leader>mm", ":call phpactor#ContextMenu()<CR>", opts) -- Invoke the context menu
--- keymap("n", "<leader>nn", ":call phpactor#Navigate()<CR>", opts) -- Invoke the navigation menu
+keymap("n", "<leader>u", ":call phpactor#UseAdd()<CR>", opts) -- Include use statement
+keymap("n", "<leader>mm", ":call phpactor#ContextMenu()<CR>", opts) -- Invoke the context menu
+keymap("n", "<leader>nn", ":call phpactor#Navigate()<CR>", opts) -- Invoke the navigation menu
 -- keymap("n", "<leader>o", ":call phpactor#GotoDefinition()<CR>", opts) -- Goto definition of class or class member under the cursor
 -- keymap("n", "<leader>ov", "<cmd>PhpactorGotoDefinition vsplit<CR>", opts) -- Goto definition in vertical split
 -- keymap("n", "<leader>oh", "<cmd>PhpactorGotoDefinition split<CR>", opts) -- Goto definition in horizontal split
@@ -107,10 +107,10 @@ keymap("n", "<leader>tm", "<esc><cmd>lua require('neotest').run.run()<cr>", opts
 -- keymap("n", "<leader>im", ":call phpactor#GotoImplementations()<CR>", opts)
 -- keymap("n", "<leader>k", ":call phpactor#Hover()<CR>", opts) -- Show brief information about the symbol under the cursor
 -- keymap("n", "<leader>tt", ":call phpactor#Transform()<CR>", opts) -- Transform the classes in the current file
--- keymap("n", "<leader>ee", ":call phpactor#ExtractExpression()<CR>", opts) -- Extract expression (normal mode)
--- keymap("v", "<leader>ee", ":call phpactor#ExtractExpression(v:true)<CR>", opts) -- Extract expression (visual mode)
--- keymap("v", "<leader>em", ":call <C-u>PhpactorExtractMethod<CR>", opts) -- Extract method (visual mode)
--- keymap("v", "<leader>ec", ":call <C-u>PhpactorExtractConstant<CR>", opts) -- Extract method (visual mode)
+keymap("n", "<leader>ee", ":call phpactor#ExtractExpression()<CR>", opts) -- Extract expression (normal mode)
+keymap("v", "<leader>ee", ":call phpactor#ExtractExpression(v:true)<CR>", opts) -- Extract expression (visual mode)
+keymap("v", "<leader>em", ":call <C-u>PhpactorExtractMethod<CR>", opts) -- Extract method (visual mode)
+keymap("v", "<leader>ec", ":call <C-u>PhpactorExtractConstant<CR>", opts) -- Extract method (visual mode)
 
 -- -------------------------------------------------------------------------------
 -- nmap <S-F4> :execute "silent grep! -R " . expand("<cword>") . " ./**" <Bar> cw<CR>

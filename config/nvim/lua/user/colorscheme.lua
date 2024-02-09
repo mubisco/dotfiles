@@ -8,10 +8,13 @@
 -- vim.g.jellybeans_use_term_italics = 1
 
 -- Sonokai
-local colorscheme = "sonokai"
-vim.g.sonokai_style = "espresso"
-vim.g.sonokai_enable_italic = 1
+-- local colorscheme = "sonokai"
+-- vim.g.sonokai_style = "espresso"
+-- vim.g.sonokai_enable_italic = 1
 -- local colorscheme = "darkplus"
+--
+-- Monokai Pro
+local colorscheme = "monokai-pro"
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then

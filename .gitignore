@@ -4,4 +4,8 @@ config/tmux/plugins
 config/kitty/kitty-themes
 config/kitty/theme.conf
 config/nvim/plugin/*
+<<<<<<< HEAD
 config/alacritty/themes
+=======
+config/alacritty/themes/*
+>>>>>>> chore/enable-monokai-pro

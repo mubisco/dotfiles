@@ -43,7 +43,7 @@ return packer.startup(function(use)
   use "wbthomason/packer.nvim" -- Have packer manage itself
   use "nvim-lua/plenary.nvim" -- Useful lua functions used by lots of plugins
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
-  -- use { "phpactor/phpactor", run = "composer install", ft = "php"}
+  use { "phpactor/phpactor", run = "composer install", ft = "php"}
   use { "rest-nvim/rest.nvim", requires = {"nvim-lua/plenary.nvim"} }
   use { "numToStr/Comment.nvim" }
   use { "JoosepAlviste/nvim-ts-context-commentstring" }
@@ -116,6 +116,7 @@ return packer.startup(function(use)
   -- Colorschemes
   use "lunarvim/colorschemes"
   use { "folke/tokyonight.nvim" }
+  use { "loctvl842/monokai-pro.nvim" }
   -- use 'k4yt3x/ayu-vim-darker'
   use 'Siphalor/vim-atomified'
   -- use 'tomasiser/vim-code-dark'

@@ -1,7 +1,7 @@
 [core]
 	excludesFile = ~/.config/.gitignore
 [user]
-	email = xan.bellon@gmail.com
+	email = xan@life5.com
 	name = Xan Bellón
 [init]
 	defaultBranch = main
