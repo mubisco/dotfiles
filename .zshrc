@@ -9,7 +9,7 @@
 export PATH=$HOME/apps/google-cloud-sdk/bin:$HOME/go/bin:$HOME/.local/bin:$HOME/.config/composer/vendor/bin:$HOME/.symfony/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/xbellon/.oh-my-zsh"
+export ZSH="/home/mubisco/.oh-my-zsh"
 
 export EDITOR="nvim"
 
