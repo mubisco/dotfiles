@@ -17,7 +17,7 @@ require("monokai-pro").setup({
   day_night = {
     enable = false, -- turn off by default
     day_filter = "pro", -- classic | octagon | pro | machine | ristretto | spectrum
-    night_filter = "spectrum", -- classic | octagon | pro | machine | ristretto | spectrum
+    night_filter = "machine", -- classic | octagon | pro | machine | ristretto | spectrum
   },
   inc_search = "background", -- underline | background
   background_clear = {
@@ -27,7 +27,7 @@ require("monokai-pro").setup({
     -- "which-key",
     "renamer",
     "notify",
-    -- "nvim-tree",
+    "nvim-tree",
     -- "neo-tree",
     -- "bufferline", -- better used if background of `neo-tree` or `nvim-tree` is cleared
   },-- "float_win", "toggleterm", "telescope", "which-key", "renamer", "neo-tree", "nvim-tree", "bufferline"
@@ -44,3 +44,6 @@ require("monokai-pro").setup({
   ---@param c Colorscheme
   override = function(c) end,
 })
+
+-- vim.cmd([[colorscheme monokai-pro]])
+-- colorscheme monokai-pro

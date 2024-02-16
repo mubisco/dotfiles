@@ -1,7 +1,7 @@
 ---
 code_transform.class_new.variants:
+  unit: phpunit_test
   final: final_class
   interface: common_interface
-  unit: phpunit_test
   exception: common_exception
 indexer.exclude_patterns: ["\/apps\/Admin\/var\/**\/*", "\/apps\/Customer\/var\/**\/*", "\/apps\/Broker\/var\/**\/*"]
