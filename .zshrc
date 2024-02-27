@@ -1,6 +1,13 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
 # if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
 #   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 # fi
@@ -122,4 +129,4 @@ if [ -f '/home/mubisco/apps/google-cloud-sdk/path.zsh.inc' ]; then . '/home/mubi
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/mubisco/apps/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/mubisco/apps/google-cloud-sdk/completion.zsh.inc'; fi
 source <(kubectl completion zsh)
-eval "$(zoxide init zsh)"
+# eval "$(zoxide init zsh)"

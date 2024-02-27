@@ -22,7 +22,7 @@
 # background = "0x2E3440"
 # foreground = "0xD8DEE9"
 
-import = ["~/.config/alacritty/themes/themes/carbonfox.toml"]
+import = ["~/.config/alacritty/themes/themes/smoooooth.toml"]
 
 [font]
 size = 10
