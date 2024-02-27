@@ -81,6 +81,7 @@ keymap("n", "<C-t>", "<cmd>Telescope live_grep<CR>", opts)
 
 -- NvimTree
 keymap("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", opts)
+keymap("n", "<leader>ef", "<cmd>NvimTreeFocus<CR>", opts)
 
 -- ToggleTerm
 keymap("n", "<F12>", ":ToggleTerm <CR>", opts)
@@ -97,7 +98,7 @@ keymap("n", "<leader>tm", "<esc><cmd>lua require('neotest').run.run()<cr>", opts
 
 -- Phpactor
 -- keymap("n", "<leader>cc", ":call phpactor#ClassNew()<CR>", opts) -- Generate a new class (replacing the current file)
-keymap("n", "<leader>u", ":call phpactor#UseAdd()<CR>", opts) -- Include use statement
+keymap("n", "<leader>pu", ":call phpactor#UseAdd()<CR>", opts) -- Include use statement
 keymap("n", "<leader>mm", ":call phpactor#ContextMenu()<CR>", opts) -- Invoke the context menu
 keymap("n", "<leader>nn", ":call phpactor#Navigate()<CR>", opts) -- Invoke the navigation menu
 -- keymap("n", "<leader>o", ":call phpactor#GotoDefinition()<CR>", opts) -- Goto definition of class or class member under the cursor

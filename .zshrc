@@ -9,7 +9,7 @@
 export PATH=$HOME/apps/google-cloud-sdk/bin:$HOME/go/bin:$HOME/.local/bin:$HOME/.config/composer/vendor/bin:$HOME/.symfony/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/mubisco/.oh-my-zsh"
+export ZSH="/home/xbellon/.oh-my-zsh"
 
 export EDITOR="nvim"
 
@@ -117,9 +117,9 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/mubisco/apps/google-cloud-sdk/path.zsh.inc' ]; then . '/home/mubisco/apps/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/home/xbellon/apps/google-cloud-sdk/path.zsh.inc' ]; then . '/home/xbellon/apps/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/home/mubisco/apps/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/mubisco/apps/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '/home/xbellon/apps/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/xbellon/apps/google-cloud-sdk/completion.zsh.inc'; fi
 source <(kubectl completion zsh)
-eval "$(zoxide init zsh)"
+# eval "$(zoxide init zsh)"

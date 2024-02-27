@@ -3,7 +3,6 @@ vim.g.loaded_netrwPlugin = 1
 
 require "user.options"
 require "user.keymaps"
--- require "user.nvim-tree"
 require "user.plugins"
 require "user.colorscheme"
 require "user.cmp"
@@ -20,3 +19,4 @@ require "user.autocommands"
 require "user.uuid"
 require "user.dap"
 require "user.neotest"
+require "user.theme-monokai-pro"

@@ -126,7 +126,7 @@ lazy.setup({
   -- Install telescope-media-files
 
   -- Treesitter
-  {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
+  {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate", lazy=false},
 
   -- Debugger
   'mfussenegger/nvim-dap',

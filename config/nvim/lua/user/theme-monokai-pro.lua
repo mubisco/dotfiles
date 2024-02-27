@@ -45,5 +45,5 @@ require("monokai-pro").setup({
   override = function(c) end,
 })
 
--- vim.cmd([[colorscheme monokai-pro]])
+vim.cmd([[colorscheme monokai-pro]])
 -- colorscheme monokai-pro
