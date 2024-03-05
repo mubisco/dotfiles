@@ -17,33 +17,37 @@ null_ls.setup({
     diagnostics.yamllint.with({
       extra_args = { "-d { extends: default, rules: {line-length: {max: 120}}}" }
     }),
-    diagnostics.psalm.with({
-      method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
-      extra_args = { "--config=.psalm-nvim.xml" },
-      condition = function(utils)
-        return utils.root_has_file({ ".psalm-nvim.xml" })
-      end,
-      timeout = 20000,
-      command = "./vendor/bin/psalm"
-    }),
+    -- diagnostics.psalm.with({
+      -- method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
+      -- extra_args = { "--config=.psalm-nvim.xml" },
+      -- condition = function(utils)
+        -- return utils.root_has_file({ ".psalm-nvim.xml" })
+      -- end,
+      -- timeout = 20000,
+      -- command = "./vendor/bin/psalm"
+    -- }),
     diagnostics.phpcs.with({
       extra_args = { "--standard=PSR12" }
     }),
     -- formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
-    code_actions.eslint,
+    -- code_actions.eslint,
     formatting.gofmt,
     -- formatting.gofumpt,
     formatting.goimports,
     diagnostics.staticcheck,
     -- diagnostics.revive,
+    diagnostics.zsh,
     diagnostics.golangci_lint,
+    diagnostics.npm_groovy_lint,
     diagnostics.semgrep.with({ filetypes = {"go"}, extra_args = { "--config=auto" }}),
-    formatting.json_tool,
-    diagnostics.eslint,
-    formatting.eslint,
-    formatting.xmllint,
+    -- formatting.json_tool,
+    -- diagnostics.eslint,
+    -- formatting.eslint,
+    -- formatting.xmllint,
     diagnostics.stylelint,
+    formatting.phpcbf,
     formatting.stylelint,
+    formatting.tidy,
     formatting.black.with({ extra_args = { "--fast" } }),
     formatting.stylua,
     formatting.yamlfmt,
