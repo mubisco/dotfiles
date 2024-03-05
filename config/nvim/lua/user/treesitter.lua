@@ -25,6 +25,7 @@ configs.setup({
     "scss",
     "sql",
     "tsx",
+    "twig",
     "typescript",
     "vim",
     "vue",
