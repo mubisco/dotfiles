@@ -89,7 +89,7 @@ primary_widgets = [
         **base(bg='color3'),
         hci='/dev_14_3F_A6_DB_18_E1',
         mouse_callbacks = {
-            'Button1': lambda : qtile.cmd_spawn("sh /home/mubisco/.config/qtile/bluetoothCtl.sh")
+            'Button1': lambda : qtile.cmd_spawn("sh ~/.config/qtile/bluetoothCtl.sh")
         }
     ),
 
