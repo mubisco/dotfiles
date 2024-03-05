@@ -22,7 +22,7 @@
 # background = "0x2E3440"
 # foreground = "0xD8DEE9"
 
-import = ["~/.config/alacritty/themes/themes/smoooooth.toml"]
+import = ["~/.config/alacritty/current.theme.toml"]
 
 [font]
 size = 10
