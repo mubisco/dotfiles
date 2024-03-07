@@ -121,26 +121,48 @@ secondary_widgets = [
 
     separator(),
 
+    Spotify(background='#292d3e', play_icon=' ', pause_icon='󰏤 '),
+
     powerline('color4', 'dark'),
-
     icon(bg="color4", text=' '), # Icon: nf-fa-download
-    widget.ThermalSensor(**base(bg='color3')),
+    widget.CPU(**base(bg='color4'), format='{load_percent}%', update_interval=10),
+    widget.ThermalSensor(**base(bg='color4'), format=' {temp:.0f}{unit}'),
 
-    powerline('color3', 'dark'),
-    icon(bg="color3", text=' '), # Icon: nf-fa-download
-    widget.NvidiaSensors(**base(bg='color3')),
+    icon(bg="color4", text=' 󰍛 '),
+    widget.Memory(**base(bg='color4'), measure_mem='G', format='{MemUsed:.0f}/{MemTotal:.0f}{mm}'),
+    icon(bg="color4", text='  '),
+    widget.NvidiaSensors(**base(bg='color4')),
 
-    powerline('color1', 'color3'),
+    powerline('color3', 'color4'),
 
-    widget.CurrentLayoutIcon(**base(bg='color1'), scale=0.65),
+    icon(bg="color3", text=' '),
 
-    widget.CurrentLayout(**base(bg='color1'), padding=5),
+    widget.Bluetooth(
+        **base(bg='color3'),
+        hci='/dev_14_3F_A6_DB_18_E1',
+        mouse_callbacks = {
+            'Button1': lambda : qtile.cmd_spawn("sh ~/.config/qtile/bluetoothCtl.sh")
+        }
+    ),
 
-    powerline('color2', 'color1'),
+    powerline('color2', 'color3'),
 
-    widget.Clock(**base(bg='color2'), format='%d/%m/%Y - %H:%M '),
+    widget.CurrentLayoutIcon(**base(bg='color2'), scale=0.65),
 
-    powerline('dark', 'color2'),
+    widget.CurrentLayout(**base(bg='color2'), padding=5),
+
+    powerline('color1', 'color2'),
+
+    icon(bg="color1", fontsize=14, text=' '), # Icon: nf-mdi-calendar_clock
+
+    widget.Clock(**base(bg='color1'), format='%d/%m/%Y - %H:%M '),
+
+    powerline('dark', 'color1'),
+
+    widget.Battery(
+        **base(bg='dark', fg='light'),
+        format='{percent:2.0%}'
+    ),
 ]
 
 tertiary_widgets = [
