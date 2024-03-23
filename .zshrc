@@ -125,8 +125,11 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '$HOME/apps/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/apps/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/opt/google-cloud-cli/path.zsh.inc' ]; then . '/opt/google-cloud-cli/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '$HOME/apps/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/apps/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '/opt/google-cloud-cli/completion.zsh.inc' ]; then . '/opt/google-cloud-cli/completion.zsh.inc'; fi
+
 source <(kubectl completion zsh)
 # eval "$(zoxide init zsh)"

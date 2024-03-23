@@ -42,6 +42,7 @@ lazy.setup({
   { "numToStr/Comment.nvim" },
   { "JoosepAlviste/nvim-ts-context-commentstring" },
   { "nvim-tree/nvim-web-devicons", lazy = false },
+  { "mubisco/idx.nvim", opts = { disableKeymaps = false } },
   {
     "nvim-tree/nvim-tree.lua",
     version = "*",
@@ -102,7 +103,7 @@ lazy.setup({
   { "moll/vim-bbye" },
   { "nvim-lualine/lualine.nvim" },
   { "akinsho/toggleterm.nvim" },
-  { "kburdett/vim-nuuid" }, -- Uuuid generator
+  -- { "kburdett/vim-nuuid" }, -- Uuuid generator
   { "chrisbra/csv.vim" }, -- Improve Csv visualization
   -- use { "ahmedkhalf/project.nvim", commit = "628de7e433dd503e782831fe150bb750e56e55d6" }
   -- use { "lewis6991/impatient.nvim", commit = "b842e16ecc1a700f62adb9802f8355b99b52a5a6" }
