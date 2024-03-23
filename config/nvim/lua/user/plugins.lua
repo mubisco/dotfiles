@@ -25,7 +25,20 @@ lazy.setup({
   "nvim-lua/plenary.nvim", -- Useful lua functions used by lots of plugins
   "windwp/nvim-autopairs", -- Autopairs, integrates with both cmp and treesitter
   { "phpactor/phpactor", build = "composer install", ft = "php"},
-  { "rest-nvim/rest.nvim", dependencies = {"nvim-lua/plenary.nvim"} },
+  -- { "rest-nvim/rest.nvim", dependencies = {"nvim-lua/plenary.nvim"} },
+  {
+    "vhyrro/luarocks.nvim",
+    priority = 1000,
+    config = true,
+  },
+  {
+    "rest-nvim/rest.nvim",
+    ft = "http",
+    dependencies = { "luarocks.nvim" },
+    config = function()
+      require("rest-nvim").setup()
+    end
+  },
   { "numToStr/Comment.nvim" },
   { "JoosepAlviste/nvim-ts-context-commentstring" },
   { "nvim-tree/nvim-web-devicons", lazy = false },
@@ -131,7 +144,7 @@ lazy.setup({
   -- Debugger
   'mfussenegger/nvim-dap',
   'theHamsta/nvim-dap-virtual-text',
-  "rcarriga/nvim-dap-ui",
+  {"rcarriga/nvim-dap-ui", dependencies={"nvim-neotest/nvim-nio"}},
 
   -- Tests
   {

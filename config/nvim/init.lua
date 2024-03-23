@@ -21,3 +21,7 @@ require "user.autocommands"
 require "user.uuid"
 require "user.dap"
 require "user.neotest"
+
+-- luarocks
+-- nvim-nio
+-- lua-curl
