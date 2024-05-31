@@ -27,8 +27,13 @@ null_ls.setup({
       -- command = "./vendor/bin/psalm"
     -- }),
     diagnostics.phpcs.with({
+      command = "./vendor/bin/phpcs",
       extra_args = { "--standard=PSR12" }
     }),
+    -- diagnostics.phpmd.with({
+    --   command = "./vendor/bin/phpmd",
+    --   extra_args = { "cleancode,codesize,controversial,design,naming,unusedcode" }
+    -- }),
     -- formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
     -- code_actions.eslint,
     formatting.gofmt,
