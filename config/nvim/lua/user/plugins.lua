@@ -31,14 +31,14 @@ lazy.setup({
     priority = 1000,
     config = true,
   },
-  {
-    "rest-nvim/rest.nvim",
-    ft = "http",
-    dependencies = { "luarocks.nvim" },
-    config = function()
-      require("rest-nvim").setup()
-    end
-  },
+  -- {
+  --   "rest-nvim/rest.nvim",
+  --   ft = "http",
+  --   dependencies = { "luarocks.nvim" },
+  --   config = function()
+  --     require("rest-nvim").setup()
+  --   end
+  -- },
   { "numToStr/Comment.nvim" },
   { "JoosepAlviste/nvim-ts-context-commentstring" },
   { "nvim-tree/nvim-web-devicons", lazy = false },
@@ -156,7 +156,8 @@ lazy.setup({
       "antoinemadec/FixCursorHold.nvim",
       "olimorris/neotest-phpunit",
       "nvim-neotest/neotest-go",
-      "marilari88/neotest-vitest"
+      "marilari88/neotest-vitest",
+      "nvim-neotest/neotest-jest"
     }
   },
 

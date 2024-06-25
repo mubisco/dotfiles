@@ -7,6 +7,7 @@ neotest.setup {
   adapters = {
     require("neotest-phpunit"),
     require("neotest-go"),
-    require("neotest-vitest")
+    require("neotest-vitest"),
+    require("neotest-jest")
   }
 }

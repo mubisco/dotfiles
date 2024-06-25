@@ -1,17 +1,18 @@
 local servers = {
   "bashls",
+  "dockerls",
+  "eslint",
+  "gopls",
+  "html",
   "intelephense",
   "jsonls",
   "lua_ls",
+  "phpactor",
+  "sqlls",
   "tsserver",
-  "gopls",
   "vimls",
   "volar",
-  "html",
-  "dockerls",
-  "yamlls",
-  "sqlls",
-  "phpactor"
+  "yamlls"
   -- "cssls",
   -- "git??",
   -- "pyright",
@@ -57,5 +58,23 @@ for _, server in pairs(servers) do
   end
 
   lspconfig[server].setup(opts)
-end
 
+
+end
+local mason_registry = require('mason-registry')
+local vue_language_server_path = mason_registry.get_package('vue-language-server'):get_install_path() .. '/node_modules/@vue/language-server'
+
+lspconfig.tsserver.setup {
+  on_attach = require("user.lsp.handlers").on_attach,
+  capabilities = require("user.lsp.handlers").capabilities,
+  init_options = {
+    plugins = {
+      {
+        name = '@vue/typescript-plugin',
+        location = vue_language_server_path,
+        languages = { 'vue' },
+      },
+    },
+  },
+  filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+}

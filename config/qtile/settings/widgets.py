@@ -87,10 +87,7 @@ primary_widgets = [
 
     widget.Bluetooth(
         **base(bg='color3'),
-        hci='/dev_14_3F_A6_DB_18_E1',
-        mouse_callbacks = {
-            'Button1': lambda : qtile.cmd_spawn("sh ~/.config/qtile/bluetoothCtl.sh")
-        }
+        device='/dev_14_3F_A6_DB_18_E1'
     ),
 
     powerline('color2', 'color3'),
@@ -139,10 +136,7 @@ secondary_widgets = [
 
     widget.Bluetooth(
         **base(bg='color3'),
-        hci='/dev_14_3F_A6_DB_18_E1',
-        mouse_callbacks = {
-            'Button1': lambda : qtile.cmd_spawn("sh ~/.config/qtile/bluetoothCtl.sh")
-        }
+        device='/dev_14_3F_A6_DB_18_E1',
     ),
 
     powerline('color2', 'color3'),
