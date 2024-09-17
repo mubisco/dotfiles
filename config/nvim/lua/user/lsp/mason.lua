@@ -9,7 +9,7 @@ local servers = {
   "lua_ls",
   "phpactor",
   "sqlls",
-  "tsserver",
+  "ts_ls",
   "vimls",
   "volar",
   "yamlls"
