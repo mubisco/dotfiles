@@ -1,4 +1,5 @@
 -- require 'user.override.user.plugins'
+require 'user.override.user.mapleader'
 require 'user.override.user.alpha'
 require 'user.override.user.harpoon'
 require 'user.override.user.luasnip'
