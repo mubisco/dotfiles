@@ -1,4 +1,4 @@
-function loadrequire(module)
+local function loadrequire(module)
     local function requiref(module)
         require(module)
     end
@@ -6,9 +6,6 @@ function loadrequire(module)
 end
 
 loadrequire("user.override.mapleader")
-vim.g.mapleader = " "
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
 
 require "user.options"
 require "user.keymaps"
