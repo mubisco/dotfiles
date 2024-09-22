@@ -35,6 +35,8 @@ null_ls.setup({
     --   extra_args = { "cleancode,codesize,controversial,design,naming,unusedcode" }
     -- }),
     -- formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
+    formatting.prettier,
+    -- formatting.prettierd,
     -- code_actions.eslint,
     formatting.gofmt,
     -- formatting.gofumpt,
