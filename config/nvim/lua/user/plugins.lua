@@ -103,11 +103,7 @@ lazy.setup({
   { "moll/vim-bbye" },
   { "nvim-lualine/lualine.nvim" },
   { "akinsho/toggleterm.nvim" },
-  -- { "kburdett/vim-nuuid" }, -- Uuuid generator
   { "chrisbra/csv.vim" }, -- Improve Csv visualization
-  -- use { "ahmedkhalf/project.nvim", commit = "628de7e433dd503e782831fe150bb750e56e55d6" }
-  -- use { "lewis6991/impatient.nvim", commit = "b842e16ecc1a700f62adb9802f8355b99b52a5a6" }
-  -- use { "lukas-reineke/indent-blankline.nvim", commit = "db7cbcb40cc00fc5d6074d7569fb37197705e7f6" }
   { "goolord/alpha-nvim" },
   {"folke/which-key.nvim"},
 
