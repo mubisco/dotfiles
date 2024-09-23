@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# rm -rf ~/.config/nvim
+rm -rf ~/.local/share/nvim
+rm ~/.config/nvim
+current_path=$(pwd)
+ln -s ${current_path} ~/.config/nvim
+git clone --depth 1 https://github.com/wbthomason/packer.nvim  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
+mkdir -p ~/.local/share/nvim/opt/phpactor/bin/
+phpactor_path=$(which phpactor)
+ln -s "${phpactor_path}"  ~/.local/share/nvim/opt/phpactor/bin/phpactor
+

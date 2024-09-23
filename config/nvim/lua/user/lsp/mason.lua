@@ -9,7 +9,7 @@ local servers = {
   "lua_ls",
   "phpactor",
   "sqlls",
-  "tsserver",
+  "ts_ls",
   "vimls",
   "volar",
   "yamlls"
@@ -64,7 +64,7 @@ end
 local mason_registry = require('mason-registry')
 local vue_language_server_path = mason_registry.get_package('vue-language-server'):get_install_path() .. '/node_modules/@vue/language-server'
 
-lspconfig.tsserver.setup {
+lspconfig.ts_ls.setup {
   on_attach = require("user.lsp.handlers").on_attach,
   capabilities = require("user.lsp.handlers").capabilities,
   init_options = {

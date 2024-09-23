@@ -8,6 +8,12 @@ local i = ls.insert_node
 local function snakeize(args, parent)
   return string.lower(string.gsub(args[1][1], "%u", "_%1"))
 end
+local namefile = function()
+  return f(function(_args, snip)
+    local name = vim.split(snip.snippet.env.TM_FILENAME, ".", true)
+    return name[1] or ""
+  end)
+end
 
 return {
   s(
@@ -37,6 +43,23 @@ return {
         }
       ]],
       { f(snakeize, {1}), i(1, "testName"), i(0) }
+    )
+  ),
+  s(
+    { trig = "__te", dscr = "Generic boilerplate for simple Php Unit Test" },
+    fmta(
+      [[
+        /**
+         * @test
+         * <>
+         * @group <>
+         */
+        public function <>(): void
+        {
+            <>
+        }
+      ]],
+      { f(snakeize, {1}), namefile(), i(1, "testName"), i(0) }
     )
   ),
   s({ trig = "asco"}, fmt("$this->assertCount({}, {})", { i(1, "expected"), i(2, "actual") })),
