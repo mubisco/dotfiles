@@ -126,9 +126,28 @@ lazy.setup({
   "nvimtools/none-ls.nvim",
   "jose-elias-alvarez/nvim-lsp-ts-utils",
   "RRethy/vim-illuminate",
+  "onsails/lspkind.nvim",
 
   -- Copilot
-  { 'github/copilot.vim' },
+  -- { 'github/copilot.vim' },
+  {
+    "zbirenbaum/copilot.lua",
+    lazy = true,
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({
+        suggestion = { enabled = false },
+        panel = { enabled = false },
+      })
+    end,
+  },
+  {
+    "zbirenbaum/copilot-cmp",
+    config = function ()
+      require("copilot_cmp").setup()
+    end
+  },
   {
     "CopilotC-Nvim/CopilotChat.nvim",
     opts = {

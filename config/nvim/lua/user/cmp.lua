@@ -7,6 +7,10 @@ local snip_status_ok, luasnip = pcall(require, "luasnip")
 if not snip_status_ok then
   return
 end
+local lspkind_status_ok, lspkind = pcall(require, "lspkind")
+if not lspkind_status_ok then
+  return
+end
 
 require("luasnip/loaders/from_vscode").lazy_load()
 require("luasnip.loaders.from_lua").lazy_load({paths = "~/.config/nvim/LuaSnip"})
@@ -45,7 +49,6 @@ local kind_icons = {
   TypeParameter = " ",
   Misc = " ",
 }
--- find more here: https://www.nerdfonts.com/cheat-sheet
 local has_words_before = function()
   if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then return false end
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -75,6 +78,8 @@ cmp.setup {
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() and has_words_before() then
         cmp.select_next_item()
+      -- elseif cmp.visible() then
+      --   cmp.select_next_item()
       elseif luasnip.expandable() then
         luasnip.expand()
       elseif luasnip.expand_or_jumpable() then
@@ -103,25 +108,30 @@ cmp.setup {
   },
   formatting = {
     fields = { "kind", "abbr", "menu" },
-    format = function(entry, vim_item)
-      -- Kind icons
-      -- vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-      vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
-      vim_item.menu = ({
-        ultisnips = "[US]",
-        volar = "[VUE]",
-        tsserver = "[TS]",
-        bashls = "[BASH]",
-        nvim_lua = "[LVI]",
-        copilot = "[Cop]",
-        intelephense = "[PHP]",
-        nvim_lsp = "[LSP]",
-        luasnip = "[Snippet]",
-        buffer = "[Buffer]",
-        path = "[Path]",
-      })[entry.source.name]
-      return vim_item
-    end,
+    format = lspkind.cmp_format({
+      mode = "text_symbol",
+      max_width = 50,
+      symbol_map = { Copilot = "" }
+    })
+    -- format = function(entry, vim_item)
+    --   -- Kind icons
+    --   -- vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+    --   vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+    --   vim_item.menu = ({
+    --     ultisnips = "[US]",
+    --     volar = "[VUE]",
+    --     tsserver = "[TS]",
+    --     bashls = "[BASH]",
+    --     nvim_lua = "[LVI]",
+    --     copilot = "[Cop]",
+    --     intelephense = "[PHP]",
+    --     nvim_lsp = "[LSP]",
+    --     luasnip = "[Snippet]",
+    --     buffer = "[Buffer]",
+    --     path = "[Path]",
+    --   })[entry.source.name]
+    --   return vim_item
+    -- end,
   },
   sources = {
     { name = "ultisnips" },

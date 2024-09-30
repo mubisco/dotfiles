@@ -9,6 +9,7 @@ configs.setup({
     "c",
     "css",
     "dockerfile",
+    "diff",
     "go",
     "html",
     "http",
