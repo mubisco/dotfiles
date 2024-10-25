@@ -1,3 +1,24 @@
+
+[font]
+size = 10
+
+[font.bold]
+family = "FantasqueSansM Nerd Font Mono"
+style = "Bold"
+
+[font.bold_italic]
+family = "FantasqueSansM Nerd Font Mono"
+style = "Bold Italic"
+
+[font.italic]
+family = "FantasqueSansM Nerd Font Mono"
+style = "Italic"
+
+[font.normal]
+family = "FantasqueSansM Nerd Font Mono"
+style = "Regular"
+
+[general]
 # [colors.bright]
 # black = "0x4C566A"
 # blue = "0x81A1C1"
@@ -23,22 +44,3 @@
 # foreground = "0xD8DEE9"
 
 import = ["~/.config/alacritty/current.theme.toml"]
-
-[font]
-size = 10
-
-[font.bold]
-family = "FantasqueSansM Nerd Font Mono"
-style = "Bold"
-
-[font.bold_italic]
-family = "FantasqueSansM Nerd Font Mono"
-style = "Bold Italic"
-
-[font.italic]
-family = "FantasqueSansM Nerd Font Mono"
-style = "Italic"
-
-[font.normal]
-family = "FantasqueSansM Nerd Font Mono"
-style = "Regular"
