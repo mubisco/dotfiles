@@ -35,7 +35,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod, "shift"], "Tab", lazy.prev_layout()),
 
     # Kill window
-    ([mod], "w", lazy.window.kill()),
+    ([mod], "Escape", lazy.window.kill()),
 
     # Switch focus of monitors
     ([mod], "comma", lazy.next_screen()),
@@ -45,11 +45,12 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod, "control"], "r", lazy.restart()),
 
     ([mod, "control"], "q", lazy.shutdown()),
-    ([mod], "r", lazy.spawncmd()),
+    ([mod], "r", lazy.spawn("reaper")),
 
     # ------------ App Configs ------------
 
     # Menu
+    ([mod], "o", lazy.spawn("okular")),
     ([mod], "m", lazy.spawn("rofi -show drun")),
 
     # Window Nav
