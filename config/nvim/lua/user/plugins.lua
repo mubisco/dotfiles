@@ -219,6 +219,7 @@ lazy.setup({
 
   -- Tests
   {
+    -- "rouge8/neotest-rust",
     "nvim-neotest/neotest",
     dependencies = {
       "nvim-lua/plenary.nvim",
