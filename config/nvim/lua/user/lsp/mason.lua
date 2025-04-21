@@ -78,3 +78,31 @@ lspconfig.ts_ls.setup {
   },
   filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
 }
+lspconfig.intelephense.setup({
+  settings = {
+    intelephense = {
+      files = {
+          maxSize = 5000000;
+          exclude = {
+            "**/.git/**",
+            "**/.svn/**",
+            "**/.hg/**",
+            "**/CVS/**",
+            "**/.DS_Store/**",
+            "**/node_modules/**",
+            "**/bower_components/**",
+            "**/vendor/**/{Tests,tests}/**",
+            "**/.history/**",
+            "**/vendor/**/vendor/**",
+            "**/var/**",
+            "**/apps/Admin/var/**",
+            "**/apps/Api/var/**",
+            "**/apps/Customer/var/**",
+            "**/apps/Broker/var/**",
+        }
+      };
+    };
+  },
+  on_attach = require("user.lsp.handlers").on_attach,
+  capabilities = require("user.lsp.handlers").capabilities,
+})
