@@ -35,7 +35,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod, "shift"], "Tab", lazy.prev_layout()),
 
     # Kill window
-    ([mod], "Escape", lazy.window.kill()),
+    ([mod, "mod1"], "q", lazy.window.kill()),
 
     # Switch focus of monitors
     ([mod], "comma", lazy.next_screen()),
@@ -51,13 +51,13 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
 
     # Menu
     ([mod], "o", lazy.spawn("okular")),
-    ([mod], "m", lazy.spawn("rofi -show drun")),
+    ([mod], "Space", lazy.spawn("rofi -show drun")),
 
     # Window Nav
-    ([mod, "shift"], "m", lazy.spawn("rofi -show")),
+    ([mod, "shift"], "Space", lazy.spawn("rofi -show")),
 
     # Browser
-    ([mod], "b", lazy.spawn("vivaldi")),
+    ([mod], "b", lazy.spawn("brave")),
     ([mod, "shift"], "b", lazy.spawn("firefox")),
     ([mod, "control"], "b", lazy.spawn("chromium")),
     ([mod, "mod1"], "b", lazy.spawn("google-chrome-stable")),
