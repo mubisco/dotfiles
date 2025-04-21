@@ -11,7 +11,7 @@ vim.g.loaded_netrwPlugin = 1
 
 require "user.options"
 require "user.keymaps"
-require "user.plugins"
+require "user.lazy"
 require "user.theme-monokai-pro"
 require "user.cmp"
 require "user.lsp"

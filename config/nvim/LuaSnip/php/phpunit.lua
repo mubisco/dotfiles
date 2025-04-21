@@ -20,29 +20,12 @@ return {
     { trig = "ppt", dscr = "Generic boilerplate for simple Php Unit Test" },
     fmta(
       [[
-        /** @test */
-        public function <>(): void
+        public function test<>(): void
         {
             <>
         }
       ]],
       { i(1, "test name"), i(0) }
-    )
-  ),
-  s(
-    { trig = "zct", dscr = "Generic boilerplate for simple Php Unit Test" },
-    fmta(
-      [[
-        /**
-         * @test
-         * <>
-         */
-        public function <>(): void
-        {
-            <>
-        }
-      ]],
-      { f(snakeize, {1}), i(1, "testName"), i(0) }
     )
   ),
   s(
@@ -71,6 +54,7 @@ return {
   s({ trig = "asns"}, fmt("$this->assertNotSame({}, {})", { i(1, "expected"), i(2, "actual") })),
   s({ trig = "asf"}, fmt("$this->assertFalse({})", { i(1, "actual")})),
   s({ trig = "ast"}, fmt("$this->assertTrue({})", { i(1, "actual") })),
+  s({ trig = "eex"}, fmt("$this->expectException({})", { i(1, "actual") })),
 }
 -- snippet asfex "$this->assertFileExists('path/to/file')"
 --   $this->assertFileExists(${1:'path/to/file'});
