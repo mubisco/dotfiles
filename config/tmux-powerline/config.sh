@@ -29,7 +29,7 @@
 	export TMUX_POWERLINE_STATUS_JUSTIFICATION="left"
 
 	# The maximum length of the left status bar.
-    export TMUX_POWERLINE_STATUS_LEFT_LENGTH="90"
+    export TMUX_POWERLINE_STATUS_LEFT_LENGTH="120"
 	# The maximum length of the rjght status bar.
 	export TMUX_POWERLINE_STATUS_RIGHT_LENGTH="120"
 
@@ -256,7 +256,7 @@
 	# File to be read in case the song is being read from a file
 	export TMUX_POWERLINE_SEG_NOW_PLAYING_FILE_NAME=""
 	# Maximum output length.
-	export TMUX_POWERLINE_SEG_NOW_PLAYING_MAX_LEN="40"
+	export TMUX_POWERLINE_SEG_NOW_PLAYING_MAX_LEN="50"
 	# How to handle too long strings. Can be {trim, roll}.
 	export TMUX_POWERLINE_SEG_NOW_PLAYING_TRIM_METHOD="trim"
 	# Characters per second to roll if rolling trim method is used.
