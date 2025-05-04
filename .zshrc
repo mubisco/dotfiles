@@ -17,6 +17,7 @@ export PATH=$HOME/apps/google-cloud-sdk/bin:$HOME/go/bin:$HOME/.local/bin:$HOME/
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+export XDG_CONFIG_HOME="$HOME/.config"
 
 export EDITOR="nvim"
 
