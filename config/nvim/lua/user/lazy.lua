@@ -16,4 +16,9 @@ if not status_ok then
   return
 end
 
-lazy.setup("user.plugins")
+lazy.setup({
+  spec = {
+    {import ="user.plugins" },
+    {import ="override.user.plugins" }
+  }
+})
