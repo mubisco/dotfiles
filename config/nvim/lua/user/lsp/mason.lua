@@ -31,8 +31,9 @@ lspconfig.intelephense.setup({
   on_attach = require("user.lsp.handlers").on_attach,
   capabilities = require("user.lsp.handlers").capabilities,
 })
+
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
--- C# LSP setup
+
 lspconfig.omnisharp.setup({
   cmd = { "omnisharp" },
   capabilities = capabilities,
