@@ -1,1 +1,1 @@
-return { "williamboman/mason.nvim" } -- simple to use language server installer
+return { "mason-org/mason.nvim" } -- simple to use language server installer
