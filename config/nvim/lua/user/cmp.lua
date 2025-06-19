@@ -143,7 +143,7 @@ cmp.setup {
     { name = "luasnip" },
     { name = "buffer" },
     { name = "path" },
-    { name = "volar" },
+    -- { name = "volar" },
     { name = "copilot" },
   },
   confirm_opts = {

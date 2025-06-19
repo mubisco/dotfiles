@@ -47,6 +47,7 @@ null_ls.setup({
     diagnostics.golangci_lint,
     diagnostics.npm_groovy_lint,
     diagnostics.semgrep.with({ filetypes = {"go"}, extra_args = { "--config=auto" }}),
+    formatting.csharpier,
     -- formatting.json_tool,
     -- diagnostics.eslint,
     -- formatting.eslint,
