@@ -4,8 +4,7 @@ local function loadrequire(module)
     end
     pcall(requiref,module)
 end
-
-loadrequire("user.override.mapleader")
+loadrequire("override.user.mapleader")
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
@@ -20,7 +19,7 @@ require "user.toggleterm"
 require "user.autocommands"
 require "user.dap"
 
-loadrequire("user.override.init")
+loadrequire("override.init")
 
 -- luarocks
 -- nvim-nio
