@@ -3,8 +3,10 @@ return {
     opts = {
       ensure_installed = {
         "bashls",
+        -- "cssls",
         "dockerls",
         "eslint",
+        -- "git??",
         "gopls",
         "html",
         "intelephense",
@@ -12,14 +14,13 @@ return {
         "lua_ls",
         "omnisharp",
         "phpactor",
+        -- "pyright",
+        "rust_analyzer",
         "sqlls",
         "ts_ls",
         "vimls",
         -- "volar",
         "yamlls"
-        -- "cssls",
-        -- "git??",
-        -- "pyright",
       },
       automatic_installation = true,
     },
