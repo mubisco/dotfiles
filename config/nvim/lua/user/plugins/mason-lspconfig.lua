@@ -17,6 +17,7 @@ return {
         -- "pyright",
         "rust_analyzer",
         "sqlls",
+        "texlab",
         "ts_ls",
         "vimls",
         -- "volar",

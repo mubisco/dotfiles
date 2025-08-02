@@ -10,6 +10,7 @@ return {
     configs.setup({
       ensure_installed = {
         "bash",
+        "bibtex",
         "c",
         "c_sharp",
         "css",
@@ -21,6 +22,7 @@ return {
         "java",
         "javascript",
         "json",
+        "latex",
         "lua",
         "make",
         "markdown",

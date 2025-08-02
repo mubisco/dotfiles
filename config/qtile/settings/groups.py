@@ -21,11 +21,12 @@ from .keys import mod, keys
 # nf-mdi-layer
 
 groups = [Group(i) for i in [
-    "   ", "   ", "   ", " 󰒋  ", "  ", "   ", "   ", " 󰍹  ", "   ",
+    "   ", "   ", "   ", " 󰒋  ", "  ", "   ", "   ", " 󰍹  ", "   ", " 󰽰  ",
 ]]
 
 for i, group in enumerate(groups):
-    actual_key = str(i + 1)
+    # actual_key = str(i + 1)
+    actual_key = str(i + 1) if i < 9 else str(0)
     keys.extend([
         # Switch to workspace N
         Key([mod], actual_key, lazy.group[group.name].toscreen()),
