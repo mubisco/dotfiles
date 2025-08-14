@@ -92,7 +92,7 @@ primary_widgets = [
 
     powerline('color2', 'color3'),
 
-    widget.CurrentLayoutIcon(**base(bg='color2'), scale=0.65),
+    widget.CurrentLayout(**base(bg='color2'), scale=0.65),
 
     widget.CurrentLayout(**base(bg='color2'), padding=5),
 
@@ -141,7 +141,7 @@ secondary_widgets = [
 
     powerline('color2', 'color3'),
 
-    widget.CurrentLayoutIcon(**base(bg='color2'), scale=0.65),
+    widget.CurrentLayout(**base(bg='color2'), scale=0.65),
 
     widget.CurrentLayout(**base(bg='color2'), padding=5),
 
@@ -166,7 +166,7 @@ tertiary_widgets = [
 
     powerline('color1', 'dark'),
 
-    widget.CurrentLayoutIcon(**base(bg='color1'), scale=0.65),
+    widget.CurrentLayout(**base(bg='color1'), scale=0.65),
 
     widget.CurrentLayout(**base(bg='color1'), padding=5),
 
