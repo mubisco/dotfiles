@@ -42,6 +42,9 @@ keymap("n", "<Leader>sv", ":source $MYVIMRC<CR>", opts)
 -- Edit snippets
 keymap("n", "<Leader>se", ":lua require('luasnip.loaders').edit_snippet_files()<CR>", opts)
 
+-- Easy fold
+keymap('n', '<leader>zf', 'V%zf', { noremap = true, silent = true })
+
 -- Insert --
 -- Press jk fast to exit insert mode 
 keymap("i", "jj", "<ESC>", opts)

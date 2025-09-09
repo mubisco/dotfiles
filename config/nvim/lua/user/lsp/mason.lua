@@ -45,3 +45,13 @@ lspconfig.omnisharp.setup({
     ["textDocument/definition"] = require('omnisharp_extended').handler,
   },
 })
+
+lspconfig.ts_ls.setup({
+  init_options = {
+    preferences = {
+      importModuleSpecifier = "non-relative",
+      importModuleSpecifierEnding = "auto",
+    },
+  },
+})
+
