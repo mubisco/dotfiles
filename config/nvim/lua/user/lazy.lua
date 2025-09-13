@@ -19,6 +19,5 @@ end
 lazy.setup({
   spec = {
     {import ="user.plugins" },
-    {import ="override.user.plugins" }
   }
 })
