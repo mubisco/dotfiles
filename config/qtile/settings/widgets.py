@@ -1,7 +1,6 @@
 from libqtile import widget
 from .theme import colors
 from libqtile import qtile
-from spotify import Spotify
 
 # Get the icons at https://www.nerdfonts.com/cheat-sheet (you need a Nerd Font)
 
@@ -69,8 +68,6 @@ primary_widgets = [
 
     separator(),
 
-    Spotify(background='#292d3e', play_icon=' ', pause_icon='󰏤 '),
-
     powerline('color4', 'dark'),
     icon(bg="color4", text=' '), # Icon: nf-fa-download
     widget.CPU(**base(bg='color4'), format='{load_percent}%', update_interval=10),
@@ -117,8 +114,6 @@ secondary_widgets = [
     *workspaces(),
 
     separator(),
-
-    Spotify(background='#292d3e', play_icon=' ', pause_icon='󰏤 '),
 
     powerline('color4', 'dark'),
     icon(bg="color4", text=' '), # Icon: nf-fa-download
