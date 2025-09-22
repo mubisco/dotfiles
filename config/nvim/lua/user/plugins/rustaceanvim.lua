@@ -6,13 +6,16 @@ return {
     init = function()
       vim.g.rustaceanvim = {
         server = {
-          on_attach = function(client, bufnr)
-            -- Add your on_attach logic here
-          end,
+          -- on_attach = function(client, bufnr)
+          --   Add your on_attach logic here
+          -- end,
           default_settings = {
             ["rust-analyzer"] = {
-              checkOnSave = {
+              check = {
                 command = "clippy"
+                -- optional:
+                -- allTargets = true,                  -- include tests/examples/benches
+                -- extraArgs = { "--", "-Dwarnings" }, -- treat warnings as errors
               },
             },
           },
