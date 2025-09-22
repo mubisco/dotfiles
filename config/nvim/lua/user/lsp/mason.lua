@@ -34,6 +34,26 @@ lspconfig.intelephense.setup({
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+lspconfig.lua_ls.setup({
+  on_attach = require("user.lsp.handlers").on_attach,
+  capabilities = require("user.lsp.handlers").capabilities,
+  settings = {
+    Lua = {
+      runtime = {
+        version = "LuaJIT",
+      },
+      diagnostics = {
+        globals = { "vim" },
+      },
+      workspace = {
+        library = vim.api.nvim_get_runtime_file("", true),
+        checkThirdParty = false,
+      },
+      telemetry = { enable = false },
+    },
+  },
+})
+
 lspconfig.omnisharp.setup({
   cmd = { "omnisharp" },
   capabilities = capabilities,
@@ -54,4 +74,3 @@ lspconfig.ts_ls.setup({
     },
   },
 })
-
