@@ -118,13 +118,8 @@ cmp.setup {
     --   -- vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
     --   vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
     --   vim_item.menu = ({
-    --     ultisnips = "[US]",
-    --     volar = "[VUE]",
-    --     tsserver = "[TS]",
-    --     bashls = "[BASH]",
-    --     nvim_lua = "[LVI]",
+    --     nvim_lua = "[LUA]",
     --     copilot = "[Cop]",
-    --     intelephense = "[PHP]",
     --     nvim_lsp = "[LSP]",
     --     luasnip = "[Snippet]",
     --     buffer = "[Buffer]",
@@ -134,16 +129,11 @@ cmp.setup {
     -- end,
   },
   sources = {
-    { name = "ultisnips" },
-    { name = "tsserver" },
-    { name = "bashls" },
     { name = "nvim_lua" },
-    { name = "intelephense" },
     { name = "nvim_lsp" },
     { name = "luasnip" },
     { name = "buffer" },
     { name = "path" },
-    -- { name = "volar" },
     { name = "copilot" },
   },
   confirm_opts = {

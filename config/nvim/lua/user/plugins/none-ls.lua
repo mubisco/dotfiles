@@ -52,7 +52,6 @@ return {
         -- formatting.eslint,
         -- formatting.xmllint,
         diagnostics.stylelint,
-        formatting.phpcbf,
         formatting.stylelint,
         formatting.tidy,
         formatting.black.with({ extra_args = { "--fast" } }),
