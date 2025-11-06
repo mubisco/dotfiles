@@ -88,6 +88,7 @@ keymap("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", opts)
 -- ToggleTerm
 keymap("n", "tt", ":ToggleTerm <CR>", opts)
 keymap("n", "<leader>g", ":lua _LAZYGIT_TOGGLE()<CR>", opts)
+keymap("n", "<leader>cx", ":lua _CODEX_TOGGLE()<CR>", opts)
 
 -- Neotest
 keymap("n", "<leader>to", "<esc><cmd>lua require('neotest').output_panel.open()<cr>", opts)
