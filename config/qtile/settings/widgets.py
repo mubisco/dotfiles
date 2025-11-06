@@ -76,7 +76,7 @@ primary_widgets = [
     icon(bg="color4", text=' 󰍛 '),
     widget.Memory(**base(bg='color4'), measure_mem='G', format='{MemUsed:.0f}/{MemTotal:.0f}{mm}'),
     icon(bg="color4", text='  '),
-    widget.NvidiaSensors(**base(bg='color4')),
+    widget.ThermalSensor(**base(bg='color4'), tag_sensor="edge", format=' {temp:.0f}{unit}'),
 
     powerline('color3', 'color4'),
 
@@ -123,7 +123,7 @@ secondary_widgets = [
     icon(bg="color4", text=' 󰍛 '),
     widget.Memory(**base(bg='color4'), measure_mem='G', format='{MemUsed:.0f}/{MemTotal:.0f}{mm}'),
     icon(bg="color4", text='  '),
-    widget.NvidiaSensors(**base(bg='color4')),
+    widget.ThermalSensor(**base(bg='color4'), tag_sensor="edge", format=' {temp:.0f}{unit}'),
 
     powerline('color3', 'color4'),
 
