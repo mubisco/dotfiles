@@ -9,14 +9,16 @@ then
 fi
 
 yay_packages=(
-    "nerd-fonts-ubuntu-mono"
-    "nerd-fonts-fantasque-sans-mono"
-    "zsh-syntax-highlighting"
-    "zsh-autosuggestions"
-    "vial"
     "brave"
     "google-chrome"
+    "mycli"
+    "nerd-fonts-fantasque-sans-mono"
+    "nerd-fonts-ubuntu-mono"
+    "pgcli"
     "symfony-cli"
+    "vial"
     "vivaldi"
+    "zsh-autosuggestions"
+    "zsh-syntax-highlighting"
 )
 yay -Sy --noconfirm "${yay_packages[@]}"
