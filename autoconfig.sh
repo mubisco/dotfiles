@@ -82,6 +82,18 @@ dev_packages=(
     "pkg-config"
     "fakeroot"
     "python-dbus"
+    "python-dbus-next"
+    "python-psutil"
+    "python-pynvim"
+    "python-jedi"
+    "python-pylint"
+    "python-pycodestyle"
+    "jedi-language-server"
+    "python-flake8"
+    "mypy"
+    "rustup"
+    "rust-analyzer"
+    "lldb"
 )
 
 npm_global_packages=(

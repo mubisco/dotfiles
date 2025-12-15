@@ -24,20 +24,11 @@ composer_global_packages=(
 )
 composer global require "${composer_global_packages[@]}"
 
-# ==== PYTHON DEPS =====
-pip_user_packages=(
-    "dbus-next"
-    "psutil"
-    "pynvim"
-    "jedi"
-    "dbgp"
-    "pylint"
-    "pep8"
-    "jedi-language-server"
-    "flake8"
-    "mypy"
-)
-python3 -m pip install --user --upgrade "${pip_user_packages[@]}"
+# ==== RUST TOOLCHAIN =====
+rustup default stable
+rustup component add clippy rustfmt
+
+# ==== PYTHON DEPS (now handled by pacman) =====
 
 declare -a CONFIG_FOLDERS=()
 
