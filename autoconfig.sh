@@ -77,6 +77,7 @@ desktop_env_packages=(
 )
 
 dev_packages=(
+    "biber"
     "binutils"
     "composer"
     "fakeroot"
@@ -98,6 +99,7 @@ dev_packages=(
     "python-pynvim"
     "rust-analyzer"
     "rustup"
+    "texlive-most"
 )
 
 npm_global_packages=(
