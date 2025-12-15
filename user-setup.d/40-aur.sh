@@ -15,6 +15,7 @@ yay_packages=(
     "nerd-fonts-fantasque-sans-mono"
     "nerd-fonts-ubuntu-mono"
     "pgcli"
+    "sddm-theme-corners-git"
     "symfony-cli"
     "vial"
     "vivaldi"

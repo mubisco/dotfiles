@@ -37,8 +37,6 @@ base_packages=(
     "docker-compose"
     "fzf"
     "lsd"
-    "mycli"
-    "nerd-fonts"
     "ntfs-3g"
     "openssh"
     "pavucontrol"
@@ -67,6 +65,9 @@ desktop_env_packages=(
     "flameshot"
     "keepassxc"
     "kitty"
+    "qt5-graphicaleffects"
+    "qt5-quickcontrols2"
+    "qt5-svg"
     "qtile"
     "rofi"
     "sddm"
@@ -143,3 +144,9 @@ usermod -aG docker "$USERNAME"
 
 echo "Enabling display manager (sddm)"
 systemctl enable sddm.service
+
+echo "Configuring SDDM theme..."
+cat > /etc/sddm.conf.d/theme.conf << EOL
+[Theme]
+Current=corners
+EOL
