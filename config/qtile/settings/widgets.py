@@ -1,6 +1,7 @@
 from libqtile import widget
 from .theme import colors
 from libqtile import qtile
+import os
 
 # Get the icons at https://www.nerdfonts.com/cheat-sheet (you need a Nerd Font)
 
@@ -71,7 +72,7 @@ primary_widgets = [
     powerline('color4', 'dark'),
     icon(bg="color4", text=' '), # Icon: nf-fa-download
     widget.CPU(**base(bg='color4'), format='{load_percent}%', update_interval=10),
-    widget.ThermalSensor(**base(bg='color4'), format=' {temp:.0f}{unit}'),
+    widget.ThermalSensor(**base(bg='color4'), tag_sensor="Tctl", format=' {temp:.0f}{unit}'),
 
     icon(bg="color4", text=' 󰍛 '),
     widget.Memory(**base(bg='color4'), measure_mem='G', format='{MemUsed:.0f}/{MemTotal:.0f}{mm}'),
@@ -118,7 +119,7 @@ secondary_widgets = [
     powerline('color4', 'dark'),
     icon(bg="color4", text=' '), # Icon: nf-fa-download
     widget.CPU(**base(bg='color4'), format='{load_percent}%', update_interval=10),
-    widget.ThermalSensor(**base(bg='color4'), format=' {temp:.0f}{unit}'),
+    widget.ThermalSensor(**base(bg='color4'), tag_sensor="Tctl", format=' {temp:.0f}{unit}'),
 
     icon(bg="color4", text=' 󰍛 '),
     widget.Memory(**base(bg='color4'), measure_mem='G', format='{MemUsed:.0f}/{MemTotal:.0f}{mm}'),
@@ -147,12 +148,14 @@ secondary_widgets = [
     widget.Clock(**base(bg='color1'), format='%d/%m/%Y - %H:%M '),
 
     powerline('dark', 'color1'),
+]
 
-    widget.Battery(
+# Add battery widget only if battery exists (for laptop)
+if os.path.exists('/sys/class/power_supply/BAT0') or os.path.exists('/sys/class/power_supply/BAT1'):
+    secondary_widgets.append(widget.Battery(
         **base(bg='dark', fg='light'),
         format='{percent:2.0%}'
-    ),
-]
+    ))
 
 tertiary_widgets = [
     *workspaces(),

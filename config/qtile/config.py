@@ -17,12 +17,17 @@ from settings.mouse import mouse
 from settings.path import qtile_path
 
 from os import path
+import shutil
 import subprocess
 
 
 @hook.subscribe.startup_once
 def autostart():
     subprocess.call([path.join(qtile_path, 'autostart.sh')])
+
+    kwallet_manager = shutil.which('kwalletmanager5')
+    if kwallet_manager:
+        subprocess.Popen([kwallet_manager, '--daemonize'])
 
 
 main = None
