@@ -1,4 +1,11 @@
 #!/bin/bash
+
+if [ -z "$1" ]; then
+    echo "Usage: $0 <username>"
+    exit 1
+fi
+USERNAME=$1
+
 WHOAMI=$(who am i | awk '{print $1}')
 CURRENTDIR=$(pwd)
 
@@ -91,19 +98,20 @@ pacman -Syu --noconfirm "${base_packages[@]}" "${desktop_env_packages[@]}" "${de
 
 npm install -g "${npm_global_packages[@]}"
 
-echo "Creating normal user..."
-useradd -m -G wheel -s /bin/zsh mubisco
-#passwd mubisco
+echo "Creating normal user $USERNAME..."
+useradd -m -G wheel -s /bin/zsh "$USERNAME"
+echo "Set password for $USERNAME:"
+passwd "$USERNAME"
 
 echo "root ALL=(ALL)ALL" >> /etc/sudoers
-echo "mubisco ALL=(ALL)ALL" >> /etc/sudoers
+echo "$USERNAME ALL=(ALL)ALL" >> /etc/sudoers
 echo "@includedir /etc/sudoers.d" >> /etc/sudoers
 
 echo "Installing yay"
 git clone https://aur.archlinux.org/yay-git.git /opt/yay-git
-chown -R mubisco:mubisco /opt/yay-git
+chown -R "$USERNAME":"$USERNAME" /opt/yay-git
 
 echo "Configuring docker"
 systemctl enable docker.service
 systemctl enable bluetooth.service
-usermod -aG docker mubisco
+usermod -aG docker "$USERNAME"

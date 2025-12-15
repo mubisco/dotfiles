@@ -1,11 +1,16 @@
 #!/bin/bash
 
-if [[ ! -d '/home/mubisco/Projects/dotfiles' ]]
+if [ -z "$1" ]; then
+    echo "Usage: $0 <username>"
+    exit 1
+fi
+USERNAME=$1
+
+if [[ ! -d "/home/$USERNAME/Projects/dotfiles" ]]
 then
-  echo "No dotfiles folder inside Projects/dotfiles. Stopping...."
+  echo "No dotfiles folder inside /home/$USERNAME/Projects/dotfiles. Stopping...."
   exit 1
 fi
-USER_NAME=mubisco
 CONFIG_TARGET_FOLDER=~/.config
 cd ~
 
