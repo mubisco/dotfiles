@@ -6,13 +6,12 @@ if [ -z "$1" ]; then
 fi
 USERNAME=$1
 
-WHOAMI=$(who am i | awk '{print $1}')
 CURRENTDIR=$(pwd)
 
 echo "Copying files..."
-if [[ "$WHOAMI" -ne 'root' ]]; then
-    echo "Not root!!! This script should be run as root!!!!"
-    exit 1
+if [[ "$(id -u)" -ne 0 ]]; then
+   echo "This script must be run as root" >&2
+   exit 1
 else
     echo "Root user ok!. Continuing..."
 fi
