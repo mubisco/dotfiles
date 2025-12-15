@@ -1,77 +1,20 @@
 #!/bin/bash
 
+# This script runs all the setup scripts located in the user-setup.d/ directory.
+
 if [ -z "$1" ]; then
     echo "Usage: $0 <username>"
     exit 1
 fi
-USERNAME=$1
 
-if [[ ! -d "/home/$USERNAME/Projects/dotfiles" ]]
-then
-  echo "No dotfiles folder inside /home/$USERNAME/Projects/dotfiles. Stopping...."
-  exit 1
-fi
-CONFIG_TARGET_FOLDER=~/.config
-cd ~
+SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 
-# ==== TMUX PLUGINS INSTALL =====
-git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
-
-# ==== COMPOSER GLOBAL DEPENDENCIES =====
-composer_global_packages=(
-    "squizlabs/php_codesniffer"
-    "friendsoftwig/twigcs"
-)
-composer global require "${composer_global_packages[@]}"
-
-# ==== RUST TOOLCHAIN =====
-rustup default stable
-rustup component add clippy rustfmt
-
-# ==== PYTHON DEPS (now handled by pacman) =====
-
-declare -a CONFIG_FOLDERS=()
-
-# LINK CONFIG FOLDERS
-mkdir -p $CONFIG_TARGET_FOLDER
-readarray -t CONFIG_FOLDERS < <(find ~/Projects/dotfiles/config/* -maxdepth 0 -type d)
-for RAW_FOLDER in "${CONFIG_FOLDERS[@]}"; do
-  FOLDER=$(basename $RAW_FOLDER)
-  if [[ ! -d $RAW_FOLDER ]]
-  then
-    mv $RAW_FOLDER $RAW_FOLDER-bck
-  fi
-  ln -s $RAW_FOLDER $CONFIG_TARGET_FOLDER/$FOLDER
+for script in "$SCRIPT_DIR"/user-setup.d/*.sh; do
+    if [ -f "$script" ]; then
+        echo "--- Running $(basename "$script") ---"
+        bash "$script" "$1"
+        echo ""
+    fi
 done
 
-
-# ZSH/OH-MY-ZSH
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-mv ~/.zshrc ~/.zshrc-pre-dotfiles
-ln -s ~/Projects/dotfiles/.zshrc ~/.zshrc
-source ~/.zshrc
-
-# GIT GLOBAL
-ln -s ~/Projects/dotfiles/.gitconfig ~/.gitconfig
-ln -s ~/Projects/dotfiles/config/.gitignore ~/.config/.gitignore
-
-# YAY
-cd /opt/yay-git
-makepkg -si
-
-yay_packages=(
-    "nerd-fonts-ubuntu-mono"
-    "nerd-fonts-fantasque-sans-mono"
-    "zsh-syntax-highlighting"
-    "zsh-autosuggestions"
-    "vial"
-    "brave"
-    "google-chrome"
-    "symfony-cli"
-    "sddm"
-    "vivaldi"
-)
-yay -Sy --noconfirm "${yay_packages[@]}"
-
-echo "Remember to close this console session and run p10k configure"
-sudo systemctl enable sddm.service
+echo "--- User setup complete. ---"

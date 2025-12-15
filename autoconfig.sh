@@ -70,6 +70,7 @@ desktop_env_packages=(
     "rofi"
     "telegram-desktop"
     "kitty"
+    "sddm"
 )
 
 dev_packages=(
@@ -125,3 +126,6 @@ echo "Configuring docker"
 systemctl enable docker.service
 systemctl enable bluetooth.service
 usermod -aG docker "$USERNAME"
+
+echo "Enabling display manager (sddm)"
+systemctl enable sddm.service
