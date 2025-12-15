@@ -18,6 +18,9 @@ style = "Italic"
 family = "FantasqueSansM Nerd Font Mono"
 style = "Regular"
 
+[env]
+TERM = "xterm-256color"
+
 [general]
 # [colors.bright]
 # black = "0x4C566A"
