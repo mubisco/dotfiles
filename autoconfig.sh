@@ -24,10 +24,13 @@ echo "Instaling minimun deps..."
 pacman -Sy --noconfirm && pacman -S --noconfirm archlinuxcn-keyring
 pacman-key --init && pacman-key --populate archlinux archlinuxcn
 
+# Get machine type
+MACHINE_TYPE=$(./scripts/lib/get-machine-type.sh)
+echo "Machine type detected: $MACHINE_TYPE"
+
 base_packages=(
     "bluez"
     "bluez-utils"
-    "brightnessctl"
     "cifs-utils"
     "ctags"
     "curl"
@@ -104,6 +107,14 @@ npm_global_packages=(
 )
 
 pacman -Syu --noconfirm "${base_packages[@]}" "${desktop_env_packages[@]}" "${dev_packages[@]}"
+
+if [[ "$MACHINE_TYPE" == "laptop" ]]; then
+  echo "Installing laptop-specific packages..."
+  laptop_packages=(
+      "brightnessctl"
+  )
+  pacman -S --noconfirm "${laptop_packages[@]}"
+fi
 
 npm install -g "${npm_global_packages[@]}"
 
