@@ -103,9 +103,7 @@ useradd -m -G wheel -s /bin/zsh "$USERNAME"
 echo "Set password for $USERNAME:"
 passwd "$USERNAME"
 
-echo "root ALL=(ALL)ALL" >> /etc/sudoers
-echo "$USERNAME ALL=(ALL)ALL" >> /etc/sudoers
-echo "@includedir /etc/sudoers.d" >> /etc/sudoers
+echo "$USERNAME ALL=(ALL)ALL" > "/etc/sudoers.d/10-$USERNAME"
 
 echo "Installing yay"
 git clone https://aur.archlinux.org/yay-git.git /opt/yay-git
