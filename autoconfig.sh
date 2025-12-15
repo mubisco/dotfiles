@@ -118,15 +118,23 @@ fi
 
 npm install -g "${npm_global_packages[@]}"
 
-echo "Creating normal user $USERNAME..."
-useradd -m -G wheel -s /bin/zsh "$USERNAME"
-echo "Set password for $USERNAME:"
-passwd "$USERNAME"
+if ! id -u "$USERNAME" &>/dev/null; then
+    echo "Creating normal user $USERNAME..."
+    useradd -m -G wheel -s /bin/zsh "$USERNAME"
+    echo "Set password for $USERNAME:"
+    passwd "$USERNAME"
+else
+    echo "User $USERNAME already exists. Skipping creation."
+fi
 
 echo "$USERNAME ALL=(ALL)ALL" > "/etc/sudoers.d/10-$USERNAME"
 
 echo "Installing yay"
-git clone https://aur.archlinux.org/yay-git.git /opt/yay-git
+if [ ! -d "/opt/yay-git" ]; then
+    git clone https://aur.archlinux.org/yay-git.git /opt/yay-git
+else
+    echo "yay-git directory already exists. Skipping clone."
+fi
 chown -R "$USERNAME":"$USERNAME" /opt/yay-git
 
 echo "Configuring docker"
