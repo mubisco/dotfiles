@@ -6,3 +6,4 @@ config/kitty/theme.conf
 config/nvim/plugin/*
 config/nvim/lazy-lock.json
 config/alacritty/themes/
+.zsh_theme
