@@ -7,3 +7,4 @@ config/nvim/plugin/*
 config/nvim/lazy-lock.json
 config/alacritty/themes/
 .zsh_theme
+config/alacritty/theme.toml
