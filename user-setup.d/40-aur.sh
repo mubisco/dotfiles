@@ -10,14 +10,15 @@ fi
 
 yay_packages=(
     "brave"
+    "franz"
     "google-chrome"
+    "lazygit"
     "mycli"
     "nerd-fonts-fantasque-sans-mono"
     "nerd-fonts-ubuntu-mono"
     "pgcli"
     "sddm-theme-corners-git"
     "symfony-cli"
-    "vial"
     "vivaldi"
     "zsh-autosuggestions"
     "zsh-syntax-highlighting"
