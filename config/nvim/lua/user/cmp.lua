@@ -111,22 +111,7 @@ cmp.setup {
     format = lspkind.cmp_format({
       mode = "text_symbol",
       max_width = 50,
-      symbol_map = { Copilot = "" }
     })
-    -- format = function(entry, vim_item)
-    --   -- Kind icons
-    --   -- vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-    --   vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
-    --   vim_item.menu = ({
-    --     nvim_lua = "[LUA]",
-    --     copilot = "[Cop]",
-    --     nvim_lsp = "[LSP]",
-    --     luasnip = "[Snippet]",
-    --     buffer = "[Buffer]",
-    --     path = "[Path]",
-    --   })[entry.source.name]
-    --   return vim_item
-    -- end,
   },
   sources = {
     { name = "nvim_lua" },
@@ -134,7 +119,6 @@ cmp.setup {
     { name = "luasnip" },
     { name = "buffer" },
     { name = "path" },
-    { name = "copilot" },
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
