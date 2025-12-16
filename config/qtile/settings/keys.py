@@ -62,6 +62,9 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     # Oh My Zsh Theme Switch
     ([mod, "control"], "Space", lazy.spawn("sh -c /home/mubisco/Projects/dotfiles/scripts/omz-theme-switcher.sh")),
 
+    # Rofi Theme Switch
+    ([mod, "mod1", "control"], "Space", lazy.spawn("sh -c /home/mubisco/Projects/dotfiles/scripts/rofi-theme-switcher.sh")),
+
     # Browser
     ([mod], "b", lazy.spawn("brave")),
     ([mod, "shift"], "b", lazy.spawn("firefox")),

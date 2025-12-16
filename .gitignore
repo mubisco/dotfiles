@@ -8,3 +8,5 @@ config/nvim/lazy-lock.json
 config/alacritty/themes/
 .zsh_theme
 config/alacritty/theme.toml
+config/rofi/theme.rasi
+config/rofi/themes/collection/
