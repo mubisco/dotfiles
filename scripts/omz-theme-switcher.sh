@@ -2,7 +2,7 @@
 
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 DOTFILES_DIR="$SCRIPT_DIR/.."
-ZSH_THEME_FILE="$DOTFILES_DIR/.zsh_theme"
+ZSH_THEME_FILE="$HOME/.zsh_theme"
 OMZ_DIR="$HOME/.oh-my-zsh"
 OMZ_THEMES_DIR="$OMZ_DIR/themes"
 OMZ_CUSTOM_THEMES_DIR="$OMZ_DIR/custom/themes"
