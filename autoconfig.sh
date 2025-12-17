@@ -92,6 +92,7 @@ dev_packages=(
     "go"
     "jedi-language-server"
     "lldb"
+    "libwebp-utils"
     "make"
     "mypy"
     "nodejs"
