@@ -10,6 +10,7 @@ fi
 
 yay_packages=(
     "brave"
+    "codelldb-bin"
     "discord"
     "franz"
     "google-chrome"

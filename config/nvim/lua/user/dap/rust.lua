@@ -6,7 +6,7 @@ end
 dap.adapters.lldb = {
   type = "executable",
   -- command = "/usr/bin/lldb-vscode", -- from codelldb Arch package
-  command = "/sbin/codelldb", -- from codelldb Arch package
+  command = "/usr/bin/codelldb", -- from codelldb Arch package
   name = "lldb"
 }
 dap.configurations.rust = {
