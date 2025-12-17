@@ -10,6 +10,7 @@ fi
 
 yay_packages=(
     "brave"
+    "discord"
     "franz"
     "google-chrome"
     "lazygit"
