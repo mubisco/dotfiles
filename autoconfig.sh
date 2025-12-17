@@ -130,7 +130,7 @@ else
 fi
 
 echo "$USERNAME ALL=(ALL) ALL" > "/etc/sudoers.d/10-$USERNAME"
-echo "$USERNAME ALL=(ALL) NOPASSWD: /usr/bin/poweroff, /usr/bin/reboot, /usr/bin/mount" >> "/etc/sudoers.d/10-$USERNAME"
+echo "$USERNAME ALL=(ALL) NOPASSWD: /usr/bin/poweroff, /usr/bin/reboot, /usr/bin/mount, /usr/bin/umount" >> "/etc/sudoers.d/10-$USERNAME"
 
 echo "Installing yay"
 if [ ! -d "/opt/yay-git" ]; then
