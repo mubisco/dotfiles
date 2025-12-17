@@ -88,6 +88,7 @@ dev_packages=(
     "composer"
     "fakeroot"
     "gcc"
+    "go"
     "jedi-language-server"
     "lldb"
     "make"
