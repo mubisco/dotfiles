@@ -59,6 +59,8 @@ base_packages=(
     "zsh"
     "jdk-openjdk"
     "gzip"
+    "ripgrep"
+    "fd"
 )
 
 desktop_env_packages=(
