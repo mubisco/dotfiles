@@ -69,6 +69,7 @@ desktop_env_packages=(
     "dunst"
     "firefox"
     "flameshot"
+    "gnome-keyring"
     "keepassxc"
     "kitty"
     "qt5-graphicaleffects"
