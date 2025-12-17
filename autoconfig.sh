@@ -50,11 +50,15 @@ base_packages=(
     "ranger"
     "shfmt"
     "sudo"
+    "tar"
     "tmux"
+    "unzip"
     "vlc"
     "volumeicon"
     "wget"
     "zsh"
+    "jdk-openjdk"
+    "gzip"
 )
 
 desktop_env_packages=(
