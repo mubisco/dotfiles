@@ -48,12 +48,14 @@ base_packages=(
     "powerline-fonts"
     "python-pip"
     "ranger"
+    "rsync"
     "shfmt"
     "sudo"
     "tar"
     "tmux"
     "unzip"
     "vlc"
+    "vlc-plugins-all"
     "volumeicon"
     "wget"
     "zsh"
@@ -61,26 +63,45 @@ base_packages=(
     "gzip"
     "ripgrep"
     "fd"
+    "texlive-basic"
+    "texlive-bibtexextra"
+    "texlive-fontsextra"
+    "texlive-fontsrecommended"
+    "texlive-langspanish"
+    "texlive-latexextra"
+    "texlive-luatex"
+    "texlive-meta"
+    "texlive-plaingeneric"
+    "texlive-xetex"
 )
 
 desktop_env_packages=(
     "alacritty"
     "chromium"
+    "cups"
     "dunst"
     "firefox"
     "flameshot"
     "gnome-keyring"
+    "hplip"
     "keepassxc"
-    "kitty"
+    "okular"
+    "oculante"
+    "python-pyqt5"
     "qt5-graphicaleffects"
     "qt5-quickcontrols2"
     "qt5-svg"
     "qtile"
+    "reaper"
     "rofi"
+    "sane"
     "sddm"
     "telegram-desktop"
     "xorg"
     "xorg-xinit"
+    "zathura"
+    "zathura-cb"
+    "zathura-pdf-mupdf"
 )
 
 dev_packages=(
@@ -108,7 +129,6 @@ dev_packages=(
     "python-pynvim"
     "rust-analyzer"
     "rustup"
-    "texlive-most"
 )
 
 npm_global_packages=(
@@ -152,7 +172,8 @@ chown -R "$USERNAME":"$USERNAME" /opt/yay-git
 echo "Configuring docker"
 systemctl enable docker.service
 systemctl enable bluetooth.service
-usermod -aG docker "$USERNAME"
+systemctl enable sane.service
+usermod -aG docker,lp,sane "$USERNAME"
 
 echo "Enabling display manager (sddm)"
 systemctl enable sddm.service
