@@ -7,6 +7,7 @@
 
 
 from libqtile import hook
+from typing import List
 
 from settings.keys import mod, keys
 from settings.groups import groups
@@ -32,7 +33,7 @@ def autostart():
 
 main = None
 dgroups_key_binder = None
-dgroups_app_rules = []
+dgroups_app_rules: List = []
 follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = True

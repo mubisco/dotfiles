@@ -56,8 +56,6 @@ def get_monitors():
                 is_primary = "primary" in line
                 monitors.append({"width": width, "is_primary": is_primary})
         
-        # Sort so primary monitor is first in the list
-        monitors.sort(key=lambda x: x["is_primary"], reverse=True)
         return monitors
     except Exception as e:
         logger.error(f"Failed to detect monitors: {e}")
@@ -67,12 +65,19 @@ monitors = get_monitors()
 screens = []
 widget_sets = [primary_widgets, secondary_widgets, tertiary_widgets]
 
-for i, monitor in enumerate(monitors):
+# Track non-primary monitors to assign secondary/tertiary widgets in order
+aux_widgets = widget_sets[1:]
+aux_index = 0
+
+for monitor in monitors:
     # Select wallpaper based on resolution
     wallpaper = get_random_wallpaper(monitor["width"])
     
-    # Cycle through widget sets (primary, secondary, tertiary...)
-    current_widgets = widget_sets[i % len(widget_sets)]
+    if monitor["is_primary"]:
+        current_widgets = primary_widgets
+    else:
+        current_widgets = aux_widgets[aux_index % len(aux_widgets)]
+        aux_index += 1
     
     screens.append(Screen(
         top=status_bar(current_widgets),
