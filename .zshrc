@@ -136,5 +136,5 @@ if [ -f '/opt/google-cloud-cli/path.zsh.inc' ]; then . '/opt/google-cloud-cli/pa
 if [ -f '$HOME/apps/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/apps/google-cloud-sdk/completion.zsh.inc'; fi
 if [ -f '/opt/google-cloud-cli/completion.zsh.inc' ]; then . '/opt/google-cloud-cli/completion.zsh.inc'; fi
 
-source <(kubectl completion zsh)
+#source <(kubectl completion zsh)
 # eval "$(zoxide init zsh)"
