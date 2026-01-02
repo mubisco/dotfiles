@@ -11,7 +11,7 @@ from libqtile.lazy import lazy
 mod = "mod4"
 
 keys = [Key(key[0], key[1], *key[2:]) for key in [
-    # ------------ Window Configs ------------
+    # ------------ Layout ------------
 
     # Switch between windows in current stack pane
     ([mod], "j", lazy.layout.down()),
@@ -34,23 +34,21 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod], "Tab", lazy.next_layout()),
     ([mod, "shift"], "Tab", lazy.prev_layout()),
 
-    # Kill window
-    ([mod, "mod1"], "q", lazy.window.kill()),
-
     # Switch focus of monitors
     ([mod], "comma", lazy.next_screen()),
     ([mod], "period", lazy.prev_screen()),
 
-    # Restart Qtile
+    # ------------ Qtile ------------
+    # Kill window
+    ([mod, "shift"], "q", lazy.window.kill()),
+
+    # Restart
     ([mod, "control"], "r", lazy.restart()),
 
+    # Shutdown
     ([mod, "control"], "q", lazy.shutdown()),
-    ([mod], "r", lazy.spawn("reaper")),
 
-    # ------------ App Configs ------------
-
-    # Menu
-    ([mod], "o", lazy.spawn("okular")),
+    # ------------ Rofi Menus ------------
     ([mod], "Space", lazy.spawn("rofi -show drun")),
 
     # Window Nav
@@ -65,14 +63,19 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     # Rofi Theme Switch
     ([mod, "mod1", "control"], "Space", lazy.spawn("sh -c /home/mubisco/Projects/dotfiles/scripts/rofi-theme-switcher.sh")),
 
-    # Browser
-    ([mod], "b", lazy.spawn("brave")),
-    ([mod, "shift"], "b", lazy.spawn("firefox")),
-    ([mod, "control"], "b", lazy.spawn("chromium")),
-    ([mod, "mod1"], "b", lazy.spawn("google-chrome-stable")),
+    # ------------ App Configs ------------
 
-    # File Explorer
-    ([mod], "e", lazy.spawn("alacritty -e ranger")),
+    ([mod, "shift"], "v", lazy.spawn("vlc")),
+
+    ([mod, "shift"], "r", lazy.spawn("reaper")),
+
+    ([mod, "shift"], "t", lazy.spawn("high tide")),
+
+    ([mod, "shift"], "o", lazy.spawn("okular")),
+
+    ([mod, "shift"], "b", lazy.spawn("brave")),
+
+    ([mod, "shift"], "e", lazy.spawn("alacritty -e ranger")),
 
     # Terminal
     ([mod], "Return", lazy.spawn("alacritty")),

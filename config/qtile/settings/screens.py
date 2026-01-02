@@ -62,6 +62,10 @@ def get_monitors():
         return [{"width": 1920, "is_primary": True}] # Safe fallback
 
 monitors = get_monitors()
+
+# Sort monitors: primary first
+monitors.sort(key=lambda m: not m["is_primary"])
+
 screens = []
 widget_sets = [primary_widgets, secondary_widgets, tertiary_widgets]
 
