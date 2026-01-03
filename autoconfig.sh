@@ -29,6 +29,7 @@ MACHINE_TYPE=$(./scripts/lib/get-machine-type.sh)
 echo "Machine type detected: $MACHINE_TYPE"
 
 base_packages=(
+    "base-devel"
     "bluez"
     "bluez-utils"
     "cifs-utils"
@@ -107,19 +108,14 @@ desktop_env_packages=(
 
 dev_packages=(
     "biber"
-    "binutils"
     "composer"
-    "fakeroot"
-    "gcc"
     "go"
     "jedi-language-server"
     "lldb"
     "libwebp-utils"
-    "make"
     "mypy"
     "nodejs"
     "npm"
-    "pkg-config"
     "python-dbus"
     "python-dbus-next"
     "python-flake8"
