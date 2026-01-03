@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 # ==== TMUX PLUGINS INSTALL =====
 if [ ! -d ~/.config/tmux/plugins/tpm ]; then

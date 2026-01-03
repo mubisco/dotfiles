@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 # This script runs all the setup scripts located in the user-setup.d/ directory.
 

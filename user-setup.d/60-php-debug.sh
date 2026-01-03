@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 # Install vscode-php-debug for DAP
 INSTALL_DIR="$HOME/.local/share/vscode-php-debug"

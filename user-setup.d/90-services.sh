@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 echo "Remember to close this console session and run 'p10k configure' if you are using p10k for the first time."
 

@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 # Generate SSH key if it doesn't exist
 SSH_KEY_PATH="$HOME/.ssh/id_ed25519"

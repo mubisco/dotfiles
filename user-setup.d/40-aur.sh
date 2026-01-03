@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 # YAY
 if ! command -v yay &> /dev/null
