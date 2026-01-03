@@ -169,7 +169,7 @@ chown -R "$USERNAME":"$USERNAME" /opt/yay-git
 echo "Configuring docker"
 systemctl enable docker.service
 systemctl enable bluetooth.service
-systemctl enable sane.service
+systemctl enable saned.socket
 usermod -aG docker,lp,sane "$USERNAME"
 
 echo "Enabling display manager (sddm)"
