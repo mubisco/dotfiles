@@ -170,7 +170,7 @@ echo "Configuring docker"
 systemctl enable docker.service
 systemctl enable bluetooth.service
 systemctl enable saned.socket
-usermod -aG docker,lp,sane "$USERNAME"
+usermod -aG docker,lp,scanner "$USERNAME"
 
 echo "Enabling display manager (sddm)"
 systemctl enable sddm.service
