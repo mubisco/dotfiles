@@ -1,0 +1,64 @@
+#!/bin/sh
+set -eu
+
+WALLPAPER_BASE="$HOME/.config/hypr/wallpapers"
+WALLPAPER_3K="$WALLPAPER_BASE/3K"
+WALLPAPER_FHD="$WALLPAPER_BASE/FullHD"
+INTERVAL_SEC=300
+
+pick_dir() {
+    width="$1"
+    if [ -n "$width" ]; then
+        if [ "$width" -gt 1920 ]; then
+            echo "$WALLPAPER_3K"
+            return
+        fi
+        echo "$WALLPAPER_FHD"
+        return
+    fi
+    echo "$WALLPAPER_BASE"
+}
+
+pick_random_wallpaper() {
+    dir="$1"
+    if [ -d "$dir" ]; then
+        find "$dir" -type f 2>/dev/null | shuf -n 1
+    fi
+}
+
+if ! pgrep -x swww-daemon >/dev/null 2>&1; then
+    swww-daemon >/dev/null 2>&1 &
+    sleep 1
+fi
+
+while :; do
+    monitors=$(hyprctl monitors 2>/dev/null || true)
+    if [ -z "$monitors" ]; then
+        wallpaper="$(pick_random_wallpaper "$WALLPAPER_BASE")"
+        if [ -n "$wallpaper" ]; then
+            swww img "$wallpaper"
+        fi
+        sleep "$INTERVAL_SEC"
+        continue
+    fi
+
+    echo "$monitors" | awk '
+        /^Monitor / { mon=$2 }
+        /^[[:space:]]*[0-9]+x[0-9]+@/ {
+            split($1, res, "x")
+            w = res[1]
+            if (mon != "") {
+                print mon, w
+                mon=""
+            }
+        }
+    ' | while read -r mon width; do
+        dir="$(pick_dir "$width")"
+        wallpaper="$(pick_random_wallpaper "$dir")"
+        if [ -n "$wallpaper" ]; then
+            swww img -o "$mon" "$wallpaper"
+        fi
+    done
+
+    sleep "$INTERVAL_SEC"
+done
