@@ -8,15 +8,3 @@ dap.adapters.php = {
   command = 'node',
   args = { os.getenv('HOME')..'/.local/share/vscode-php-debug/out/phpDebug.js' }
 }
-
-dap.configurations.php = {
-  {
-    type = 'php',
-    request = 'launch',
-    name = 'Gf Backend Xdebug',
-    pathMappings = {
-      ["/app"] = "${workspaceFolder}"
-    },
-    port = 9003
-  }
-}
