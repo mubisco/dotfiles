@@ -2,16 +2,13 @@
 #
 # Launch a power menu
 #
-# Requirement: fzf
+# Requirement: wofi
 #
 # Author:  Jesse Mirabel <sejjymvm@gmail.com>
 # Date:    August 19, 2025
 # License: MIT
 
 # shellcheck disable=SC1090
-colors=()
-source ~/.config/waybar/scripts/fzf-colorizer.sh &> /dev/null || true
-
 main() {
 	local list=(
 		"Lock"
@@ -22,19 +19,8 @@ main() {
 		"Suspend"
 	)
 
-	local options=(
-		"--border=sharp"
-		"--border-label= Power Menu "
-		"--height=~100%"
-		"--highlight-line"
-		"--no-input"
-		"--pointer="
-		"--reverse"
-		"${colors[@]}"
-	)
-
 	local selected
-	selected=$(printf "%s\n" "${list[@]}" | fzf "${options[@]}")
+	selected=$(printf "%s\n" "${list[@]}" | wofi --dmenu --prompt "Power Menu")
 
 	case $selected in
 		"Lock") loginctl lock-session ;;
