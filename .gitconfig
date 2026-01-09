@@ -5,3 +5,5 @@
 	name = Xan Bellón
 [init]
 	defaultBranch = main
+[pull]
+	rebase = false
