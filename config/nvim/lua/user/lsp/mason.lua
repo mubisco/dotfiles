@@ -68,11 +68,37 @@ vim.lsp.config.omnisharp = {
 }
 
 -- TypeScript Language Server (ts_ls)
+local registry = require("mason-registry")
+local vue_language_server_path
+if registry.is_installed("vue-language-server") then
+  vue_language_server_path = registry.get_package("vue-language-server"):get_install_path() .. "/node_modules/@vue/language-server"
+end
+
 vim.lsp.config.ts_ls = {
   init_options = {
     preferences = {
       importModuleSpecifier = "non-relative",
       importModuleSpecifierEnding = "auto",
     },
+    plugins = {
+      {
+        name = "@vue/typescript-plugin",
+        location = vue_language_server_path,
+        languages = { "vue" },
+      },
+    },
   },
+  filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
 }
+
+-- Volar
+vim.lsp.config.volar = {
+  filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
+  on_attach = handlers.on_attach,
+  capabilities = handlers.capabilities,
+}
+
+-- Setup all servers
+for server, config in pairs(vim.lsp.config) do
+  require("lspconfig")[server].setup(config)
+end
