@@ -29,11 +29,12 @@ return {
         },
       },
       "hrsh7th/cmp-nvim-lsp",
-      "mason-org/mason-registry",
     },
     config = function()
       local handlers = require("user.lsp.handlers")
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+      handlers.setup()
 
       local servers = {}
 
