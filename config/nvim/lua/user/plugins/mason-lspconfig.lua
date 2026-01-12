@@ -20,7 +20,6 @@ return {
         "texlab",
         "ts_ls",
         "vimls",
-        "volar",
         "yamlls"
       },
       automatic_installation = true,

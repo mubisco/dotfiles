@@ -1,7 +1,9 @@
 local handlers = require("user.lsp.handlers")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-vim.lsp.config.intelephense = {
+local servers = {}
+
+servers.intelephense = {
   cmd = { "intelephense", "--stdio" },
   filetypes = { "php" },
   root_markers = { "composer.json", ".git" },
@@ -32,9 +34,9 @@ vim.lsp.config.intelephense = {
   on_attach = require("user.lsp.handlers").on_attach,
   capabilities = require("user.lsp.handlers").capabilities,
 }
---
+
 -- Lua Language Server (lua_ls)
-vim.lsp.config.lua_ls = {
+servers.lua_ls = {
   on_attach = handlers.on_attach,
   capabilities = handlers.capabilities,
   settings = {
@@ -55,7 +57,7 @@ vim.lsp.config.lua_ls = {
 }
 
 -- Omnisharp
-vim.lsp.config.omnisharp = {
+servers.omnisharp = {
   cmd = { "omnisharp" },
   capabilities = capabilities,
   enable_roslyn_analyzers = true,
@@ -68,13 +70,9 @@ vim.lsp.config.omnisharp = {
 }
 
 -- TypeScript Language Server (ts_ls)
-local registry = require("mason-registry")
-local vue_language_server_path
-if registry.is_installed("vue-language-server") then
-  vue_language_server_path = registry.get_package("vue-language-server"):get_install_path() .. "/node_modules/@vue/language-server"
-end
+local vue_language_server_path = vim.fn.stdpath("data") .. "/mason/packages/vue-language-server/node_modules/@vue/language-server"
 
-vim.lsp.config.ts_ls = {
+servers.ts_ls = {
   init_options = {
     preferences = {
       importModuleSpecifier = "non-relative",
@@ -92,13 +90,18 @@ vim.lsp.config.ts_ls = {
 }
 
 -- Volar
-vim.lsp.config.volar = {
+servers.volar = {
   filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
   on_attach = handlers.on_attach,
   capabilities = handlers.capabilities,
 }
 
 -- Setup all servers
-for server, config in pairs(vim.lsp.config) do
-  require("lspconfig")[server].setup(config)
+
+for server, config in pairs(servers) do
+
+  vim.lsp.config(server, config)
+
+  vim.lsp.enable(server)
+
 end
