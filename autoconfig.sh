@@ -17,8 +17,12 @@ else
     echo "Root user ok!. Continuing..."
 fi
 echo "Adding archlinuxcn repo"
-echo '[archlinuxcn]' >> /etc/pacman.conf
-echo 'Server = https://repo.archlinuxcn.org/$arch' >> /etc/pacman.conf
+if ! grep -q "\[archlinuxcn\]" /etc/pacman.conf; then
+    echo '[archlinuxcn]' >> /etc/pacman.conf
+    echo 'Server = https://repo.archlinuxcn.org/$arch' >> /etc/pacman.conf
+else
+    echo "archlinuxcn repo already exists in /etc/pacman.conf"
+fi
 
 echo "Instaling minimun deps..."
 pacman -Sy --noconfirm && pacman -S --noconfirm archlinuxcn-keyring
