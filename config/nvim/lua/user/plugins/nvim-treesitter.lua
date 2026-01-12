@@ -3,51 +3,54 @@ return {
   build = ":TSUpdate",
   event = { "BufReadPost", "BufNewFile" },
   config = function()
-    local status_ok, configs = pcall(require, "nvim-treesitter.configs")
-    if not status_ok then
-      return
-    end
-    configs.setup({
-      ensure_installed = {
-        "bash",
-        "bibtex",
-        "c",
-        "c_sharp",
-        "css",
-        "dockerfile",
-        "diff",
-        "go",
-        "html",
-        "http",
-        "java",
-        "javascript",
-        "json",
-        "latex",
-        "lua",
-        "make",
-        "markdown",
-        "markdown_inline",
-        "php",
-        "python",
-        "rust",
-        "scss",
-        "sql",
-        "tsx",
-        "twig",
-        "typescript",
-        "vim",
-        "vue",
-        "yaml"
-      },
-      ignore_install = { "phpdoc" },
-      highlight = {
-        enable = true,
-        disable = { "css" },
-      },
-      autopairs = {
-        enable = true,
-      },
-      indent = { enable = true, disable = { "python", "css" } },
+    local ts = require("nvim-treesitter")
+
+    local parsers = {
+      "bash",
+      "bibtex",
+      "c",
+      "c_sharp",
+      "css",
+      "dockerfile",
+      "diff",
+      "go",
+      "html",
+      "http",
+      "java",
+      "javascript",
+      "json",
+      "latex",
+      "lua",
+      "make",
+      "markdown",
+      "markdown_inline",
+      "php",
+      "python",
+      "rust",
+      "scss",
+      "sql",
+      "tsx",
+      "twig",
+      "typescript",
+      "vim",
+      "vue",
+      "yaml",
+    }
+
+    ts.install(parsers)
+
+    vim.api.nvim_create_autocmd("FileType", {
+      callback = function(args)
+        local lang = args.match
+
+        -- Enable highlighting
+        pcall(vim.treesitter.start)
+
+        -- Enable indentation (except for python)
+        if lang ~= "python" then
+          vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+        end
+      end,
     })
   end,
 }
