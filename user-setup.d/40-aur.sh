@@ -22,6 +22,7 @@ yay_packages=(
     "pgcli"
     "python-dbus-fast"
     "python-pulsectl-asyncio"
+    "python-mpegdash"
     "python-tidalapi"
     "sddm-theme-corners-git"
     "stylelint"
