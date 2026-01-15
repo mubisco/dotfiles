@@ -8,6 +8,7 @@ return {
 
     null_ls.setup({
       debug = true,
+      name = "none-ls",
       sources = {
         diagnostics.twigcs,
         diagnostics.phpstan.with({
