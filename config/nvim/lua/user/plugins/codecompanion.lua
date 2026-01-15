@@ -1,33 +1,19 @@
 return {
-  -- "olimorris/codecompanion.nvim",
-  -- opts = {
-  --   strategies = {
-  --     chat = {
-  --       adapter = "gemini_cli",
-  --       model = "gemini-2.5-flash",
-  --     },
-  --     inline = {
-  --       adapter = "gemini_cli",
-  --       model = "gemini-2.5-flash",
-  --     }
-  --   },
-  --   adapters = {
-  --     acp = {
-  --       gemini_cli = function()
-  --         return require("codecompanion.adapters").extend("gemini_cli", {
-  --           defaults = {
-  --             auth_method = "gemini-api-key", -- "oauth-personal"|"gemini-api-key"|"vertex-ai"
-  --           },
-  --           env = {
-  --             -- GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
-  --             GEMINI_API_KEY = "AIzaSyA5gCQUwWRkEzAoQ28mwRCzRvNUJLdfweU"
-  --           },
-  --         })
-  --       end,
-  --     },
-  --   },
-  -- },
-  -- dependencies = {
-  --   "nvim-lua/plenary.nvim",
-  -- },
+  "olimorris/codecompanion.nvim",
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    "nvim-treesitter/nvim-treesitter",
+  },
+  config = function()
+    require("codecompanion").setup({
+      strategies = {
+        chat = {
+          adapter = "copilot",
+        },
+        inline = {
+          adapter = "copilot",
+        },
+      },
+    })
+  end,
 }

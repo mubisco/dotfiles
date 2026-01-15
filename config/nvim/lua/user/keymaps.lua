@@ -90,6 +90,12 @@ keymap("n", "tt", ":ToggleTerm <CR>", opts)
 keymap("n", "<leader>g", ":lua _LAZYGIT_TOGGLE()<CR>", opts)
 keymap("n", "<leader>cx", ":lua _CODEX_TOGGLE()<CR>", opts)
 
+-- CodeCompanion
+keymap("n", "<leader>cc", "<cmd>CodeCompanionChat Toggle<cr>", opts)
+keymap("v", "<leader>cc", "<cmd>CodeCompanionChat Toggle<cr>", opts)
+keymap("v", "<leader>ca", "<cmd>CodeCompanionChat Add<cr>", opts)
+keymap("n", "<leader>ci", "<cmd>CodeCompanion<cr>", opts)
+
 -- Neotest
 keymap("n", "<leader>to", "<esc><cmd>lua require('neotest').output_panel.open()<cr>", opts)
 keymap("n", "<leader>tc", "<esc><cmd>lua require('neotest').output_panel.close()<cr>", opts)
