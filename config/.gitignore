@@ -6,3 +6,4 @@ vendor/
 .null-ls-root
 .psalm-nvim.xml
 config/nvim/lua/user/dap/local.lua
+.phpactor.json
