@@ -12,7 +12,6 @@ return {
             "eslint",
             "gopls",
             "html",
-            -- "intelephense",
             "jsonls",
             "lua_ls",
             "omnisharp",
@@ -37,40 +36,6 @@ return {
       handlers.setup()
 
       local servers = {}
-
-      --[[
-      servers.intelephense = {
-        cmd = { "intelephense", "--stdio" },
-        filetypes = { "php" },
-        root_markers = { "composer.json", ".git" },
-        settings = {
-          intelephense = {
-            files = {
-              maxSize = 5000000,
-              exclude = {
-                "**/.git/**",
-                "**/.svn/**",
-                "**/.hg/**",
-                "**/CVS/**",
-                "**/.DS_Store/**",
-                "**/node_modules/**",
-                "**/bower_components/**",
-                "**/vendor/**/{Tests,tests}/**",
-                "**/.history/**",
-                "**/vendor/**/vendor/**",
-                "**/var/**",
-                "**/apps/Admin/var/**",
-                "**/apps/Api/var/**",
-                "**/apps/Customer/var/**",
-                "**/apps/Broker/var/**",
-              },
-            },
-          },
-        },
-        on_attach = handlers.on_attach,
-        capabilities = handlers.capabilities,
-      }
-      ]]
 
       servers.phpactor = {
        cmd = { "phpactor", "language-server" },
