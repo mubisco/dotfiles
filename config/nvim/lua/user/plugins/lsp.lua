@@ -12,6 +12,7 @@ return {
             "eslint",
             "gopls",
             "html",
+            "intelephense",
             "jsonls",
             "lua_ls",
             "omnisharp",
@@ -37,14 +38,41 @@ return {
 
       local servers = {}
 
+      servers.intelephense = {
+        cmd = { "intelephense", "--stdio" },
+        filetypes = { "php" },
+        settings = {
+          intelephense = {
+            files = {
+              maxSize = 5000000,
+              exclude = {
+                "**/.git/**",
+                "**/.svn/**",
+                "**/.hg/**",
+                "**/CVS/**",
+                "**/.DS_Store/**",
+                "**/node_modules/**",
+                "**/bower_components/**",
+                "**/vendor/**/{Tests,tests}/**",
+                "**/.history/**",
+                "**/vendor/**/vendor/**",
+                "**/var/**",
+              },
+            },
+          },
+        },
+        on_attach = handlers.on_attach,
+        capabilities = handlers.capabilities,
+      }
+
       servers.phpactor = {
-       cmd = { "phpactor", "language-server" },
-       filetypes = { "php" },
-       root_dir = vim.fs.dirname(vim.fs.find({ "composer.json", ".git" }, { upward = true })[1]),
-       on_attach = handlers.on_attach,
-       capabilities = handlers.capabilities,
-       -- NO init_options = {} means it will use .phpactor.json or ask on first run
-     }
+        cmd = { "phpactor", "language-server" },
+        filetypes = { "php" },
+        root_dir = vim.fs.dirname(vim.fs.find({ "composer.json", ".git" }, { upward = true })[1]),
+        on_attach = handlers.on_attach,
+        capabilities = handlers.capabilities,
+        -- NO init_options = {} means it will use .phpactor.json or ask on first run
+      }
 
       -- Lua Language Server (lua_ls)
       servers.lua_ls = {

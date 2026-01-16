@@ -79,6 +79,11 @@ M.on_attach = function(client, bufnr)
     client.server_capabilities.documentFormattingProvider = false
   end
 
+  -- Disable phpactor's diagnostics to avoid conflicts with intelephense
+  if client.name == "phpactor" then
+    client.server_capabilities.diagnosticProvider = false
+  end
+
   -- lsp_keymaps(bufnr)
   local status_ok, illuminate = pcall(require, "illuminate")
   if not status_ok then
