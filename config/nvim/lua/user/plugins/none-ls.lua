@@ -28,7 +28,16 @@ return {
         -- }),
         diagnostics.phpcs.with({
           command = "./vendor/bin/phpcs",
-          extra_args = { "--standard=PSR12" }
+          extra_args = function(params)
+            -- Check for phpcs config files in order of precedence
+            local config_files = { "phpcs.xml", ".phpcs.xml", "phpcs.xml.dist", ".phpcs.xml.dist" }
+            for _, file in ipairs(config_files) do
+              if vim.fn.filereadable(params.root .. "/" .. file) == 1 then
+                  return {}  -- Config found, let phpcs auto-detect it
+              end
+            end
+            return { "--standard=PSR12" }  -- No config found, fallback to PSR12
+          end,
         }),
         -- diagnostics.phpmd.with({
         --   command = "./vendor/bin/phpmd",
