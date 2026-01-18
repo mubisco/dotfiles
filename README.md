@@ -71,9 +71,31 @@ Follow these steps to set up your system:
 -   `user-setup.d/`: Contains modular scripts for user-specific configurations. Each script focuses on a single aspect (e.g., `10-dependencies.sh`, `20-symlinks.sh`, `30-zsh.sh`, `40-aur.sh`, `90-services.sh`). They are executed in numerical order.
 -   `scripts/lib/get-machine-type.sh`: A helper script used by `autoconfig.sh` to automatically detect if the machine is a laptop or desktop.
 
+## Utility Scripts
+
+These scripts help maintain dotfiles consistency across multiple machines:
+
+### Check Missing Packages
+
+Compares packages defined in configuration files against what's installed on the current system:
+
+```bash
+./scripts/check-missing-packages.sh      # Show only missing packages
+./scripts/check-missing-packages.sh -v   # Include installed packages
+```
+
+### Sync Config Symlinks
+
+Syncs `~/.config` symlinks with the dotfiles `config/` folder - adds new folders and removes stale symlinks:
+
+```bash
+./scripts/sync-config-symlinks.sh        # Apply changes
+./scripts/sync-config-symlinks.sh -n     # Dry-run mode (preview changes)
+./scripts/sync-config-symlinks.sh -v     # Verbose (show unchanged too)
+```
+
 ## Important Notes
 
--   **`p10k configure`:** After the user setup, you will be prompted to run `p10k configure` manually to set up your Powerlevel10k Zsh theme.
 -   **Display Manager:** SDDM is automatically installed and configured with the `corners` theme. If you wish to use a different display manager or theme, you will need to manually adjust the settings after the setup is complete.
 -   **SSH Keys:** Remember to set up your SSH keys for Git (if using SSH clone URLs) after logging in as the new user.
 -   **Graphics Drivers:** The `autoconfig.sh` script does not install specific graphics drivers. You will need to install them manually based on your hardware (e.g., `nvidia`, `amdgpu`, `mesa`).
@@ -84,3 +106,7 @@ Follow these steps to set up your system:
 -   **Dotfiles:** Add or remove configuration files in the `config/` directory. The `user-setup.d/20-symlinks.sh` script automatically symlinks all subdirectories in `config/` to `~/.config/`.
 -   **Machine-Specific Logic:** Extend the `if [[ "$MACHINE_TYPE" == "laptop" ]]` blocks in `autoconfig.sh` and other scripts to add more laptop- or desktop-specific configurations.
 -   **New Setup Steps:** Create new `.sh` files in `user-setup.d/` with numerical prefixes to add additional user-specific setup steps.
+
+## AI Coding Assistants
+
+This repository includes an `AGENTS.md` file that provides context and guidance for AI coding assistants (Claude Code, GitHub Copilot, Cursor, etc.) when working with this codebase.
