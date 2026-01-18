@@ -10,3 +10,5 @@ config/alacritty/themes/
 config/alacritty/theme.toml
 config/rofi/theme.rasi
 config/rofi/themes/collection/
+config/hypr/conf.d/*
+!config/hypr/conf.d/.gitkeep
