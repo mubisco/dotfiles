@@ -37,6 +37,7 @@ yay_packages=(
     "vivaldi"
     "xsane"
     "yamllint"
+    "wlogout"
     "zsh-autosuggestions"
     "zsh-syntax-highlighting"
 )
