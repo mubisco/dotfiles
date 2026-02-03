@@ -15,6 +15,7 @@ yay_packages=(
     "discord"
     "franz"
     "gemini-cli"
+    "gnome-disk-utility"
     "google-chrome"
     "grimblast-git"
     "high-tide"
