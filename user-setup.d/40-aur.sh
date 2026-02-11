@@ -28,6 +28,7 @@ yay_packages=(
     "python-tidalapi"
     "satty"
     "sddm-theme-corners-git"
+    "slack-desktop-wayland"
     "stylelint"
     "swww"
     "symfony-cli"
