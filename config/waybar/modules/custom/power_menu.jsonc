@@ -15,7 +15,7 @@
 		// "max-length":
 		// "align":
 		// "justify":
-		"on-click": "wlogout",
+		"on-click": "wlogout -b 2",
 		// "on-click-middle":
 		// "on-click-right":
 		// "on-update":

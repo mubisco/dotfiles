@@ -23,7 +23,7 @@ main() {
 	selected=$(printf "%s\n" "${list[@]}" | wofi --dmenu --prompt "Power Menu")
 
 	case $selected in
-		"Lock") loginctl lock-session ;;
+		"Lock") hyprlock ;;
 		"Shutdown") systemctl poweroff ;;
 		"Reboot") systemctl reboot ;;
 		"Logout") loginctl terminate-session "$XDG_SESSION_ID" ;;

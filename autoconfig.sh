@@ -91,6 +91,7 @@ desktop_env_packages=(
     "grim"
     "hplip"
     "hyprland"
+    "hyprlock"
     "keepassxc"
     "kitty"
     "okular"
