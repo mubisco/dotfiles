@@ -74,8 +74,8 @@ pick_unique_wallpaper() {
     fi
 }
 
-if ! pgrep -x swww-daemon >/dev/null 2>&1; then
-    swww-daemon >/dev/null 2>&1 &
+if ! pgrep -x awww-daemon >/dev/null 2>&1; then
+    awww-daemon >/dev/null 2>&1 &
     sleep 1
 fi
 
@@ -87,7 +87,7 @@ while :; do
     if [ -z "$monitors" ]; then
         wallpaper="$(pick_random_wallpaper "$WALLPAPER_BASE")"
         if [ -n "$wallpaper" ]; then
-            swww img "$wallpaper"
+            awww img "$wallpaper"
         fi
         sleep "$INTERVAL_SEC"
         continue
@@ -109,7 +109,7 @@ while :; do
         if [ -n "$wallpaper" ]; then
             printf '%s\n' "$wallpaper" >> "$used_file"
             set_last_wallpaper "$mon" "$wallpaper"
-            swww img -o "$mon" "$wallpaper"
+            awww img -o "$mon" "$wallpaper"
         fi
     done
 
