@@ -19,5 +19,6 @@ end
 lazy.setup({
   spec = {
     {import ="user.plugins" },
-  }
+  },
+  concurrency = 2,
 })

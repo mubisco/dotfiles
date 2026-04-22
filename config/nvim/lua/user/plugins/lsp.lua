@@ -131,7 +131,7 @@ return {
 
       -- Volar (now vue_ls)
       servers.vue_ls = {
-        filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
+        filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
         on_attach = handlers.on_attach,
         capabilities = handlers.capabilities,
       }
