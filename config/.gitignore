@@ -8,3 +8,5 @@ vendor/
 config/nvim/lua/user/dap/local.lua
 .phpactor.json
 .claude
+
+.agent-sessions
