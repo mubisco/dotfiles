@@ -19,7 +19,6 @@ yay_packages=(
     "google-chrome"
     "grimblast-git"
     "high-tide"
-    "lazygit"
     "mycli"
     "pgcli"
     "python-dbus-fast"

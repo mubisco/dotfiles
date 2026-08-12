@@ -20,7 +20,8 @@ return {
     { trig = "ppt", dscr = "Generic boilerplate for simple Php Unit Test" },
     fmta(
       [[
-        public function test<>(): void
+        /** @test */
+        public function <>(): void
         {
             <>
         }

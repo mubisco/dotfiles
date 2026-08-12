@@ -36,10 +36,25 @@ function _G.set_terminal_keymaps()
   vim.api.nvim_buf_set_keymap(0, "t", "<C-l>", [[<C-\><C-n><C-W>l]], opts)
 end
 
-vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
+-- TUIs that need the raw <esc> and free text input (gitui uses <esc> to close
+-- popups) must not get the escape-to-normal-mode mappings above.
+local raw_key_terminals = { "gitui" }
+
+vim.api.nvim_create_autocmd("TermOpen", {
+  pattern = "term://*",
+  callback = function(args)
+    local name = vim.api.nvim_buf_get_name(args.buf)
+    for _, cmd in ipairs(raw_key_terminals) do
+      if name:find(cmd, 1, true) then
+        return
+      end
+    end
+    set_terminal_keymaps()
+  end,
+})
 
 local Terminal = require("toggleterm.terminal").Terminal
-local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
+local gitui = Terminal:new({ cmd = "gitui", hidden = true })
 
 local codex = Terminal:new({
   cmd = "codex",
@@ -70,8 +85,8 @@ function _CODEX_TOGGLE()
   codex:toggle()
 end
 
-function _LAZYGIT_TOGGLE()
-  lazygit:toggle()
+function _GITUI_TOGGLE()
+  gitui:toggle()
 end
 
 local node = Terminal:new({ cmd = "node", hidden = true })

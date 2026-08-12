@@ -87,8 +87,15 @@ keymap("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", opts)
 
 -- ToggleTerm
 keymap("n", "tt", ":ToggleTerm <CR>", opts)
-keymap("n", "<leader>g", ":lua _LAZYGIT_TOGGLE()<CR>", opts)
+keymap("n", "<leader>g", ":lua _GITUI_TOGGLE()<CR>", opts)
 keymap("n", "<leader>cx", ":lua _CODEX_TOGGLE()<CR>", opts)
+
+-- Diffview
+keymap("n", "<leader>dv", "<cmd>DiffviewOpen<CR>", opts) -- Diff working tree against HEAD
+keymap("n", "<leader>dc", "<cmd>DiffviewClose<CR>", opts) -- Close the diffview tabpage
+keymap("n", "<leader>dh", "<cmd>DiffviewFileHistory %<CR>", opts) -- History of the current file
+keymap("n", "<leader>dH", "<cmd>DiffviewFileHistory<CR>", opts) -- History of the whole repo
+keymap("n", "<leader>df", "<cmd>DiffviewToggleFiles<CR>", opts) -- Toggle the file panel
 
 -- Neotest
 keymap("n", "<leader>to", "<esc><cmd>lua require('neotest').output_panel.open()<cr>", opts)
