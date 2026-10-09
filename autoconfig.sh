@@ -108,7 +108,6 @@ desktop_env_packages=(
     "sddm"
     "slurp"
     "telegram-desktop"
-    "waybar"
     "wireplumber"
     "wl-clipboard"
     "wofi"
