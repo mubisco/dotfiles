@@ -4,3 +4,7 @@ code_transform.class_new.variants:
   final: final_class
   interface: common_interface
   exception: common_exception
+
+# Disable phpactor's built-in phpcs integration — it crashes when phpcs
+# is not globally installed. PHP_CodeSniffer is handled by none-ls instead.
+php_code_sniffer.enabled: false
