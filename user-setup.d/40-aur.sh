@@ -38,6 +38,7 @@ yay_packages=(
     "xsane"
     "yamllint"
     "wlogout"
+    "waybar-git"
     "zsh-autosuggestions"
     "zsh-syntax-highlighting"
 )
