@@ -188,6 +188,7 @@ hl.bind(mainMod .. " + CTRL + J",  hl.dsp.window.resize({ x = 0, y = 30, relativ
 hl.bind(mainMod .. " + CTRL + K",  hl.dsp.window.resize({ x = 0, y = -30, relative = true }))
 
 hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.float({ action = "toggle" }))
+hl.bind(mainMod .. " + CTRL + F",  hl.dsp.window.pin())
 hl.bind(mainMod .. " + V",         hl.dsp.layout("togglesplit"))
 
 hl.bind(mainMod .. " + SHIFT + J", hl.dsp.window.move({ direction = "down" }))

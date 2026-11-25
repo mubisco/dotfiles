@@ -32,7 +32,7 @@ sudo ./autoconfig.sh <username>
 All configs in `config/` are symlinked to `~/.config/` by `user-setup.d/20-symlinks.sh`. Key configurations:
 
 - **nvim** - Neovim with lazy.nvim plugin manager. Config in `lua/user/` with separate files for keymaps, LSP, DAP, plugins, completion
-- **hypr** - Hyprland Wayland compositor (`hyprland.conf`)
+- **hypr** - Hyprland Wayland compositor (`hyprland.lua`)
 - **qtile** - X11 tiling window manager with theming support (theme set via `config.json`)
 - **alacritty/kitty** - Terminal emulators with theme support
 - **waybar/wofi** - Wayland bar and launcher
